@@ -48,8 +48,9 @@
 
 - (IBAction)cancelPressed:(UIButton *)sender
 {
-    self.totalString = [NSMutableString stringWithString:@"0"];
-    self.TotalTextField.text = self.totalString;
+    self.totalString = [NSMutableString new];
+    self.TotalTextField.text = nil;
+    [self.TotalTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"0" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];
 }
 
 - (IBAction)unwindToKeypad:(UIStoryboardSegue *)unwindSegue
@@ -62,7 +63,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UIViewController *destinationViewController = [segue destinationViewController];
-    destinationViewController.navigationItem.title = [@"Total" stringByAppendingString:self.totalString];
+    destinationViewController.navigationItem.title = [NSString stringWithFormat:@"%@ $%@", @"Total", self.totalString];
 }
 
 

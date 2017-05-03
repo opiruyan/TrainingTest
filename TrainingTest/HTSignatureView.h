@@ -18,4 +18,6 @@
 
 @property (nonatomic ,weak) id <HTSignatureViewDelegate> delegate;
 
+- (void)clearPath;
+
 @end

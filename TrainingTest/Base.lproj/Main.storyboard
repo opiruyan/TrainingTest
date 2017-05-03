@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -41,6 +41,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IIX-Gw-hds"/>
                                     <segue destination="qIp-N7-qPD" kind="show" id="Wrn-Un-FQw"/>
                                 </connections>
                             </button>
@@ -377,7 +378,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vrc-aO-mXV">
-                        <barButtonItem key="backBarButtonItem" title="back" id="pDa-2M-eIK"/>
                         <barButtonItem key="leftBarButtonItem" image="icon_more_active" id="8EI-eK-JA8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
@@ -388,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbD-ml-b2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1725.5999999999999" y="169.56521739130437"/>
+            <point key="canvasLocation" x="1959" y="170"/>
         </scene>
         <!--Title-->
         <scene sceneID="nUy-Og-xmA">
@@ -457,7 +457,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -472,6 +472,12 @@
                                     <constraint firstAttribute="bottom" secondItem="5RL-T6-qc5" secondAttribute="bottom" id="nmc-cM-ETd"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNIPAYIII CONNECTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkZ-h2-inB">
+                                <rect key="frame" x="98" y="55.5" width="178" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -490,6 +496,8 @@
                             <constraint firstItem="F5R-Mk-8WD" firstAttribute="top" secondItem="UVX-r8-X4t" secondAttribute="bottom" constant="14" id="aH1-Nd-lSO"/>
                             <constraint firstItem="iTa-Pb-bX9" firstAttribute="top" secondItem="XLZ-O8-30Z" secondAttribute="bottom" constant="30" id="asV-fM-8fn"/>
                             <constraint firstItem="HGW-rf-a2i" firstAttribute="leading" secondItem="sHd-Rw-qPb" secondAttribute="trailing" constant="8" id="enG-Kh-Anx"/>
+                            <constraint firstItem="WkZ-h2-inB" firstAttribute="centerX" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="nDE-mo-oJS"/>
+                            <constraint firstItem="WkZ-h2-inB" firstAttribute="centerY" secondItem="5RL-T6-qc5" secondAttribute="top" multiplier="0.5" id="tby-Am-H9N"/>
                             <constraint firstItem="XLZ-O8-30Z" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="leadingMargin" constant="20" id="uHB-re-ehp"/>
                             <constraint firstItem="HGW-rf-a2i" firstAttribute="top" secondItem="F5R-Mk-8WD" secondAttribute="bottom" constant="46" id="vgz-qv-qEt"/>
                         </constraints>
@@ -497,17 +505,22 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="SZA-ke-rAW">
                         <barButtonItem key="backBarButtonItem" id="wnc-aQ-42H"/>
-                        <barButtonItem key="leftBarButtonItem" id="qv4-2G-b3U"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cardHolder" destination="F5R-Mk-8WD" id="rZo-ZB-5h9"/>
+                        <outlet property="cardNumberTextField" destination="5RL-T6-qc5" id="Fms-Sk-5Pw"/>
+                        <outlet property="cvvTextField" destination="ziQ-y8-ucy" id="y9e-cj-j8u"/>
+                        <outlet property="expDateTextField" destination="sHd-Rw-qPb" id="ZfX-YD-uBJ"/>
+                        <outlet property="readerStatusLabel" destination="WkZ-h2-inB" id="P8p-r8-vrU"/>
+                        <outlet property="zipTextField" destination="HGW-rf-a2i" id="72Q-pN-Pa5"/>
                         <segue destination="COq-pg-5iV" kind="show" identifier="Decline" id="pdJ-08-cwr"/>
                         <segue destination="gRH-T1-za9" kind="show" identifier="Accept" id="y38-Xw-Ogz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9s-dq-xbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2588" y="170"/>
+            <point key="canvasLocation" x="2711" y="170"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="avV-7A-1aG">
@@ -611,6 +624,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="gRH-T1-za9" eventType="touchUpInside" id="eXd-0h-HMR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abk-aD-Eno">
                                 <rect key="frame" x="99.5" y="573" width="102.5" height="30"/>
@@ -619,6 +635,9 @@
                                 <state key="normal" title="Clear Signature">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cleanPressed:" destination="gRH-T1-za9" eventType="touchUpInside" id="crZ-A6-0bm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xn-fL-2gm">
                                 <rect key="frame" x="212" y="573" width="147" height="30"/>
@@ -760,12 +779,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="F7u-6J-PJj" kind="relationship" relationship="rootViewController" id="JmZ-fH-RSp"/>
+                        <segue destination="F7u-6J-PJj" kind="relationship" relationship="rootViewController" id="jUz-s4-YJU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7a-GQ-gYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="171"/>
+            <point key="canvasLocation" x="882" y="170"/>
         </scene>
     </scenes>
     <resources>

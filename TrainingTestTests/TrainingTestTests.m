@@ -10,6 +10,12 @@
 #import "AppDelegate.h"
 #import "HTKeypadViewController.h"
 
+@interface HTKeypadViewController (testing)
+
+@property (weak, nonatomic, readonly) IBOutlet UITextField *cardNumberTextField;
+
+@end
+
 @interface TrainingTestTests : XCTestCase
 
 {
@@ -28,7 +34,8 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     app = [UIApplication sharedApplication];
-    keypadViewController = (HTKeypadViewController *)[app delegate];
+    keypadViewController = [[HTKeypadViewController alloc] init];
+    calcView = keypadViewController.view;
 }
 
 - (void)tearDown {
@@ -37,6 +44,8 @@
 }
 
 - (void)testExample {
+    NSString *string = @"DEVICE CONNECTED";
+    XCTAssertEqualObjects(string, keypadViewController.cardNumberTextField.text);
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
@@ -47,6 +56,7 @@
         // Put the code you want to measure the time of here.
     }];
 }
+
 
 //- (void)testTyping
 //{

@@ -23,7 +23,6 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
     self.view.transform = CGAffineTransformMakeRotation(M_PI_2);
-    // Do any additional setup after loading the view.
     self.signatureView.delegate = self;
 }
 
@@ -40,6 +39,18 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+- (IBAction)cancelPressed:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)cleanPressed:(UIButton *)sender
+{
+    [self.signatureView clearPath];
+    [self.signatureView setNeedsDisplay];
+    self.placeholderLabel.hidden = NO;
 }
 
 /*

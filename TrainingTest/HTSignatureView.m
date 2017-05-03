@@ -57,6 +57,10 @@ CGPoint midpoint(CGPoint a, CGPoint b)
     return CGPointMake((a.x + b.x) / 2, (a.y + b.y) / 2);
 }
 
+- (void)clearPath
+{
+    self.path = [UIBezierPath bezierPath];
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

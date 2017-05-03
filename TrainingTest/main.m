@@ -14,15 +14,6 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-//        NSLog(@"Hello, world");
-//        NSDuck *mallard = [NSMallardDuck new];
-//        [mallard fly];
-//        [mallard quack];
-//        
-//        NSDuck *model = [NSModelDuck new];
-//        [model fly];
-//        model.flyDelegate = [FlyRocketPowered new];
-//        [model fly];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

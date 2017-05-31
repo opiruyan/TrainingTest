@@ -7,8 +7,11 @@
 //
 
 #import "HTCloseTicketViewController.h"
+#import "HTEmailReceipt.h"
+#import "HTWebProvider.h"
 
 @interface HTCloseTicketViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 
 @end
 
@@ -23,6 +26,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)emailReceiptPressed:(UIButton *)sender
+{
+    HTEmailReceipt *email = [HTEmailReceipt new];
+    email.from = @"notifications@harbortouch.com";
+    email.to = self.emailTextField.text;
+    email.subject = @"Receipt";
+    email.text = @"your email has been sent";
+    [[HTWebProvider sharedProvider] sendEmail:email];
+    
 }
 
 /*

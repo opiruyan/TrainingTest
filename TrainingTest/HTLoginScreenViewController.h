@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol AppURLOpenDelegate <NSObject>
-
-- (void)appDelegateDidHandleOpenUrl:(NSString *)url;
-
-@end
-
 @interface HTLoginScreenViewController : UIViewController
 
 @end

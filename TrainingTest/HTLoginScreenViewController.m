@@ -7,40 +7,45 @@
 //
 
 #import "HTLoginScreenViewController.h"
-#import "NSString+UUID.h"
-#import "NSString+SHA256.h"
 #import <SafariServices/SafariServices.h>
+#import "HTAuthenticationManager.h"
+#import "HTSettings.h"
 
 #define clientId @"1688719b-f2a6-47c4-b727-bee9aeee90b1"
 
-@interface HTLoginScreenViewController () <SFSafariViewControllerDelegate, AppURLOpenDelegate>
+@interface HTLoginScreenViewController () <SFSafariViewControllerDelegate>
 
 @end
 
 @implementation HTLoginScreenViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.hidden = YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedAuthentication) name:kHandlingURLNotification object:nil];
 }
 
 #pragma mark - Authorization
+
 - (IBAction)login:(UIButton *)sender
 {
-    //[self getAuthorization];
-    [self generateKey];
-    
+    HTAuthenticationManager *manager = [HTAuthenticationManager sharedManager];
+    if (![manager authorized])
+    {
+        [self oauth2];
+    }
+    else
+    {
+        //[manager refreshToken];
+    }
+    [self oauth2];
 }
 
-- (void)getAuthorization
+- (void)oauth2
 {
-    NSString *host = @"https://lighthouse-api-staging.harbortouch.com";
+    NSString *host = [[HTSettings sharedSettings] host];
     // retrieve app url
     NSArray *urlTypes = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleURLTypes"];
     NSArray *urlSchemes = [NSArray new];
@@ -52,31 +57,17 @@
         }
     }
     // form an url
-    NSString *urlString = [NSString stringWithFormat:@"%@/oauth2/authorize/?client_id=%@&redirect_uri=%@://&response_type=code&permissions=1", host, clientId, urlSchemes.firstObject];
+    NSString *urlString = [NSString stringWithFormat:@"%@/oauth2/authorize/?client_id=%@&redirect_uri=%@://&response_type=code", host, clientId, urlSchemes.firstObject];
     SFSafariViewController *authViewContoller = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:urlString]];
+    authViewContoller.preferredBarTintColor = [UIColor grayColor];
     [self presentViewController:authViewContoller animated:YES completion:nil];
 }
 
-- (void)generateKey
+- (void)finishedAuthentication
 {
-    NSDictionary *requestJSON  = [NSDictionary dictionaryWithObject:@{
-                                                                      @"mid" : @"String",
-                                                                      @"userID": @"String",
-                                                                      @"password": @"String",
-//                                                                      @"developerID": @"test_developerID"
-                                                                      }
-                                                             forKey:@"GenerateKey"];
-    NSError *error;
-    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestJSON options:0 error:&error];
-    NSString *gatewayUrl = @"https://gateway.transit-pass.com/servlets/TransNox_API_Server";
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:gatewayUrl]];
-    [request setHTTPBody:requestData];
-    [request setHTTPMethod:@"POST"];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *registration = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"%@", response);
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self performSegueWithIdentifier:@"loginFinishedSegue" sender:self];
     }];
-    [registration resume];
 }
 
 @end

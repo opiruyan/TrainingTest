@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *accessToken;
 @property (nonatomic, strong) NSString *refreshToken;
 @property (nonatomic, strong) NSString *tokenType;
+@property (nonatomic, readonly) BOOL expired;
 
 + (instancetype)tokenWithDicitonary:(NSDictionary *)dictionary;
 + (HTAuthenticationToken *)tokenFromKeychain;

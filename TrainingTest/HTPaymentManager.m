@@ -7,22 +7,17 @@
 //
 
 #import "HTPaymentManager.h"
-#import "HTTSYSManager.h"
-#import "HTPayment.h"
-#import "NSData+HexadecimalString.h"
-#import "HTWebProvider.h"
 #import "HTPaymentManager+transactionInfoJSON.h"
 #import "HTPaymentManager+transactionTypes.h"
+#import "IDTechCardReaderManager.h"
 #import "HTMSRTransaction.h"
-
-typedef void (^transactionCompletionHandler)(NSData *data);
+#import "HTKeyedTransaction.h"
+#import "HTEMVTransaction.h"
 
 @interface HTPaymentManager ()
 
-@property (strong, nonatomic) IDTechCardReaderManager *cardReaderManager;
-@property (nonatomic, strong) HTTSYSManager *processingManager;
+@property (nonatomic, strong) IDTechCardReaderManager *cardReaderManager;
 @property (nonatomic, strong) HTCardInfo *cardInfo;
-@property (copy, nonatomic) transactionCompletionHandler transactionHandler;
 
 @end
 
@@ -33,82 +28,35 @@ typedef void (^transactionCompletionHandler)(NSData *data);
     if (!_cardReaderManager)
     {
         _cardReaderManager = [[IDTechCardReaderManager alloc] init];
-        _cardReaderManager.transactionDelegate = self;
+        _cardReaderManager.readerDelegate = self;
+        [[IDT_UniPayIII sharedController] setDelegate:_cardReaderManager];
     }
     return _cardReaderManager;
 }
 
--(HTTSYSManager *)processingManager
+- (void)setProcessingTransactionOfTransactiontype:(htTransationType)transactionType
 {
-    if (!_processingManager)
+    switch (transactionType)
     {
-        _processingManager = [[HTTSYSManager alloc] init];
+        case htTransacionTypeManual:
+            self.processingTransaction = [HTKeyedTransaction new];
+            break;
+        case htTransacionTypeEMV:
+            self.processingTransaction = [[HTEMVTransaction alloc] initWithDevice:self.cardReaderManager];
+            break;
+        case htTransacionTypeMSR:
+            self.processingTransaction = [[HTMSRTransaction alloc] initWithDevice:self.cardReaderManager];
+            break;
+        default:
+            break;
     }
-    return _processingManager;
 }
 
-- (transactionCompletionHandler)transactionHandler
+#pragma mark - Reader Manager Delegate
+
+- (void)readerManager:(IDTechCardReaderManager *)manager detectedDevicePlugged:(BOOL)status
 {
-    __weak typeof(self) weakSelf = self;
-    return ^(NSData *data) {
-        NSError *serializationError;
-        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
-        NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
-        if ([responseData objectForKey:@"SaleResponse"])
-        {
-            // store payment to backend
-            NSString *transactionId = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"authCode"];
-            [weakSelf storeTicket:transactionId];
-        };
-    };
-}
-
-#pragma mark - Payment
-
-- (void)startMSRTransaction
-{
-    [self.cardReaderManager startMSRTransaction];
-}
-
-- (void)startEmvTransaction
-{
-    [self.cardReaderManager startEmvTransactionWithAmount:[[HTPayment currentPayment] amount]];
-
-}
-
-- (void)startKeyedTransactionWithAmount:(NSDecimalNumber *)amount
-                             cardNumber:(NSString *)carNumber
-                         expirationDate:(NSString *)expirationDate
-{
-    NSDictionary *requestJSON = [self keyedTransactionRequestJSONWithAmount:[amount stringValue] cardNumber:carNumber expDate:expirationDate];
-    [self.processingManager performSaleRequestWithData:requestJSON completion:self.transactionHandler];
-}
-
-
-/**
- method to be called after card reader processed reading card information. Now payment can be made.
- */
-- (void)gotEMVData:(IDTEMVData *)emvData
-{
-    //[self.delegate paymentManager:self didRecieveCardData:[self parseTrack1:cardData.track1]];
-    [self performEMVPaymentWithData:emvData];
-}
-
-- (void)didReadMSRData:(IDTMSRData *)cardData
-{
-    [self performMSRPaymentWithData:cardData];
-}
-
-- (void)performMSRPaymentWithData:(IDTMSRData *)cardData
-{
-    NSDictionary *msrRequestJSON = [self msrTransacrionJSONWithAmount:[[[HTPayment currentPayment] amount] stringValue] cardData:cardData];
-    [self.processingManager performSaleRequestWithData:msrRequestJSON completion:self.transactionHandler];
-}
-
-- (void)performEMVPaymentWithData:(IDTEMVData *)emvData
-{
-    NSDictionary *emvRequestJSON = [self emvTransactionJSONWithEMVTags:emvData.unencryptedTags];
-    [self.processingManager performSaleRequestWithData:emvRequestJSON completion:self.transactionHandler];
+    [self.delegate devicePlugged:status];
 }
 
 

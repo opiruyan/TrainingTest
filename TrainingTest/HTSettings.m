@@ -11,14 +11,13 @@
 
 @interface HTSettings ()
 
-@property (nonatomic, strong) NSString *tsysDeviceId;
-@property (nonatomic, strong) NSString *tsysTransactionKey;
-@property (nonatomic, strong) NSString *tsysMerchantId;
-@property (nonatomic, strong) NSString *tsysServerUrl;
-
 @end
 
 @implementation HTSettings
+
+@synthesize tsysDeviceId = _tsysDeviceId;
+@synthesize tsysTransactionKey = _tsysTransactionKey;
+@synthesize tsysServerUrl = _tsysServerUrl;
 
 + (id)sharedSettings
 {
@@ -66,6 +65,61 @@
         }
     }];
 }
+
+- (void)setTsysDeviceId:(NSString *)tsysDeviceId
+{
+    _tsysDeviceId = tsysDeviceId;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:_tsysDeviceId forKey:@"deviceId"];
+    [userDefaults synchronize];
+}
+
+- (NSString *)tsysDeviceId
+{
+    if (_tsysDeviceId == nil)
+    {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        _tsysDeviceId = [userDefaults objectForKey:@"deviceId"];
+    }
+    return _tsysDeviceId;
+}
+
+- (void)setTsysTransactionKey:(NSString *)tsysTransactionKey
+{
+    _tsysTransactionKey = tsysTransactionKey;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:_tsysTransactionKey forKey:@"transactionKey"];
+    [userDefaults synchronize];
+}
+
+- (NSString *)tsysTransactionKey
+{
+    if (_tsysTransactionKey == nil)
+    {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        _tsysTransactionKey = [userDefaults objectForKey:@"transactionKey"];
+    }
+    return _tsysTransactionKey;
+}
+
+- (void)setTsysServerUrl:(NSString *)tsysServerUrl
+{
+    _tsysServerUrl = tsysServerUrl;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:_tsysDeviceId forKey:@"server_url"];
+    [userDefaults synchronize];
+}
+
+- (NSString *)tsysServerUrl
+{
+    if (_tsysServerUrl == nil)
+    {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        _tsysServerUrl = [userDefaults objectForKey:@"server_url"];
+    }
+    return _tsysServerUrl;
+}
+
 
 - (void)getLocations
 {

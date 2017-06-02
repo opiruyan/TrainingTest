@@ -8,13 +8,6 @@
 
 #import "HTPaymentManager.h"
 
-typedef enum
-{
-    htTransacionTypeManual = 0,
-    htTransacionTypeMSR,    
-    htTransacionTypeEMV
-} htTransationType;
-
 @interface HTPaymentManager (transactionTypes)
 
 - (NSInteger)numberOfTransactions;

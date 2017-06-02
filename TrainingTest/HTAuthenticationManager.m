@@ -45,6 +45,15 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
     return self;
 }
 
+- (HTAuthenticationToken *)authToken
+{
+    if (_authToken.expired)
+    {
+        [self refreshToken];
+    }
+    return _authToken;
+}
+
 - (void)didAuthenticateNotification:(NSNotification *)notification
 {
     // get authorization code
@@ -67,7 +76,14 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
         if (!parseError)
         {
-            [[HTSettings sharedSettings] saveAuthenticationToken:result];
+            if ([result objectForKey:@"error"])
+            {
+                NSLog(@"%@", [result objectForKey:@"error_description"]);
+            }
+            else
+            {
+                [[HTSettings sharedSettings] saveAuthenticationToken:result];
+            }
         }
     }];
 }
@@ -75,6 +91,7 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
 - (BOOL)authorized
 {
     self.authToken = [HTAuthenticationToken tokenFromKeychain];
+    [[HTSettings sharedSettings] setToken:self.authToken];
     return self.authToken == nil ? NO : YES;
 }
 

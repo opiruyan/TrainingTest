@@ -12,8 +12,8 @@ extern NSString *const kHandlingURLNotification;
 
 @interface HTAuthenticationManager : NSObject
 
+@property (nonatomic, readonly) BOOL authorized;
+
 + (id)sharedManager;
-- (void)refreshToken;
-- (BOOL)authorized;
 
 @end

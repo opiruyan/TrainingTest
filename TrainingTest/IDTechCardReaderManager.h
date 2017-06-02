@@ -9,24 +9,28 @@
 #import <Foundation/Foundation.h>
 #import <IDTech/IDTech.h>
 
-@class IDTEMVData;
+@class IDTEMVData, IDTechCardReaderManager;
 
-@protocol CardReaderDelegate <NSObject>
+@protocol CardReaderTransactionFlowDelegate <NSObject>
 
+@required
 - (void)gotEMVData:(IDTEMVData *)emvData;
+
+@optional
+
 - (void)didReadMSRData:(IDTMSRData *)cardData;
 
 @end
 
 @protocol CardReaderStateDelegate <NSObject>
 
-- (void)devicePlugged:(BOOL)status;
+- (void)readerManager:(IDTechCardReaderManager *)manager detectedDevicePlugged:(BOOL)status;
 
 @end
 
 @interface IDTechCardReaderManager : NSObject <IDT_UniPayIII_Delegate>
 
-@property (nonatomic, weak) id <CardReaderDelegate> transactionDelegate;
+@property (nonatomic, weak) id <CardReaderTransactionFlowDelegate> transactionDelegate;
 @property (nonatomic, weak) id <CardReaderStateDelegate> readerDelegate;
 
 - (void)startEmvTransactionWithAmount:(NSDecimalNumber *)amount;

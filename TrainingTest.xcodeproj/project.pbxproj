@@ -12,7 +12,11 @@
 		5E0F545F1ED9B02D0004259C /* HTPaymentManager+transactionTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F545E1ED9B02D0004259C /* HTPaymentManager+transactionTypes.m */; };
 		5E0F54651EDEB4A80004259C /* HTSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54641EDEB4A80004259C /* HTSettings.m */; };
 		5E0F546F1EDED6690004259C /* HTWebProvider+Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F546E1EDED6690004259C /* HTWebProvider+Settings.m */; };
-		5E0F54721EDF23340004259C /* HTMSRTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54711EDF23340004259C /* HTMSRTransaction.m */; };
+		5E0F54751EDF29D50004259C /* HTTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54741EDF29D50004259C /* HTTransaction.m */; };
+		5E0F54781EDF2A1C0004259C /* HTMSRTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54771EDF2A1C0004259C /* HTMSRTransaction.m */; };
+		5E0F547B1EDF2A4B0004259C /* HTEMVTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F547A1EDF2A4B0004259C /* HTEMVTransaction.m */; };
+		5E0F547E1EDF2A610004259C /* HTKeyedTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F547D1EDF2A610004259C /* HTKeyedTransaction.m */; };
+		5E0F54831EE0921B0004259C /* HTTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54821EE0921B0004259C /* HTTicket.m */; };
 		5E4E1B1F1EAF51880001B301 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */; };
 		5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B231EAF86AD0001B301 /* NSString+SHA256.m */; };
 		5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */; };
@@ -24,7 +28,6 @@
 		5E4E1B711ECAF1EC0001B301 /* NSData+HexadecimalString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B701ECAF1EC0001B301 /* NSData+HexadecimalString.m */; };
 		5E4E1B741ECB26730001B301 /* HTPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B731ECB26730001B301 /* HTPayment.m */; };
 		5E4E1B771ECC76530001B301 /* HTWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B761ECC76530001B301 /* HTWebProvider.m */; };
-		5E4E1B7A1ECC7AE90001B301 /* HTTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B791ECC7AE90001B301 /* HTTransaction.m */; };
 		5E4E1B7E1ECD99A60001B301 /* HTPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B7D1ECD99A60001B301 /* HTPaymentManager.m */; };
 		5E4E1B811ECF53470001B301 /* HTTSYSManager+RequestJSONs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B801ECF53470001B301 /* HTTSYSManager+RequestJSONs.m */; };
 		5E4E1B841ED6C7D60001B301 /* HTEmailReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B831ED6C7D60001B301 /* HTEmailReceipt.m */; };
@@ -79,8 +82,17 @@
 		5E0F54641EDEB4A80004259C /* HTSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSettings.m; sourceTree = "<group>"; };
 		5E0F546D1EDED6690004259C /* HTWebProvider+Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTWebProvider+Settings.h"; sourceTree = "<group>"; };
 		5E0F546E1EDED6690004259C /* HTWebProvider+Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTWebProvider+Settings.m"; sourceTree = "<group>"; };
-		5E0F54701EDF23340004259C /* HTMSRTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMSRTransaction.h; sourceTree = "<group>"; };
-		5E0F54711EDF23340004259C /* HTMSRTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMSRTransaction.m; sourceTree = "<group>"; };
+		5E0F54731EDF29D50004259C /* HTTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTransaction.h; sourceTree = "<group>"; };
+		5E0F54741EDF29D50004259C /* HTTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTransaction.m; sourceTree = "<group>"; };
+		5E0F54761EDF2A1C0004259C /* HTMSRTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMSRTransaction.h; sourceTree = "<group>"; };
+		5E0F54771EDF2A1C0004259C /* HTMSRTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMSRTransaction.m; sourceTree = "<group>"; };
+		5E0F54791EDF2A4B0004259C /* HTEMVTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEMVTransaction.h; sourceTree = "<group>"; };
+		5E0F547A1EDF2A4B0004259C /* HTEMVTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEMVTransaction.m; sourceTree = "<group>"; };
+		5E0F547C1EDF2A610004259C /* HTKeyedTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKeyedTransaction.h; sourceTree = "<group>"; };
+		5E0F547D1EDF2A610004259C /* HTKeyedTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKeyedTransaction.m; sourceTree = "<group>"; };
+		5E0F54801EDF322D0004259C /* HTTransaction_ProtectedProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTransaction_ProtectedProperties.h; sourceTree = "<group>"; };
+		5E0F54811EE0921B0004259C /* HTTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTicket.h; sourceTree = "<group>"; };
+		5E0F54821EE0921B0004259C /* HTTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTicket.m; sourceTree = "<group>"; };
 		5E4E1B1D1EAF51880001B301 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
 		5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 		5E4E1B221EAF86AD0001B301 /* NSString+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256.h"; sourceTree = "<group>"; };
@@ -102,8 +114,6 @@
 		5E4E1B731ECB26730001B301 /* HTPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPayment.m; sourceTree = "<group>"; };
 		5E4E1B751ECC76530001B301 /* HTWebProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTWebProvider.h; sourceTree = "<group>"; };
 		5E4E1B761ECC76530001B301 /* HTWebProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTWebProvider.m; sourceTree = "<group>"; };
-		5E4E1B781ECC7AE90001B301 /* HTTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTransaction.h; sourceTree = "<group>"; };
-		5E4E1B791ECC7AE90001B301 /* HTTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTransaction.m; sourceTree = "<group>"; };
 		5E4E1B7C1ECD99A60001B301 /* HTPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPaymentManager.h; sourceTree = "<group>"; };
 		5E4E1B7D1ECD99A60001B301 /* HTPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPaymentManager.m; sourceTree = "<group>"; };
 		5E4E1B7F1ECF53470001B301 /* HTTSYSManager+RequestJSONs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTSYSManager+RequestJSONs.h"; sourceTree = "<group>"; };
@@ -205,6 +215,22 @@
 			name = WebProvider;
 			sourceTree = "<group>";
 		};
+		5E0F547F1EDF2A690004259C /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				5E0F54761EDF2A1C0004259C /* HTMSRTransaction.h */,
+				5E0F54771EDF2A1C0004259C /* HTMSRTransaction.m */,
+				5E0F54791EDF2A4B0004259C /* HTEMVTransaction.h */,
+				5E0F547A1EDF2A4B0004259C /* HTEMVTransaction.m */,
+				5E0F547C1EDF2A610004259C /* HTKeyedTransaction.h */,
+				5E0F547D1EDF2A610004259C /* HTKeyedTransaction.m */,
+				5E0F54731EDF29D50004259C /* HTTransaction.h */,
+				5E0F54741EDF29D50004259C /* HTTransaction.m */,
+				5E0F54801EDF322D0004259C /* HTTransaction_ProtectedProperties.h */,
+			);
+			name = Transaction;
+			sourceTree = "<group>";
+		};
 		5E4E1B211EAF51AD0001B301 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,16 +256,15 @@
 		5E4E1B631EBC67400001B301 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				5E0F54701EDF23340004259C /* HTMSRTransaction.h */,
-				5E0F54711EDF23340004259C /* HTMSRTransaction.m */,
+				5E0F547F1EDF2A690004259C /* Transaction */,
 				5E0F545D1ED9B02D0004259C /* HTPaymentManager+transactionTypes.h */,
 				5E0F545E1ED9B02D0004259C /* HTPaymentManager+transactionTypes.m */,
 				5E4E1B8F1ED871940001B301 /* HTPaymentManager+transactionInfoJSON.h */,
 				5E4E1B901ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m */,
 				5E4E1B7F1ECF53470001B301 /* HTTSYSManager+RequestJSONs.h */,
 				5E4E1B801ECF53470001B301 /* HTTSYSManager+RequestJSONs.m */,
-				5E4E1B7D1ECD99A60001B301 /* HTPaymentManager.m */,
 				5E4E1B7C1ECD99A60001B301 /* HTPaymentManager.h */,
+				5E4E1B7D1ECD99A60001B301 /* HTPaymentManager.m */,
 				5E4E1B721ECB26730001B301 /* HTPayment.h */,
 				5E4E1B731ECB26730001B301 /* HTPayment.m */,
 				5E4E1B681EC3284C0001B301 /* IDTechCardReaderManager.h */,
@@ -266,12 +291,12 @@
 		5E4E1B7B1ECC7AEF0001B301 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F54811EE0921B0004259C /* HTTicket.h */,
+				5E0F54821EE0921B0004259C /* HTTicket.m */,
 				5E0F54631EDEB4A80004259C /* HTSettings.h */,
 				5E0F54641EDEB4A80004259C /* HTSettings.m */,
 				5E4E1B821ED6C7D60001B301 /* HTEmailReceipt.h */,
 				5E4E1B831ED6C7D60001B301 /* HTEmailReceipt.m */,
-				5E4E1B791ECC7AE90001B301 /* HTTransaction.m */,
-				5E4E1B781ECC7AE90001B301 /* HTTransaction.h */,
 				5E6C17081EA8D72300540385 /* HTCardInfo.h */,
 				5E6C17091EA8D72300540385 /* HTCardInfo.m */,
 			);
@@ -689,21 +714,25 @@
 				F5DDCD191E8FED4C00904CD4 /* LeftToRight.m in Sources */,
 				5E4E1B621EBC67340001B301 /* HTTSYSManager.m in Sources */,
 				F5DDCCF71E8D019C00904CD4 /* AppDelegate.m in Sources */,
+				5E0F547E1EDF2A610004259C /* HTKeyedTransaction.m in Sources */,
 				5E4E1B911ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m in Sources */,
 				5E4E1B8E1ED841A60001B301 /* HTAuthenticationToken.m in Sources */,
 				5E4E1B811ECF53470001B301 /* HTTSYSManager+RequestJSONs.m in Sources */,
 				F5FE09C31E9D189B001C4826 /* HTSignatureViewController.m in Sources */,
 				5E4E1B1F1EAF51880001B301 /* NSString+UUID.m in Sources */,
+				5E0F547B1EDF2A4B0004259C /* HTEMVTransaction.m in Sources */,
 				5E0F54651EDEB4A80004259C /* HTSettings.m in Sources */,
 				5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */,
+				5E0F54751EDF29D50004259C /* HTTransaction.m in Sources */,
 				F5C187B31E93A84B00800F52 /* HTKeypadViewController.m in Sources */,
 				F5C550821EA62E2400AAA07E /* HTSignatureView.m in Sources */,
 				5E4E1B741ECB26730001B301 /* HTPayment.m in Sources */,
+				5E0F54831EE0921B0004259C /* HTTicket.m in Sources */,
 				5E4E1B661EBC68360001B301 /* HTOrderedMutableDictionary.m in Sources */,
 				5E0F545F1ED9B02D0004259C /* HTPaymentManager+transactionTypes.m in Sources */,
 				5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */,
+				5E0F54781EDF2A1C0004259C /* HTMSRTransaction.m in Sources */,
 				F5C187B01E925D4500800F52 /* HTLoginScreenViewController.m in Sources */,
-				5E0F54721EDF23340004259C /* HTMSRTransaction.m in Sources */,
 				5E4E1B5E1EBA07160001B301 /* HTAuthenticationManager.m in Sources */,
 				5E4E1B771ECC76530001B301 /* HTWebProvider.m in Sources */,
 				5E4E1B6A1EC3284C0001B301 /* IDTechCardReaderManager.m in Sources */,
@@ -712,7 +741,6 @@
 				F5C187B61E9508E900800F52 /* HTCardInfoViewController.m in Sources */,
 				5E4E1B841ED6C7D60001B301 /* HTEmailReceipt.m in Sources */,
 				F5FE09C61E9E5303001C4826 /* HTCloseTicketViewController.m in Sources */,
-				5E4E1B7A1ECC7AE90001B301 /* HTTransaction.m in Sources */,
 				5E0F546F1EDED6690004259C /* HTWebProvider+Settings.m in Sources */,
 				5E4E1B7E1ECD99A60001B301 /* HTPaymentManager.m in Sources */,
 				5E4E1B711ECAF1EC0001B301 /* NSData+HexadecimalString.m in Sources */,

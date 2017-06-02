@@ -36,11 +36,6 @@
     {
         [self oauth2];
     }
-    else
-    {
-        //[manager refreshToken];
-    }
-    [self oauth2];
 }
 
 - (void)oauth2

@@ -9,6 +9,7 @@
 #import "HTWebProvider.h"
 #import "HTEmailReceipt.h"
 #import "HTWebProvider+Settings.h"
+#import "HTSettings.h"
 
 
 #define gatewayEndpoint @"https://stagegw.transnox.com/servlets/TransNox_API_Server"
@@ -37,6 +38,7 @@
 - (void)paymentRequestWithData:(NSDictionary *)paymentData completion:(completionHandler)completionBlock
 {
     NSMutableURLRequest *transactionRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:gatewayEndpoint]];
+    //NSMutableURLRequest *transactionRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[[HTSettings sharedSettings] tsysServerUrl]]];
     [transactionRequest setAllHTTPHeaderFields:@{@"User-Agent" : @"Infonox"}];
     NSData *requestJSON = [NSJSONSerialization dataWithJSONObject:paymentData options:0 error:nil];
     [transactionRequest setHTTPBody:requestJSON];

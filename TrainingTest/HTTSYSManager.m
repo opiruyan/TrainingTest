@@ -8,7 +8,6 @@
 
 #import "HTTSYSManager.h"
 #import "HTPayment.h"
-#import "HTTransaction.h"
 #import "HTTSYSManager+RequestJSONs.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <IDTech/IDTech.h>
@@ -28,7 +27,6 @@
         if ([[responseData objectForKey:@"status"] isEqualToString:@"PASS"])
         {
             HTPayment *currentPayment = [HTPayment currentPayment];
-            currentPayment.transaction = [HTTransaction transactionWithDictionary:responseData];
 #warning duplicating callback
             completion(data);
         }
@@ -47,7 +45,6 @@
         if ([[responseData objectForKey:@"status"] isEqualToString:@"PASS"])
         {
             HTPayment *currentPayment = [HTPayment currentPayment];
-            currentPayment.transaction = [HTTransaction transactionWithDictionary:responseData];
         }
         NSLog(@"%@", responseData);
     }];

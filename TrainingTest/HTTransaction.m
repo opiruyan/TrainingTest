@@ -2,33 +2,76 @@
 //  HTTransaction.m
 //  TrainingTest
 //
-//  Created by Oleg Piruyan on 17/05/2017.
+//  Created by Oleg Piruyan on 31/05/2017.
 //  Copyright © 2017 Harbortouch. All rights reserved.
 //
 
 #import "HTTransaction.h"
+#import "IDTechCardReaderManager.h"
+#import "HTSettings.h"
+#import "HTWebProvider.h"
+#import "HTTransaction_ProtectedProperties.h"
+#import "HTPayment.h"
+
 
 @implementation HTTransaction
 
-+ (id)transactionWithDictionary:(NSDictionary *)dictionary
+- (transactionCompletionHandler)transactionHandler
 {
-    return [[HTTransaction alloc] initWithDictionary:dictionary];
+    return ^(NSDictionary *data) {
+        NSDictionary *saleResponse = [data objectForKey:@"SaleResponse"];
+        //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
+        if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
+        {
+            // store payment to backend
+            [[HTPayment currentPayment] storeTicket:saleResponse];
+        };
+    };
 }
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+- (NSString *)deviceId
 {
-    self = [super init];
-    if (self)
-    {
-        [self serializeFromDictionary:dictionary];
-    }
-    return self;
+    return [[HTSettings sharedSettings] tsysDeviceId];
 }
 
-- (void)serializeFromDictionary:(NSDictionary *)dictionary
+- (NSString *)transactionKey
 {
-    _transactionID = [dictionary objectForKey:@"transactionID"];
-    _transactionTimestamp = [dictionary objectForKey:@"transactionTimestamp"];
+    return [[HTSettings sharedSettings] tsysTransactionKey];
 }
+
+- (NSDecimalNumber *)amount
+{
+    return [[HTPayment currentPayment] amount];
+}
+
+- (NSString *)cardNumber
+{
+    return  [[[HTPayment currentPayment] cardInfo] cardNumber];
+}
+
+- (NSString *)expDate
+{
+    return  [[[HTPayment currentPayment] cardInfo] expDate];
+}
+
+- (void)makeTransaction
+{
+    // virtual
+    // maybe throw an exception
+}
+
+- (void)processTransactionWithData:(NSDictionary *)json withCompletion:(transactionCompletionHandler)completion
+{
+    HTWebProvider *provider = [HTWebProvider sharedProvider];
+    [provider paymentRequestWithData:json completion:^(NSData *data) {
+        NSError *serializationError = nil;
+        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
+        if (serializationError == nil)
+        {
+            completion(responseData);
+        }
+    }];
+}
+
 
 @end

@@ -10,22 +10,19 @@
 #import "HTPaymentManager.h"
 #import "HTPayment.h"
 #import "HTPaymentManager+transactionTypes.h"
-#import "IDTechCardReaderManager.h"
 
-@interface HTCardInfoViewController () <CardReaderStateDelegate, HTPaymentManagerProtocol, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface HTCardInfoViewController () <HTPaymentManagerProtocol, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *cardNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cardHolder;
 @property (weak, nonatomic) IBOutlet UITextField *expDateTextField;
 @property (weak, nonatomic) IBOutlet UITextField *zipTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cvvTextField;
 
-// demonstrative-testing purposes
 @property (weak, nonatomic) IBOutlet UILabel *readerStatusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *transactionTypePicker;
 @property (nonatomic) htTransationType transationType;
 @property (nonatomic, strong) HTPaymentManager *paymentManager;
-@property (strong, nonatomic) IDTechCardReaderManager *cardReaderManager;
 
 @property (strong, nonatomic) HTCardInfo *cardInfo;
 
@@ -43,10 +40,8 @@
     [self.zipTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"Zip" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];
     [self.cvvTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"CVV" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];
     self.navigationItem.title = [@"Total $" stringByAppendingString:[[[HTPayment currentPayment] amount] stringValue]];
-    self.transationType = htTransacionTypeManual;
     self.transactionTypePicker.delegate = self;
-     [[IDT_UniPayIII sharedController] setDelegate:self.cardReaderManager];
-    
+    self.transationType = htTransacionTypeManual;
 }
 
 - (HTPaymentManager *)paymentManager
@@ -59,33 +54,10 @@
     return _paymentManager;
 }
 
-- (IDTechCardReaderManager *)cardReaderManager
-{
-    if (!_cardReaderManager)
-    {
-        _cardReaderManager = [[IDTechCardReaderManager alloc] init];
-        _cardReaderManager.readerDelegate = self;
-        _cardReaderManager.transactionDelegate = self.paymentManager;
-    }
-    return _cardReaderManager;
-}
-
 - (IBAction)payPressed:(UIButton *)sender
 {
-    switch ([self.transactionTypePicker selectedRowInComponent:0]) // there is only one component
-    {
-        case htTransacionTypeManual:
-            [self startManualTransaction];
-            break;
-        case htTransacionTypeEMV:
-            [self.paymentManager startEmvTransaction];
-            break;
-        case htTransacionTypeMSR:
-            [self.paymentManager startMSRTransaction];
-            break;
-        default:
-            break;
-    }
+    [self.paymentManager setProcessingTransactionOfTransactiontype:self.transationType];
+    [self.paymentManager.processingTransaction makeTransaction];
 //    if ((YES))
 //    {
 //        [self performSegueWithIdentifier:@"Accept" sender:sender];
@@ -96,24 +68,6 @@
 //    }
 }
 
-- (void)startManualTransaction
-{
-    [self.paymentManager startKeyedTransactionWithAmount:[[HTPayment currentPayment] amount]
-                                              cardNumber:self.cardNumberTextField.text
-                                          expirationDate:self.expDateTextField.text];
-}
-
-#pragma maek - Card Raeader State Delegate
-
-- (void)devicePlugged:(BOOL)status
-{
-    self.readerStatusLabel.hidden = !status;
-    if (status)
-    {
-        [self.payButton.titleLabel setText:@"Please, swipe or insert card"];    
-    }
-}
-
 #pragma mark - Picker Delegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -121,7 +75,12 @@
     return [self.paymentManager transactionTypeForNumber:row];
 }
 
-#pragma mark - Payment Datasource Delegate
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.transationType = (htTransationType)row;
+}
+
+#pragma mark - Picker Datasource Delegate
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -140,6 +99,15 @@
     self.cardNumberTextField.text = cardInfo.cardNumber;
     self.cardHolder.text = [NSString stringWithFormat:@"%@/%@",cardInfo.firstName, cardInfo.lastName];
     self.expDateTextField.text = [cardInfo.expDate substringWithRange:NSMakeRange(0, 4)];
+}
+
+- (void)devicePlugged:(BOOL)status
+{
+    self.readerStatusLabel.hidden = !status;
+    if (status)
+    {
+        [self.payButton.titleLabel setText:@"Please, swipe or insert card"];
+    }
 }
 
 #pragma mark - Navigation

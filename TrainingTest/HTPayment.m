@@ -7,6 +7,19 @@
 //
 
 #import "HTPayment.h"
+#import "HTTicket.h"
+#import "HTWebProvider.h"
+#import "HTSettings.h"
+
+#define tillGuid @"77-1-010a20c8-d6ba-4846-9433-01bb911f2f56"
+#define tenderName @"Credit"
+#define tenderGuid @"77-244d943d-7306-4614-98ca-76048e1e487e"
+
+@interface HTPayment ()
+
+@property (nonatomic, strong) HTTicket *ticket;
+
+@end
 
 @implementation HTPayment
 
@@ -33,6 +46,19 @@
 + (HTPayment *)currentPayment
 {
     return [self sharedPayment];
+}
+
+#warning should rework that
+- (void)storeTicket:(NSDictionary *)ticketInfo
+{
+    self.ticket = [HTTicket ticketWithDictionary:ticketInfo];
+    HTWebProvider *webProvider = [HTWebProvider sharedProvider];
+    NSDictionary *dict = @{ @"locationId" : @77, @"employeeCreateGuid" : @"6d3d7393-eb38-44b7-b443-5626393f9d25", @"employeeOwnerGuid" : @"6d3d7393-eb38-44b7-b443-5626393f9d25", @"terminalNumber" : @1, @"orderNumber" : @([NSDate timeIntervalSinceReferenceDate]), @"businessDay" : [[NSDate date] description], @"ticketPayments" : @[@{@"authCode" :self.ticket.authCode, @"employeeGuid" : @"6d3d7393-eb38-44b7-b443-5626393f9d25", @"receivedAmount" : @"2.4", @"paymentAmount" : @"2.4", @"changeAmount" : @0, @"businessDay" : [[NSDate date] description], @"terminalNumber" : @1, @"gatewayStatus" : @0, @"tenderGuid" : tenderGuid, @"tenderName" : tenderName, @"tillGuid" : tillGuid}]};
+    [webProvider POSTRequestToEndpoint:@"/api/v1/echo-pro/tickets/" body:dict withToken:[[[HTSettings sharedSettings] token] accessToken] completionHandler:^(NSData *data) {
+        NSError *serializationError;
+        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
+        NSLog(@"%@", responseData);
+    }];
 }
 
 @end

@@ -22,12 +22,12 @@
 
 -(void)deviceConnected
 {
-    [self.readerDelegate devicePlugged:YES];
+    [self.readerDelegate readerManager:self detectedDevicePlugged:YES];
 }
 
 -(void)deviceDisconnected
 {
-   [self.readerDelegate devicePlugged:NO];
+   [self.readerDelegate readerManager:self detectedDevicePlugged:NO];
 }
 
 - (void)plugStatusChange:(BOOL)deviceInserted

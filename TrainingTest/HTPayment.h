@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HTCardInfo.h"
 
 @class HTTransaction;
 
 @interface HTPayment : NSObject
 
 @property (nonatomic, strong) NSDecimalNumber *amount;
-@property (nonatomic, strong) HTTransaction *transaction;
-
+@property (nonatomic ,strong) HTCardInfo *cardInfo;
 
 + (HTPayment *)currentPayment;
+- (void)storeTicket:(NSDictionary *)ticketInfo;
 
 @end

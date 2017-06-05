@@ -51,10 +51,11 @@
 - (NSDictionary *)transactionJSONWithEMVTags:(NSDictionary *)emvTagsDictionary
 {
     HTOrderedMutableDictionary *dict = [HTOrderedMutableDictionary dictionary];
-    [dict setObject:self.deviceId forKey:@"deviceID"];
-    [dict setObject:self.transactionKey forKey:@"transactionKey"];
+    [dict setObject:@"88800000171001" forKey:@"deviceID"];
+    [dict setObject:@"MXPNPOAG5FOFGIZJCSS1M4DFF4PQPXC4" forKey:@"transactionKey"];
     [dict setObject:@"EMV" forKey:@"cardDataSource"];
     
+    [dict setObject:@"308" forKey:@"transactionAmount"];
     NSArray *tagsArray = [self emvTagsFromDictionary:emvTagsDictionary];
     [dict setObject:@{@"tag" : tagsArray} forKey:@"emvTags"];
     
@@ -81,8 +82,8 @@
     [paymentEmvTags addObject:@"82025800"]; // Application Interchange profile
     [paymentEmvTags addObject:@"9F3303E0F8C8"]; // Terminal capabilities
     [paymentEmvTags addObject:@"50104D617374657243617264202020202020"]; // Applicaion Label (master card i.e.)
-    [paymentEmvTags addObject:@"DF78083731353739393939"]; // (TSYS Sierra tag) Device Serial Number
-    [paymentEmvTags addObject:@"DF790430333733"]; // (TSYS Sierra tag) Kernel Version Number
+    [paymentEmvTags addObject:@"DF7800"]; // (TSYS Sierra tag) Device Serial Number
+    [paymentEmvTags addObject:@"DF7900"]; // (TSYS Sierra tag) Kernel Version Number
     
     //    [dict setObject:@{@"tag" : @[@"95050000048000", @"9C0100", @"9F3303E0F8C8", @"5F2403251231", @"5F340100", @"9F10120212A0000F240000DAC000000000000000FF", @"9F1A020840", @"9F2608A8B37B4B13D20E35", @"9F270180", @"9F3403420300", @"9F36020002", @"9F3704FA621AF0", @"82025800", @"9A03151019", @"9F02060000000046000", @"4F07A0000000041010", @"5F2011496E7465726F7065722E20303920313341", @"50104D617374657243617264202020202020", @"5F2A020840", @"DF78083731353739393939", @"DF790430333733", @"57135469420014586922d17112010144600000562f", @"5f200c5049525559414e2f4f4c4547" /*@"57114761739001010010D15122011143804489"*/]} forKey:@"emvTags"];
     

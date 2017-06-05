@@ -86,6 +86,7 @@
 
 - (void)startEmvTransactionWithAmount:(NSDecimalNumber *)amount
 {
+    //[[IDT_UniPayIII sharedController] emv_retrieveTerminalData:&res];
     [[IDT_UniPayIII sharedController] emv_disableAutoAuthenticateTransaction:NO];
     RETURN_CODE rt = [[IDT_UniPayIII sharedController] emv_startTransaction:amount.floatValue amtOther:0 type:0 timeout:60 tags:nil forceOnline:false fallback:true];
     if (RETURN_CODE_DO_SUCCESS == rt)
@@ -162,14 +163,55 @@ static int _lcdDisplayMode = 0;
         case 0x01:
         case 0x02:
         case 0x08:{
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Please Select" message:str delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK",nil];
-            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-            [alert show];
         }
             
             break;
         default:
             break;
+    }
+}
+
+- (NSData *)hexToData:(NSString*)str {   //Example - Pass string that contains characters "30313233", and it will return a data object containing ascii characters "0123"
+    if ([str length] == 0) {
+        return nil;
+    }
+    
+    unsigned stringIndex=0, resultIndex=0, max=(int)[str length];
+    NSMutableData* result = [NSMutableData dataWithLength:(max + 1)/2];
+    unsigned char* bytes = [result mutableBytes];
+    
+    unsigned num_nibbles = 0;
+    unsigned char byte_value = 0;
+    
+    for (stringIndex = 0; stringIndex < max; stringIndex++) {
+        unsigned int val = [self char2hex:[str characterAtIndex:stringIndex]];
+        
+        num_nibbles++;
+        byte_value = byte_value * 16 + (unsigned char)val;
+        if (! (num_nibbles % 2)) {
+            bytes[resultIndex++] = byte_value;
+            byte_value = 0;
+        }
+    }
+    
+    
+    //final nibble
+    if (num_nibbles % 2) {
+        bytes[resultIndex++] = byte_value;
+    }
+    
+    [result setLength:resultIndex];
+    
+    return result;
+}
+
+-(unsigned int) char2hex:(char)c{
+    
+    switch (c) {
+        case '0' ... '9': return c - '0';
+        case 'a' ... 'f': return c - 'a' + 10;
+        case 'A' ... 'F': return c - 'A' + 10;
+        default: return -1;
     }
 }
 

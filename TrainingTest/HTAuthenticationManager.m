@@ -10,7 +10,6 @@
 #import "HTWebProvider.h"
 #import "HTAuthenticationToken.h"
 #import "HTSettings.h"
-#import <JWT/JWT.h>
 
 NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotification";
 
@@ -47,6 +46,7 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
 
 - (HTAuthenticationToken *)authToken
 {
+#warning move refreshing out of here
     if (_authToken.expired)
     {
         [self refreshToken];
@@ -100,7 +100,8 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
     HTWebProvider *webProvider = [HTWebProvider sharedProvider];
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:@"refresh_token" forKey:@"grant_type"];
-    [dict setValue:self.authToken.refreshToken forKey:@"refresh_token"];
+#warning should get with a setter
+    [dict setValue:_authToken.refreshToken forKey:@"refresh_token"];
     [dict setValue:clientSecret forKey:@"client_secret"];
     [dict setValue:clientId forKey:@"client_id"];
     [webProvider refreshToken:dict completionHandler:^(NSData *data) {

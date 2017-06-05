@@ -9,7 +9,6 @@
 #import "HTTSYSManager.h"
 #import "HTPayment.h"
 #import "HTTSYSManager+RequestJSONs.h"
-#import <AFNetworking/AFHTTPSessionManager.h>
 #import <IDTech/IDTech.h>
 
 @interface HTTSYSManager ()

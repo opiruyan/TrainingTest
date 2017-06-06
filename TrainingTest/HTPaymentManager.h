@@ -24,17 +24,18 @@ typedef enum
 @protocol HTPaymentManagerProtocol <NSObject>
 
 - (void)paymentManager:(HTPaymentManager *)manager didRecieveCardData:(HTCardInfo *)cardInfo;
+- (void)paymentManagerdidCompleteTransaction:(HTPaymentManager *)manager;
 
 - (void)devicePlugged:(BOOL)status;
 
 @end
 
-@interface HTPaymentManager : NSObject <CardReaderStateDelegate>
+@interface HTPaymentManager : NSObject <CardReaderDelegate>
 
 @property (nonatomic, strong) id <HTPaymentManagerProtocol> delegate;
+@property (nonatomic) htTransationType transationType;
 @property (strong, nonatomic) HTTransaction *processingTransaction;
 
-- (void)setProcessingTransactionOfTransactiontype:(htTransationType)transactionType;
-- (void)storeTicket:(NSString *)authCode;
+- (void)start;
 
 @end

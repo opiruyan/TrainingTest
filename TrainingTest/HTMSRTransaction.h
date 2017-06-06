@@ -9,8 +9,8 @@
 #import "HTTransaction.h"
 #import "IDTechCardReaderManager.h" // implemnts defined realization instead of protocos or superclass
 
-@interface HTMSRTransaction : HTTransaction <CardReaderTransactionFlowDelegate>
+@interface HTMSRTransaction : HTTransaction
 
-- (instancetype)initWithDevice:(IDTechCardReaderManager *)deviceManager;
++ (HTMSRTransaction *)transactionWithCardData:(IDTMSRData *)cardData;
 
 @end

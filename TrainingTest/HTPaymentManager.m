@@ -13,6 +13,8 @@
 #import "HTMSRTransaction.h"
 #import "HTKeyedTransaction.h"
 #import "HTEMVTransaction.h"
+#import "HTPayment.h"
+#import "HTWebProvider.h"
 
 @interface HTPaymentManager ()
 
@@ -23,32 +25,28 @@
 
 @implementation HTPaymentManager
 
-- (IDTechCardReaderManager *)cardReaderManager
+- (instancetype)init
 {
-    if (!_cardReaderManager)
+    self = [super init];
+    if (self)
     {
         _cardReaderManager = [[IDTechCardReaderManager alloc] init];
         _cardReaderManager.readerDelegate = self;
         [[IDT_UniPayIII sharedController] setDelegate:_cardReaderManager];
     }
-    return _cardReaderManager;
+    return self;
 }
 
-- (void)setProcessingTransactionOfTransactiontype:(htTransationType)transactionType
+- (void)start
 {
-    switch (transactionType)
+    NSDecimalNumber *amount = [[HTPayment currentPayment] amount];
+    if (self.transationType == htTransacionTypeEMV)
     {
-        case htTransacionTypeManual:
-            self.processingTransaction = [HTKeyedTransaction new];
-            break;
-        case htTransacionTypeEMV:
-            self.processingTransaction = [[HTEMVTransaction alloc] initWithDevice:self.cardReaderManager];
-            break;
-        case htTransacionTypeMSR:
-            self.processingTransaction = [[HTMSRTransaction alloc] initWithDevice:self.cardReaderManager];
-            break;
-        default:
-            break;
+        [self.cardReaderManager startEmvTransactionWithAmount:amount];
+    }
+    else
+    {
+        [self.cardReaderManager startMSRTransaction];
     }
 }
 
@@ -57,24 +55,54 @@
 - (void)readerManager:(IDTechCardReaderManager *)manager detectedDevicePlugged:(BOOL)status
 {
     [self.delegate devicePlugged:status];
+    if (status)
+    {
+        
+    }
+}
+
+- (void)gotEMVData:(IDTEMVData *)emvData
+{
+    self.processingTransaction = [HTEMVTransaction transactionWithEmvData:emvData.unencryptedTags];
+    // start transaction
+    [self processTransactionWithCompletion:^(NSDictionary *response) {
+        NSDictionary *saleResponse = [response objectForKey:@"SaleResponse"];
+        //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
+        if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
+        {
+            // store payment to backend
+            [[HTPayment currentPayment] storeTicket:saleResponse];
+        };
+    }];
+    [self.delegate devicePlugged:NO]; // show spinner
+}
+
+- (void)didReadMSRData:(IDTMSRData *)cardData
+{
+    self.processingTransaction = [HTMSRTransaction transactionWithCardData:cardData];
+    [self processTransactionWithCompletion:^(NSDictionary *response) {
+        NSDictionary *saleResponse = [response objectForKey:@"SaleResponse"];
+        //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
+        if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
+        {
+            // store payment to backend
+            [[HTPayment currentPayment] storeTicket:saleResponse];
+        };
+    }];
 }
 
 
-- (void)storeTicket:(NSString *)authCode
+- (void)processTransactionWithCompletion:(transactionCompletionHandler)completion
 {
-//    HTWebProvider *webProvider = [HTWebProvider sharedProvider];
-//    NSDictionary *dict = @{ @"locationId" : @77, @"employeeCreateGuid" : @"6d3d7393-eb38-44b7-b443-5626393f9d25", @"employeeOwnerGuid" : @"6d3d7393-eb38-44b7-b443-5626393f9d25", @"terminalNumber" : @1, @"orderNumber" : @([NSDate timeIntervalSinceReferenceDate]), @"businessDay" : [[NSDate date] description], @"ticketPayments" : @[@{@"authCode" : authCode,@"employeeGuid" : @"6d3d7393-eb38-44b7-b443-5626393f9d25", @"receivedAmount" : @"2.4", @"paymentAmount" : @"2.4", @"changeAmount" : @0, @"businessDay" : [[NSDate date] description], @"terminalNumber" : @1, @"gatewayStatus" : @0, @"tenderGuid" : @"fair trade", @"tenderName" : @"sell some oil, buy some iphones", @"tillGuid" : @"v1ln14s"}]};
-//    [webProvider POSTRequestToEndpoint:@"/api/v1/echo-pro/tickets/" body:dict withToken:authManager.token completionHandler:^(NSData *data) {
-//        NSError *serializationError;
-//        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
-//        if ([responseData objectForKey:@"error"])
-//        {
-//            if ([[[responseData objectForKey:@"error"] objectForKey:@"message"] isEqualToString:@"invalid token"])
-//            {
-//                [authManager refreshToken];
-//            }
-//        }
-//    }];
+    HTWebProvider *provider = [HTWebProvider sharedProvider];
+    [provider paymentRequestWithData:self.processingTransaction.requestBody completion:^(NSData *data) {
+        NSError *serializationError = nil;
+        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
+        if (serializationError == nil)
+        {
+            completion(responseData);
+        }
+    }];
 }
 
 #pragma mark - Utils

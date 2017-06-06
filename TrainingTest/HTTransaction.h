@@ -10,9 +10,13 @@
 
 typedef void (^transactionCompletionHandler)(NSDictionary *response);
 
+/**
+ class for specifically TSYS transaction
+*/
 @interface HTTransaction : NSObject
 
-- (void)makeTransaction;
+@property (nonatomic, strong, readonly) NSDictionary *requestBody;
+
 - (void)processTransactionWithData:(NSDictionary *)json withCompletion:(transactionCompletionHandler)completion;
 
 @end

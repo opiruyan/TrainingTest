@@ -54,12 +54,6 @@
     return  [[[HTPayment currentPayment] cardInfo] expDate];
 }
 
-- (void)makeTransaction
-{
-    // virtual
-    // maybe throw an exception
-}
-
 - (void)processTransactionWithData:(NSDictionary *)json withCompletion:(transactionCompletionHandler)completion
 {
     HTWebProvider *provider = [HTWebProvider sharedProvider];

@@ -9,8 +9,8 @@
 #import "HTTransaction.h"
 #import "IDTechCardReaderManager.h" // implemnts defined realization instead of protocos or superclass
 
-@interface HTEMVTransaction : HTTransaction <CardReaderTransactionFlowDelegate>
+@interface HTEMVTransaction : HTTransaction
 
-- (instancetype)initWithDevice:(IDTechCardReaderManager *)deviceManager;
++ (HTEMVTransaction *)transactionWithEmvData:(NSDictionary *)dict;
 
 @end

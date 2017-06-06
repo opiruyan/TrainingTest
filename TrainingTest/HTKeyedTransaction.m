@@ -13,21 +13,7 @@
 
 @implementation HTKeyedTransaction
 
-- (void)makeTransaction
-{
-    NSDictionary *requestJSON = [self keyedTransactionRequestJSON];
-    [self processTransactionWithData:requestJSON withCompletion:^(NSDictionary *data) {
-        NSDictionary *saleResponse = [data objectForKey:@"SaleResponse"];
-        //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
-        if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
-        {
-            // store payment to backend
-            [[HTPayment currentPayment] storeTicket:saleResponse];
-        };
-    }];
-}
-
-- (NSDictionary *)keyedTransactionRequestJSON
+- (NSDictionary *)requestBody
 {
     HTOrderedMutableDictionary *dict = [HTOrderedMutableDictionary dictionary];
     [dict setObject:@"88800000171001" forKey:@"deviceID"];

@@ -13,42 +13,30 @@
 #import "NSData+HexadecimalString.h"
 #import "HTWebProvider.h"
 
-@interface HTEMVTransaction () <CardReaderTransactionFlowDelegate>
+@interface HTEMVTransaction ()
+
+@property (nonatomic, strong) NSDictionary *unencryptedTags;
 
 @end
 
 @implementation HTEMVTransaction
 
--(instancetype)initWithDevice:(IDTechCardReaderManager *)deviceManager
++ (HTEMVTransaction *)transactionWithEmvData:(NSDictionary *)dict
+{
+    return [[HTEMVTransaction alloc] initWithDictionary:dict];
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self)
     {
-        self.cardReaderManager = deviceManager;
-        [self.cardReaderManager setTransactionDelegate:self];
+        self.unencryptedTags = dictionary;
     }
     return self;
 }
 
-- (void)makeTransaction
-{
-    [self.cardReaderManager startEmvTransactionWithAmount:[[HTPayment currentPayment] amount]];
-}
-
-- (void)makeTransactionWithCompletion:(transactionCompletionHandler)completion
-{
-    // virutal
-}
-
-- (void)gotEMVData:(IDTEMVData *)emvData
-{
-    NSDictionary *emvRequestJSON = [self transactionJSONWithEMVTags:emvData.unencryptedTags];
-    [self processTransactionWithData:emvRequestJSON withCompletion:^(NSDictionary *response) {
-        NSLog(@"%@", response);
-    }];
-}
-
-- (NSDictionary *)transactionJSONWithEMVTags:(NSDictionary *)emvTagsDictionary
+- (NSDictionary *)requestBody
 {
     HTOrderedMutableDictionary *dict = [HTOrderedMutableDictionary dictionary];
     [dict setObject:@"88800000171001" forKey:@"deviceID"];
@@ -56,7 +44,7 @@
     [dict setObject:@"EMV" forKey:@"cardDataSource"];
     
     [dict setObject:@"308" forKey:@"transactionAmount"];
-    NSArray *tagsArray = [self emvTagsFromDictionary:emvTagsDictionary];
+    NSArray *tagsArray = [self emvTagsFromDictionary:_unencryptedTags];
     [dict setObject:@{@"tag" : tagsArray} forKey:@"emvTags"];
     
     [dict setObject:@"1.8.4" forKey:@"paymentAppVersion"];

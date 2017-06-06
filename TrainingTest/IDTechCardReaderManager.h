@@ -11,10 +11,12 @@
 
 @class IDTEMVData, IDTechCardReaderManager;
 
-@protocol CardReaderTransactionFlowDelegate <NSObject>
+@protocol CardReaderDelegate <NSObject>
 
 @required
+
 - (void)gotEMVData:(IDTEMVData *)emvData;
+- (void)readerManager:(IDTechCardReaderManager *)manager detectedDevicePlugged:(BOOL)status;
 
 @optional
 
@@ -22,18 +24,12 @@
 
 @end
 
-@protocol CardReaderStateDelegate <NSObject>
-
-- (void)readerManager:(IDTechCardReaderManager *)manager detectedDevicePlugged:(BOOL)status;
-
-@end
-
 @interface IDTechCardReaderManager : NSObject <IDT_UniPayIII_Delegate>
 
-@property (nonatomic, weak) id <CardReaderTransactionFlowDelegate> transactionDelegate;
-@property (nonatomic, weak) id <CardReaderStateDelegate> readerDelegate;
+@property (nonatomic, weak) id <CardReaderDelegate> readerDelegate;
 
 - (void)startEmvTransactionWithAmount:(NSDecimalNumber *)amount;
 - (void)startMSRTransaction;
 - (void)completeEMV;
+
 @end

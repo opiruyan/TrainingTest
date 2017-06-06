@@ -1,3 +1,4 @@
+
 //
 //  IDTechCardReaderManager.m
 //  TrainingTest
@@ -8,7 +9,6 @@
 
 #import "IDTechCardReaderManager.h"
 #import "HTCardInfo.h"
-
 
 @interface IDTechCardReaderManager ()
 
@@ -52,6 +52,34 @@
     }
 }
 
+- (void)startEmvTransactionWithAmount:(NSDecimalNumber *)amount
+{
+    [[IDT_UniPayIII sharedController] emv_disableAutoAuthenticateTransaction:NO];
+    RETURN_CODE rt = [[IDT_UniPayIII sharedController] emv_startTransaction:amount.floatValue amtOther:0 type:0 timeout:60 tags:nil forceOnline:false fallback:true];
+    if (RETURN_CODE_DO_SUCCESS == rt)
+    {
+        NSLog(@"Start Transaction Command Accepted");
+    }
+    else
+    {
+        NSLog(@"Start Transaction info");
+    }
+}
+
+- (void)swipeMSRData:(IDTMSRData*)cardData
+{
+    switch (cardData.event)
+    {
+        case EVENT_MSR_CARD_DATA:
+            [self.readerDelegate didReadMSRData:cardData];
+            break;
+        case EVENT_MSR_DATA_ERROR:
+            NSLog(@"swipe once more");
+        default:
+            break;
+    }
+}
+
 - (void)emvTransactionData:(IDTEMVData*)emvData errorCode:(int)error{
     NSLog(@"EMV_RESULT_CODE_V2_response = %2X",error);
     
@@ -72,7 +100,7 @@
     if (emvData.resultCodeV2 == EMV_RESULT_CODE_V2_MSR_SUCCESS) {
         
     }
-
+    
     
     if (emvData.cardData != nil)
     {
@@ -80,49 +108,7 @@
     }
     else if (emvData.unencryptedTags)
     {
-        [self.transactionDelegate gotEMVData:emvData];
-    }
-}
-
-- (void)startEmvTransactionWithAmount:(NSDecimalNumber *)amount
-{
-    //[[IDT_UniPayIII sharedController] emv_retrieveTerminalData:&res];
-    [[IDT_UniPayIII sharedController] emv_disableAutoAuthenticateTransaction:NO];
-    RETURN_CODE rt = [[IDT_UniPayIII sharedController] emv_startTransaction:amount.floatValue amtOther:0 type:0 timeout:60 tags:nil forceOnline:false fallback:true];
-    if (RETURN_CODE_DO_SUCCESS == rt)
-    {
-        NSLog(@"Start Transaction Command Accepted");
-    }
-    else
-    {
-        NSLog(@"Start Transaction info");
-    }
-}
-
-- (void)swipeMSRData:(IDTMSRData*)cardData
-{
-    switch (cardData.event)
-    {
-        case EVENT_MSR_CARD_DATA:
-            [self.transactionDelegate didReadMSRData:cardData];
-            break;
-        case EVENT_MSR_DATA_ERROR:
-            NSLog(@"swipe once more");
-        default:
-            break;
-    }
-}
-
--(void)authEMV
-{
-    RETURN_CODE rt = [[IDT_UniPayIII sharedController] emv_authenticateTransaction:nil];
-    if (RETURN_CODE_DO_SUCCESS == rt)
-    {
-      
-    }
-    else
-    {
-        NSLog(@"Start Transaction info");
+        [self.readerDelegate gotEMVData:emvData];
     }
 }
 
@@ -137,9 +123,9 @@
     {
         NSLog(@"Processing could not be completed");
     }
-    
-    
 }
+
+#pragma mark - Utility
 
 static int _lcdDisplayMode = 0;
 - (void) lcdDisplay:(int)mode  lines:(NSArray*)lines{

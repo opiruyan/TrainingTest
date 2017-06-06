@@ -17,6 +17,7 @@
 		5E0F547B1EDF2A4B0004259C /* HTEMVTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F547A1EDF2A4B0004259C /* HTEMVTransaction.m */; };
 		5E0F547E1EDF2A610004259C /* HTKeyedTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F547D1EDF2A610004259C /* HTKeyedTransaction.m */; };
 		5E0F54831EE0921B0004259C /* HTTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54821EE0921B0004259C /* HTTicket.m */; };
+		5E0F54861EE59CC20004259C /* HTSpinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54851EE59CC20004259C /* HTSpinnerViewController.m */; };
 		5E4E1B1F1EAF51880001B301 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */; };
 		5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B231EAF86AD0001B301 /* NSString+SHA256.m */; };
 		5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */; };
@@ -93,12 +94,14 @@
 		5E0F54801EDF322D0004259C /* HTTransaction_ProtectedProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTransaction_ProtectedProperties.h; sourceTree = "<group>"; };
 		5E0F54811EE0921B0004259C /* HTTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTicket.h; sourceTree = "<group>"; };
 		5E0F54821EE0921B0004259C /* HTTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTicket.m; sourceTree = "<group>"; };
+		5E0F54841EE59CC20004259C /* HTSpinnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSpinnerViewController.h; sourceTree = "<group>"; };
+		5E0F54851EE59CC20004259C /* HTSpinnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSpinnerViewController.m; sourceTree = "<group>"; };
 		5E4E1B1D1EAF51880001B301 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
 		5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 		5E4E1B221EAF86AD0001B301 /* NSString+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256.h"; sourceTree = "<group>"; };
 		5E4E1B231EAF86AD0001B301 /* NSString+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA256.m"; sourceTree = "<group>"; };
-		5E4E1B271EB0C3C20001B301 /* HTSafariViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSafariViewContoller.h; sourceTree = "<group>"; };
-		5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSafariViewContoller.m; sourceTree = "<group>"; };
+		5E4E1B271EB0C3C20001B301 /* HTSafariViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTSafariViewContoller.h; path = TrainingTest/HTSafariViewContoller.h; sourceTree = "<group>"; };
+		5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTSafariViewContoller.m; path = TrainingTest/HTSafariViewContoller.m; sourceTree = "<group>"; };
 		5E4E1B5C1EBA07160001B301 /* HTAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAuthenticationManager.h; sourceTree = "<group>"; };
 		5E4E1B5D1EBA07160001B301 /* HTAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAuthenticationManager.m; sourceTree = "<group>"; };
 		5E4E1B601EBC67340001B301 /* HTTSYSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTSYSManager.h; sourceTree = "<group>"; };
@@ -149,8 +152,8 @@
 		F5C187B21E93A84B00800F52 /* HTKeypadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKeypadViewController.m; sourceTree = "<group>"; };
 		F5C187B41E9508E900800F52 /* HTCardInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCardInfoViewController.h; sourceTree = "<group>"; };
 		F5C187B51E9508E900800F52 /* HTCardInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCardInfoViewController.m; sourceTree = "<group>"; };
-		F5C550801EA62E2400AAA07E /* HTSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSignatureView.h; sourceTree = "<group>"; };
-		F5C550811EA62E2400AAA07E /* HTSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSignatureView.m; sourceTree = "<group>"; };
+		F5C550801EA62E2400AAA07E /* HTSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTSignatureView.h; path = TrainingTest/HTSignatureView.h; sourceTree = "<group>"; };
+		F5C550811EA62E2400AAA07E /* HTSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTSignatureView.m; path = TrainingTest/HTSignatureView.m; sourceTree = "<group>"; };
 		F5DDCCEF1E8D019C00904CD4 /* TrainingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DDCCF31E8D019C00904CD4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F5DDCCF51E8D019C00904CD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -229,6 +232,20 @@
 				5E0F54801EDF322D0004259C /* HTTransaction_ProtectedProperties.h */,
 			);
 			name = Transaction;
+			sourceTree = "<group>";
+		};
+		5E0F54871EE59CD00004259C /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				5E4E1B271EB0C3C20001B301 /* HTSafariViewContoller.h */,
+				5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */,
+				5E0F54841EE59CC20004259C /* HTSpinnerViewController.h */,
+				5E0F54851EE59CC20004259C /* HTSpinnerViewController.m */,
+				F5C550801EA62E2400AAA07E /* HTSignatureView.h */,
+				F5C550811EA62E2400AAA07E /* HTSignatureView.m */,
+			);
+			name = VIew;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		5E4E1B211EAF51AD0001B301 /* Categories */ = {
@@ -369,11 +386,8 @@
 			children = (
 				5E4E1B8B1ED6FFA20001B301 /* TrainingTest.entitlements */,
 				5E4E1B7B1ECC7AEF0001B301 /* Models */,
-				5E4E1B271EB0C3C20001B301 /* HTSafariViewContoller.h */,
-				5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */,
+				5E0F54871EE59CD00004259C /* VIew */,
 				5E4E1B211EAF51AD0001B301 /* Categories */,
-				F5C550801EA62E2400AAA07E /* HTSignatureView.h */,
-				F5C550811EA62E2400AAA07E /* HTSignatureView.m */,
 				F5DDCCF51E8D019C00904CD4 /* AppDelegate.h */,
 				F5DDCCF61E8D019C00904CD4 /* AppDelegate.m */,
 				5E4E1B5F1EBA07210001B301 /* Authentication */,
@@ -713,6 +727,7 @@
 			files = (
 				F5DDCD191E8FED4C00904CD4 /* LeftToRight.m in Sources */,
 				5E4E1B621EBC67340001B301 /* HTTSYSManager.m in Sources */,
+				5E0F54861EE59CC20004259C /* HTSpinnerViewController.m in Sources */,
 				F5DDCCF71E8D019C00904CD4 /* AppDelegate.m in Sources */,
 				5E0F547E1EDF2A610004259C /* HTKeyedTransaction.m in Sources */,
 				5E4E1B911ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m in Sources */,

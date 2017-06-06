@@ -32,12 +32,7 @@
     
     // title
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-    
-#pragma mark - Managers
-    
-    [HTAuthenticationManager sharedManager];
-    
-    
+
     return YES;
 }
 

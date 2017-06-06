@@ -10,6 +10,9 @@
 #import "HTPaymentManager.h"
 #import "HTPayment.h"
 #import "HTPaymentManager+transactionTypes.h"
+#import "HTSpinnerViewController.h"
+
+static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 
 @interface HTCardInfoViewController () <HTPaymentManagerProtocol, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *cardNumberTextField;
@@ -106,7 +109,16 @@
     self.readerStatusLabel.hidden = !status;
     if (status)
     {
+        [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
         [self.payButton.titleLabel setText:@"Please, swipe or insert card"];
+    }
+    else
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        HTSpinnerViewController *spinnerViewController = [storyboard instantiateViewControllerWithIdentifier:SpinnerViewControllerIdentifier];
+        [self presentViewController:spinnerViewController animated:YES completion:^{
+            [spinnerViewController rotate];
+        }];
     }
 }
 

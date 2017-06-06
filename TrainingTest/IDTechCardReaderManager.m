@@ -12,8 +12,6 @@
 
 @interface IDTechCardReaderManager ()
 
-@property (nonatomic) BOOL cardReaderConnected;
-
 @end
 
 @implementation IDTechCardReaderManager
@@ -32,14 +30,16 @@
 
 - (void)plugStatusChange:(BOOL)deviceInserted
 {
+    // when the method first time called and device is inserted we need to wait
+    // till -(void)deviceConnected get called to start working
+    // so if deviceInsterted == YES we jsut wait to delegate method deviceConnected
+    // and start/keep working
+    // if deviceInsterted == NO we have already
+    // sent readerManager: detectedDevicePlugged:NO
+    [self.readerDelegate readerManager:self detectedDevicePlugged:NO];
     if (deviceInserted)
     {
         [[IDT_UniPayIII sharedController] device_connectToAudioReader];
-    }
-    else
-    {
-        self.cardReaderConnected = NO;
-        // device removed
     }
 }
 

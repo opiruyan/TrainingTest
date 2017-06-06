@@ -9,13 +9,25 @@
 #import "HTKeypadViewController.h"
 #import "HTPayment.h"
 
+IB_DESIGNABLE
 @interface HTKeypadButton : UIButton
 
 @property (nonatomic, strong) NSString *number;
+@property (nonatomic) IBInspectable NSInteger borderWidth;
+@property (nonatomic) IBInspectable UIColor *borderColor;
+@property (nonatomic) IBInspectable CGFloat cornerRadius;
 
 @end
 
 @implementation HTKeypadButton
+
+- (void)drawRect:(CGRect)rect
+{
+    self.layer.cornerRadius = self.cornerRadius;
+    self.layer.borderWidth = self.borderWidth;
+    self.layer.borderColor = self.borderColor.CGColor;
+}
+
 
 
 @end
@@ -38,7 +50,6 @@
         self.alpha = 0.4;
     }
 }
-
 
 @end
 

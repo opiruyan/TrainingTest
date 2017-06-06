@@ -39,15 +39,15 @@
 
 - (void)start
 {
-    NSDecimalNumber *amount = [[HTPayment currentPayment] amount];
-    if (self.transationType == htTransacionTypeEMV)
-    {
-        [self.cardReaderManager startEmvTransactionWithAmount:amount];
-    }
-    else
-    {
-        [self.cardReaderManager startMSRTransaction];
-    }
+//    NSDecimalNumber *amount = [[HTPayment currentPayment] amount];
+//    if (self.transationType == htTransacionTypeEMV)
+//    {
+//        [self.cardReaderManager startEmvTransactionWithAmount:amount];
+//    }
+//    else
+//    {
+//        [self.cardReaderManager startMSRTransaction];
+//    }
 }
 
 #pragma mark - Reader Manager Delegate
@@ -55,9 +55,11 @@
 - (void)readerManager:(IDTechCardReaderManager *)manager detectedDevicePlugged:(BOOL)status
 {
     [self.delegate devicePlugged:status];
+    BOOL connected = [[IDT_UniPayIII sharedController] device_isAudioReaderConnected];
+    BOOL set = [[IDT_UniPayIII sharedController] device_isConnected:IDT_DEVICE_UNIPAYIII_IOS];
+    BOOL set2 = [[IDT_UniPayIII sharedController] isConnected];
     if (status)
     {
-        
     }
 }
 

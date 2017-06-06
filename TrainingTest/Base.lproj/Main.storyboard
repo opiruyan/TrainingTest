@@ -12,6 +12,17 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Proxima Nova-Bold.otf">
+            <string>ProximaNova-Bold</string>
+        </array>
+        <array key="Proxima Nova-Light.otf">
+            <string>ProximaNova-Light</string>
+        </array>
+        <array key="Proxima Nova-Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -63,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="100" y="941"/>
         </scene>
-        <!--Keypad View Controller-->
+        <!--New Payment-->
         <scene sceneID="RGU-N6-hrQ">
             <objects>
                 <viewController id="F7u-6J-PJj" customClass="HTKeypadViewController" sceneMemberID="viewController">
@@ -75,50 +86,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mxg-L1-523">
-                                <rect key="frame" x="24" y="105" width="327" height="82"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mxg-L1-523">
+                                <rect key="frame" x="0.0" y="64" width="375" height="94"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mxg-L1-523" secondAttribute="height" multiplier="4:1" id="fyr-BM-rM9"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="60"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fly-Br-CV1">
-                                <rect key="frame" x="24" y="195" width="327" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="jcT-tw-tcF"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evQ-h3-fIC" customClass="HTKeypadButton">
-                                <rect key="frame" x="24" y="204" width="103.5" height="82.5"/>
+                                <rect key="frame" x="0.0" y="158" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="evQ-h3-fIC" secondAttribute="height" multiplier="5:4" id="TRP-Vx-crE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="7"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="7">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="7"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="riA-CD-MJI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpJ-e3-uCj" customClass="HTKeypadButton">
-                                <rect key="frame" x="135.5" y="204" width="104" height="82.5"/>
+                                <rect key="frame" x="125" y="158" width="125" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="8"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="8">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="8"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -126,14 +146,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAi-YE-zb6" customClass="HTKeypadButton">
-                                <rect key="frame" x="247.5" y="204" width="103.5" height="82.5"/>
+                                <rect key="frame" x="250" y="158" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="9"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="9">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="9"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -141,104 +169,159 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBg-ii-pLJ" customClass="HTKeypadButton">
-                                <rect key="frame" x="24" y="294.5" width="103.5" height="83"/>
+                                <rect key="frame" x="0.0" y="257.5" width="125" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="4"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="4">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="4"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="IU0-Bh-VA2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbh-t9-BmE" customClass="HTKeypadButton">
-                                <rect key="frame" x="247.5" y="294.5" width="103.5" height="83"/>
+                                <rect key="frame" x="250" y="257.5" width="125" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="6"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="6">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="6"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="sY1-2w-RwO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7r-Wh-pJX" customClass="HTKeypadButton">
-                                <rect key="frame" x="135.5" y="294.5" width="104" height="83"/>
+                                <rect key="frame" x="125" y="258" width="125" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="5"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="5">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="5"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="Zn1-mu-HIE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyA-O8-btR" customClass="HTKeypadButton">
-                                <rect key="frame" x="24" y="385.5" width="103.5" height="83"/>
+                                <rect key="frame" x="0.0" y="357.5" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="1"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="1"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="aGP-QN-HZP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXg-c5-XDC" customClass="HTKeypadButton">
-                                <rect key="frame" x="247.5" y="385.5" width="103.5" height="83"/>
+                                <rect key="frame" x="250" y="357.5" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="3"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="3">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="3"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="1ye-Ty-HED"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9k-fx-cS7" customClass="HTKeypadButton">
-                                <rect key="frame" x="135.5" y="385.5" width="104" height="83"/>
+                                <rect key="frame" x="125" y="358" width="125" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="2"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="2"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="vOe-gi-6Se"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xs-ac-N3o">
-                                <rect key="frame" x="24" y="476.5" width="103.5" height="83"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xs-ac-N3o" customClass="HTKeypadButton">
+                                <rect key="frame" x="0.0" y="457" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="0.23723384040000001" blue="0.30996626389999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="25"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -246,40 +329,59 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqb-rD-qVg" customClass="HTKeypadButton">
-                                <rect key="frame" x="248.5" y="476.5" width="102.5" height="83"/>
+                                <rect key="frame" x="250" y="457" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="00"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="00">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="."/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="2RM-Na-pdN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzn-hB-mXt" customClass="HTKeypadButton">
-                                <rect key="frame" x="136" y="476.5" width="103" height="83"/>
+                                <rect key="frame" x="125" y="458" width="125" height="99"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="0"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
+                                <state key="normal" title="0">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="number" value="0"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="numberPressed:" destination="F7u-6J-PJj" eventType="touchUpInside" id="tgO-lr-cl0"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ll5-qJ-WBD">
-                                <rect key="frame" x="0.0" y="566.5" width="375" height="100.5"/>
+                                <rect key="frame" x="0.0" y="557" width="375" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMI-9y-8id" customClass="HTButton">
-                                        <rect key="frame" x="8" y="8" width="359" height="74.5"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                        <color key="backgroundColor" red="0.0" green="0.68627450980392157" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="24"/>
+                                        <color key="tintColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Pay">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -288,79 +390,74 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="tMI-9y-8id" secondAttribute="trailing" constant="8" id="5ph-11-yxQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="tMI-9y-8id" secondAttribute="bottom" constant="18" id="FVp-bz-Pjl"/>
-                                    <constraint firstItem="tMI-9y-8id" firstAttribute="leading" secondItem="Ll5-qJ-WBD" secondAttribute="leading" constant="8" id="GY2-EL-F85"/>
-                                    <constraint firstItem="tMI-9y-8id" firstAttribute="top" secondItem="Ll5-qJ-WBD" secondAttribute="top" constant="8" id="R7m-cE-pPv"/>
+                                    <constraint firstAttribute="trailing" secondItem="tMI-9y-8id" secondAttribute="trailing" id="0RF-yz-Etd"/>
+                                    <constraint firstAttribute="bottom" secondItem="tMI-9y-8id" secondAttribute="bottom" id="8wb-5Y-vMR"/>
+                                    <constraint firstItem="tMI-9y-8id" firstAttribute="leading" secondItem="Ll5-qJ-WBD" secondAttribute="leading" id="K6D-Xm-SLg"/>
+                                    <constraint firstItem="tMI-9y-8id" firstAttribute="top" secondItem="Ll5-qJ-WBD" secondAttribute="top" id="R7m-cE-pPv"/>
+                                    <constraint firstItem="tMI-9y-8id" firstAttribute="top" secondItem="Ll5-qJ-WBD" secondAttribute="top" id="hIg-fe-Jsy"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wAi-YE-zb6" firstAttribute="top" secondItem="Fly-Br-CV1" secondAttribute="bottom" constant="8" id="0rM-ga-Xyr"/>
-                            <constraint firstItem="W7r-Wh-pJX" firstAttribute="leading" secondItem="EBg-ii-pLJ" secondAttribute="trailing" constant="8" id="1VK-O0-L2H"/>
+                            <constraint firstItem="W7r-Wh-pJX" firstAttribute="leading" secondItem="EBg-ii-pLJ" secondAttribute="trailing" id="1VK-O0-L2H"/>
                             <constraint firstAttribute="trailing" secondItem="Ll5-qJ-WBD" secondAttribute="trailing" id="1r0-XC-oR6"/>
+                            <constraint firstItem="wAi-YE-zb6" firstAttribute="top" secondItem="mxg-L1-523" secondAttribute="bottom" id="201-Ws-567"/>
                             <constraint firstItem="F9k-fx-cS7" firstAttribute="width" secondItem="W7r-Wh-pJX" secondAttribute="width" id="3UG-ba-Fj3"/>
-                            <constraint firstItem="W7r-Wh-pJX" firstAttribute="top" secondItem="vpJ-e3-uCj" secondAttribute="bottom" constant="8" id="56y-vj-JLJ"/>
+                            <constraint firstItem="evQ-h3-fIC" firstAttribute="top" secondItem="mxg-L1-523" secondAttribute="bottom" id="3sx-D7-Yj2"/>
+                            <constraint firstItem="W7r-Wh-pJX" firstAttribute="top" secondItem="vpJ-e3-uCj" secondAttribute="bottom" id="56y-vj-JLJ"/>
                             <constraint firstItem="EBg-ii-pLJ" firstAttribute="height" secondItem="evQ-h3-fIC" secondAttribute="height" id="5R5-jh-D0r"/>
+                            <constraint firstItem="vpJ-e3-uCj" firstAttribute="top" secondItem="mxg-L1-523" secondAttribute="bottom" id="6El-e0-95f"/>
                             <constraint firstItem="vpJ-e3-uCj" firstAttribute="height" secondItem="evQ-h3-fIC" secondAttribute="height" id="7jF-Zu-x5z"/>
-                            <constraint firstItem="vpJ-e3-uCj" firstAttribute="leading" secondItem="evQ-h3-fIC" secondAttribute="trailing" constant="8" id="8dg-Zd-5Ea"/>
-                            <constraint firstItem="evQ-h3-fIC" firstAttribute="top" secondItem="Fly-Br-CV1" secondAttribute="bottom" constant="8" id="90q-jO-YR8"/>
+                            <constraint firstItem="vpJ-e3-uCj" firstAttribute="leading" secondItem="evQ-h3-fIC" secondAttribute="trailing" id="8dg-Zd-5Ea"/>
                             <constraint firstItem="iqb-rD-qVg" firstAttribute="height" secondItem="Rzn-hB-mXt" secondAttribute="height" id="AYF-FX-bUk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iqb-rD-qVg" secondAttribute="trailing" constant="8" id="DfO-sd-SZY"/>
                             <constraint firstAttribute="bottom" secondItem="Ll5-qJ-WBD" secondAttribute="bottom" id="DfS-Kn-1Pi"/>
-                            <constraint firstItem="JyA-O8-btR" firstAttribute="top" secondItem="EBg-ii-pLJ" secondAttribute="bottom" constant="7.5" id="DfV-EY-jeW"/>
+                            <constraint firstItem="JyA-O8-btR" firstAttribute="top" secondItem="EBg-ii-pLJ" secondAttribute="bottom" id="DfV-EY-jeW"/>
                             <constraint firstItem="wAi-YE-zb6" firstAttribute="trailing" secondItem="mxg-L1-523" secondAttribute="trailing" id="Egw-JL-FPc"/>
                             <constraint firstItem="wAi-YE-zb6" firstAttribute="height" secondItem="vpJ-e3-uCj" secondAttribute="height" id="Fnx-G4-wo9"/>
                             <constraint firstItem="Rzn-hB-mXt" firstAttribute="width" secondItem="6Xs-ac-N3o" secondAttribute="width" id="H8i-pn-Bno"/>
-                            <constraint firstItem="mxg-L1-523" firstAttribute="top" secondItem="G3s-CF-0eH" secondAttribute="bottom" constant="41" id="Ha8-Wd-cby"/>
-                            <constraint firstItem="wAi-YE-zb6" firstAttribute="leading" secondItem="vpJ-e3-uCj" secondAttribute="trailing" constant="8" id="ILA-eO-Fl7"/>
-                            <constraint firstItem="Fly-Br-CV1" firstAttribute="top" secondItem="mxg-L1-523" secondAttribute="bottom" constant="8" id="KdV-AT-vuq"/>
-                            <constraint firstItem="6Xs-ac-N3o" firstAttribute="top" secondItem="JyA-O8-btR" secondAttribute="bottom" constant="8" id="KuW-B6-wic"/>
-                            <constraint firstItem="6Xs-ac-N3o" firstAttribute="leading" secondItem="gqW-yA-lHB" secondAttribute="leadingMargin" constant="8" id="LUL-Af-HIm"/>
-                            <constraint firstItem="Cbh-t9-BmE" firstAttribute="top" secondItem="wAi-YE-zb6" secondAttribute="bottom" constant="8" id="NI6-Ak-tA5"/>
+                            <constraint firstItem="mxg-L1-523" firstAttribute="top" secondItem="G3s-CF-0eH" secondAttribute="bottom" id="Ha8-Wd-cby"/>
+                            <constraint firstItem="wAi-YE-zb6" firstAttribute="leading" secondItem="vpJ-e3-uCj" secondAttribute="trailing" id="ILA-eO-Fl7"/>
+                            <constraint firstItem="6Xs-ac-N3o" firstAttribute="top" secondItem="JyA-O8-btR" secondAttribute="bottom" id="KuW-B6-wic"/>
+                            <constraint firstItem="Cbh-t9-BmE" firstAttribute="top" secondItem="wAi-YE-zb6" secondAttribute="bottom" id="NI6-Ak-tA5"/>
                             <constraint firstItem="EBg-ii-pLJ" firstAttribute="width" secondItem="evQ-h3-fIC" secondAttribute="width" id="OM7-ob-hFb"/>
+                            <constraint firstItem="iqb-rD-qVg" firstAttribute="leading" secondItem="Rzn-hB-mXt" secondAttribute="trailing" id="R3i-bc-v2A"/>
                             <constraint firstItem="JyA-O8-btR" firstAttribute="height" secondItem="EBg-ii-pLJ" secondAttribute="height" id="SGn-fu-k1K"/>
-                            <constraint firstItem="F9k-fx-cS7" firstAttribute="top" secondItem="W7r-Wh-pJX" secondAttribute="bottom" constant="8.5" id="Wb5-w4-3aS"/>
                             <constraint firstItem="F9k-fx-cS7" firstAttribute="height" secondItem="JyA-O8-btR" secondAttribute="height" id="YYK-oy-8Yu"/>
-                            <constraint firstItem="Cbh-t9-BmE" firstAttribute="leading" secondItem="W7r-Wh-pJX" secondAttribute="trailing" constant="8" id="YdQ-8d-A99"/>
-                            <constraint firstItem="JyA-O8-btR" firstAttribute="leading" secondItem="gqW-yA-lHB" secondAttribute="leadingMargin" constant="8" id="Zrg-WH-UlI"/>
+                            <constraint firstItem="Cbh-t9-BmE" firstAttribute="leading" secondItem="W7r-Wh-pJX" secondAttribute="trailing" id="YdQ-8d-A99"/>
+                            <constraint firstItem="6Xs-ac-N3o" firstAttribute="leading" secondItem="mxg-L1-523" secondAttribute="leading" id="aMl-wX-P7k"/>
                             <constraint firstItem="Cbh-t9-BmE" firstAttribute="height" secondItem="wAi-YE-zb6" secondAttribute="height" id="aSp-av-6pK"/>
                             <constraint firstItem="W7r-Wh-pJX" firstAttribute="height" secondItem="vpJ-e3-uCj" secondAttribute="height" id="agg-1g-ynm"/>
                             <constraint firstItem="yXg-c5-XDC" firstAttribute="height" secondItem="F9k-fx-cS7" secondAttribute="height" id="atI-U2-VDj"/>
-                            <constraint firstItem="Rzn-hB-mXt" firstAttribute="top" secondItem="F9k-fx-cS7" secondAttribute="bottom" constant="8" id="bec-mZ-vT4"/>
+                            <constraint firstItem="Rzn-hB-mXt" firstAttribute="top" secondItem="F9k-fx-cS7" secondAttribute="bottom" id="bec-mZ-vT4"/>
                             <constraint firstItem="Ll5-qJ-WBD" firstAttribute="leading" secondItem="gqW-yA-lHB" secondAttribute="leading" id="bjl-wq-QMD"/>
-                            <constraint firstItem="Fly-Br-CV1" firstAttribute="leading" secondItem="mxg-L1-523" secondAttribute="leading" id="bkB-LA-y0m"/>
-                            <constraint firstItem="yXg-c5-XDC" firstAttribute="top" secondItem="Cbh-t9-BmE" secondAttribute="bottom" constant="8" id="elE-9c-Fn2"/>
-                            <constraint firstItem="vpJ-e3-uCj" firstAttribute="top" secondItem="Fly-Br-CV1" secondAttribute="bottom" constant="8" id="epZ-H5-rVt"/>
+                            <constraint firstItem="yXg-c5-XDC" firstAttribute="trailing" secondItem="mxg-L1-523" secondAttribute="trailing" id="c2N-GF-aaS"/>
+                            <constraint firstItem="yXg-c5-XDC" firstAttribute="top" secondItem="Cbh-t9-BmE" secondAttribute="bottom" id="elE-9c-Fn2"/>
                             <constraint firstItem="evQ-h3-fIC" firstAttribute="width" secondItem="vpJ-e3-uCj" secondAttribute="width" id="epj-yx-GLy"/>
                             <constraint firstItem="6Xs-ac-N3o" firstAttribute="height" secondItem="JyA-O8-btR" secondAttribute="height" id="fPO-3N-pJF"/>
-                            <constraint firstItem="EBg-ii-pLJ" firstAttribute="top" secondItem="evQ-h3-fIC" secondAttribute="bottom" constant="8" id="gTo-HA-UmX"/>
+                            <constraint firstItem="EBg-ii-pLJ" firstAttribute="top" secondItem="evQ-h3-fIC" secondAttribute="bottom" id="gTo-HA-UmX"/>
                             <constraint firstItem="Cbh-t9-BmE" firstAttribute="width" secondItem="wAi-YE-zb6" secondAttribute="width" id="gv2-Yw-myh"/>
-                            <constraint firstItem="Ll5-qJ-WBD" firstAttribute="top" secondItem="Rzn-hB-mXt" secondAttribute="bottom" constant="7" id="hD7-w8-zgM"/>
-                            <constraint firstItem="iqb-rD-qVg" firstAttribute="top" secondItem="yXg-c5-XDC" secondAttribute="bottom" constant="8" id="hte-VN-fbB"/>
+                            <constraint firstItem="Ll5-qJ-WBD" firstAttribute="top" secondItem="Rzn-hB-mXt" secondAttribute="bottom" id="hD7-w8-zgM"/>
+                            <constraint firstItem="iqb-rD-qVg" firstAttribute="top" secondItem="yXg-c5-XDC" secondAttribute="bottom" id="hte-VN-fbB"/>
                             <constraint firstItem="Rzn-hB-mXt" firstAttribute="height" secondItem="6Xs-ac-N3o" secondAttribute="height" id="lGc-i2-hwP"/>
-                            <constraint firstItem="F9k-fx-cS7" firstAttribute="top" secondItem="W7r-Wh-pJX" secondAttribute="bottom" constant="8" id="ljN-qg-pWG"/>
+                            <constraint firstItem="F9k-fx-cS7" firstAttribute="top" secondItem="W7r-Wh-pJX" secondAttribute="bottom" id="ljN-qg-pWG"/>
                             <constraint firstItem="JyA-O8-btR" firstAttribute="width" secondItem="EBg-ii-pLJ" secondAttribute="width" id="mbl-dU-MIA"/>
+                            <constraint firstItem="JyA-O8-btR" firstAttribute="leading" secondItem="mxg-L1-523" secondAttribute="leading" id="n8L-pp-jtv"/>
                             <constraint firstItem="W7r-Wh-pJX" firstAttribute="width" secondItem="vpJ-e3-uCj" secondAttribute="width" id="nD2-30-b3b"/>
                             <constraint firstItem="Cbh-t9-BmE" firstAttribute="trailing" secondItem="mxg-L1-523" secondAttribute="trailing" id="pzj-iy-3Ru"/>
-                            <constraint firstItem="F9k-fx-cS7" firstAttribute="leading" secondItem="JyA-O8-btR" secondAttribute="trailing" constant="8" id="rsk-kP-9Qh"/>
+                            <constraint firstItem="F9k-fx-cS7" firstAttribute="leading" secondItem="JyA-O8-btR" secondAttribute="trailing" id="rsk-kP-9Qh"/>
                             <constraint firstItem="vpJ-e3-uCj" firstAttribute="width" secondItem="wAi-YE-zb6" secondAttribute="width" id="sLJ-Zl-xR8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yXg-c5-XDC" secondAttribute="trailing" constant="8" id="skn-Qf-4Ec"/>
-                            <constraint firstItem="yXg-c5-XDC" firstAttribute="leading" secondItem="F9k-fx-cS7" secondAttribute="trailing" constant="8" id="tmR-rU-ngm"/>
+                            <constraint firstItem="yXg-c5-XDC" firstAttribute="leading" secondItem="F9k-fx-cS7" secondAttribute="trailing" id="tmR-rU-ngm"/>
                             <constraint firstItem="6Xs-ac-N3o" firstAttribute="width" secondItem="JyA-O8-btR" secondAttribute="width" id="tnw-v5-QbZ"/>
                             <constraint firstItem="EBg-ii-pLJ" firstAttribute="leading" secondItem="mxg-L1-523" secondAttribute="leading" id="tp7-8I-US3"/>
-                            <constraint firstItem="mxg-L1-523" firstAttribute="leading" secondItem="gqW-yA-lHB" secondAttribute="leadingMargin" constant="8" id="w4S-WY-oS8"/>
+                            <constraint firstItem="mxg-L1-523" firstAttribute="leading" secondItem="gqW-yA-lHB" secondAttribute="leading" id="w4S-WY-oS8"/>
                             <constraint firstItem="Rzn-hB-mXt" firstAttribute="centerX" secondItem="gqW-yA-lHB" secondAttribute="centerX" id="wGZ-gb-HmK"/>
-                            <constraint firstItem="Fly-Br-CV1" firstAttribute="trailing" secondItem="mxg-L1-523" secondAttribute="trailing" id="xtj-5a-lji"/>
                             <constraint firstItem="evQ-h3-fIC" firstAttribute="leading" secondItem="mxg-L1-523" secondAttribute="leading" id="yRI-Eo-Gr2"/>
                             <constraint firstItem="iqb-rD-qVg" firstAttribute="width" secondItem="Rzn-hB-mXt" secondAttribute="width" id="zvI-1o-dPj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mxg-L1-523" secondAttribute="trailing" constant="8" id="zxQ-qz-mg6"/>
+                            <constraint firstAttribute="trailing" secondItem="mxg-L1-523" secondAttribute="trailing" id="zxQ-qz-mg6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Vrc-aO-mXV">
+                    <navigationItem key="navigationItem" title="New Payment" id="Vrc-aO-mXV">
                         <barButtonItem key="leftBarButtonItem" image="icon_more_active" id="8EI-eK-JA8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
@@ -386,24 +483,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZZ-et-TKt">
-                                <rect key="frame" x="16" y="572" width="171.5" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YN1-S6-5Lu">
-                                <rect key="frame" x="187.5" y="572" width="171.5" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="keyedTransactionPressed:" destination="xsQ-pi-ZDu" eventType="touchUpInside" id="NvX-4F-5us"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$58.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njQ-e9-qJW">
+                                <rect key="frame" x="93.5" y="104" width="188.5" height="60"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe a card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjo-jy-Doh">
+                                <rect key="frame" x="136.5" y="184" width="102" height="18"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="pwT-LV-lGz">
+                                <rect key="frame" x="195" y="222" width="6" height="11"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="0Vv-2P-J2n">
+                                <rect key="frame" x="167" y="222" width="6" height="11"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="yv5-c6-mAb">
+                                <rect key="frame" x="181" y="222" width="6" height="11"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aud-XF-pwx">
+                                <rect key="frame" x="0.0" y="523" width="187.5" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByD-Xt-7mQ">
+                                        <rect key="frame" x="63.5" y="66" width="61" height="12"/>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R0-89-6GT">
+                                        <rect key="frame" x="67" y="18" width="70" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="Hko-ZP-qn7"/>
+                                            <constraint firstAttribute="height" constant="34" id="Pbd-pc-FEQ"/>
+                                        </constraints>
+                                        <state key="normal" image="insertCardIcon"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="CaR-kM-9lh"/>
+                                    <constraint firstItem="8R0-89-6GT" firstAttribute="centerX" secondItem="aud-XF-pwx" secondAttribute="centerX" constant="8" id="Lv4-sG-5cV"/>
+                                    <constraint firstAttribute="bottom" secondItem="ByD-Xt-7mQ" secondAttribute="bottom" constant="22" id="UYE-7J-UFe"/>
+                                    <constraint firstItem="8R0-89-6GT" firstAttribute="top" secondItem="aud-XF-pwx" secondAttribute="top" constant="18" id="exE-kW-tUI"/>
+                                    <constraint firstItem="ByD-Xt-7mQ" firstAttribute="centerX" secondItem="aud-XF-pwx" secondAttribute="centerX" id="h5K-eZ-AdG"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqf-kc-Y1Y">
+                                <rect key="frame" x="187.5" y="523" width="187" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdF-Na-mjf">
+                                        <rect key="frame" x="70" y="66" width="48" height="12"/>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZH-t7-pU1">
+                                        <rect key="frame" x="58.5" y="18" width="70" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="uZ9-Rn-kmz"/>
+                                            <constraint firstAttribute="height" constant="34" id="wcf-ma-SAs"/>
+                                        </constraints>
+                                        <state key="normal" image="keyboardIcon"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6y4-eh-SMZ"/>
+                                    <constraint firstItem="MZH-t7-pU1" firstAttribute="centerX" secondItem="qqf-kc-Y1Y" secondAttribute="centerX" id="9Pg-gG-OOk"/>
+                                    <constraint firstItem="MZH-t7-pU1" firstAttribute="top" secondItem="qqf-kc-Y1Y" secondAttribute="top" constant="18" id="d9p-Hm-rYc"/>
+                                    <constraint firstAttribute="bottom" secondItem="RdF-Na-mjf" secondAttribute="bottom" constant="22" id="rlV-0l-HZ4"/>
+                                    <constraint firstItem="RdF-Na-mjf" firstAttribute="centerX" secondItem="qqf-kc-Y1Y" secondAttribute="centerX" id="tHa-N1-Tst"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.42650891037759064" green="0.65391754603690888" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.010643675923347473" green="0.73801583051681519" blue="0.94898217916488647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="YN1-S6-5Lu" secondAttribute="trailing" id="cN5-iH-Y6e"/>
-                            <constraint firstAttribute="centerXWithinMargins" secondItem="nZZ-et-TKt" secondAttribute="trailing" id="eaS-qn-6YF"/>
-                            <constraint firstItem="nZZ-et-TKt" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="leadingMargin" id="im2-N7-MQL"/>
-                            <constraint firstItem="YN1-S6-5Lu" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="centerXWithinMargins" id="qSG-LO-qx2"/>
+                            <constraint firstItem="yv5-c6-mAb" firstAttribute="top" secondItem="pwT-LV-lGz" secondAttribute="top" id="1dB-pK-Ax0"/>
+                            <constraint firstItem="njQ-e9-qJW" firstAttribute="top" secondItem="J9Z-Ot-3oO" secondAttribute="bottom" constant="40" id="5jO-rP-DcH"/>
+                            <constraint firstItem="pwT-LV-lGz" firstAttribute="leading" secondItem="yv5-c6-mAb" secondAttribute="trailing" constant="8" id="6Zd-80-s38"/>
+                            <constraint firstItem="njQ-e9-qJW" firstAttribute="centerX" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="7KJ-qN-oha"/>
+                            <constraint firstItem="aud-XF-pwx" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="leading" id="7n9-3x-Zpm"/>
+                            <constraint firstItem="Tjo-jy-Doh" firstAttribute="centerX" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="8F0-km-ADi"/>
+                            <constraint firstItem="pwT-LV-lGz" firstAttribute="top" secondItem="Tjo-jy-Doh" secondAttribute="bottom" constant="20" id="Dco-Hp-79t"/>
+                            <constraint firstItem="0Vv-2P-J2n" firstAttribute="top" secondItem="yv5-c6-mAb" secondAttribute="top" id="Djt-UC-Ijf"/>
+                            <constraint firstItem="yv5-c6-mAb" firstAttribute="leading" secondItem="0Vv-2P-J2n" secondAttribute="trailing" constant="8" id="PjR-b1-7Wz"/>
+                            <constraint firstItem="qqf-kc-Y1Y" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="UUz-qU-4tU"/>
+                            <constraint firstItem="iTa-Pb-bX9" firstAttribute="top" secondItem="qqf-kc-Y1Y" secondAttribute="bottom" id="aVL-Nf-Umb"/>
+                            <constraint firstAttribute="trailing" secondItem="qqf-kc-Y1Y" secondAttribute="trailing" id="dHu-cb-ZPW"/>
+                            <constraint firstItem="Tjo-jy-Doh" firstAttribute="top" secondItem="njQ-e9-qJW" secondAttribute="bottom" constant="20" id="fny-KS-Ue3"/>
+                            <constraint firstItem="pwT-LV-lGz" firstAttribute="centerX" secondItem="Tjo-jy-Doh" secondAttribute="centerX" constant="11" id="ho9-xP-MTi"/>
+                            <constraint firstItem="aud-XF-pwx" firstAttribute="trailing" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="tt8-o0-MNm"/>
+                            <constraint firstItem="iTa-Pb-bX9" firstAttribute="top" secondItem="aud-XF-pwx" secondAttribute="bottom" id="wh2-tH-isH"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -412,7 +585,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="keyedTransactionButton" destination="YN1-S6-5Lu" id="K6w-GV-Kz6"/>
                         <segue destination="COq-pg-5iV" kind="show" identifier="Decline" id="pdJ-08-cwr"/>
                         <segue destination="gRH-T1-za9" kind="show" identifier="Accept" id="y38-Xw-Ogz"/>
                     </connections>
@@ -437,7 +609,7 @@
                                 <rect key="frame" x="108" y="257" width="158" height="153"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.68235294117647061" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KLU-NN-PXd" firstAttribute="centerX" secondItem="XZy-sa-cqU" secondAttribute="centerX" id="PxZ-cX-xtx"/>
                             <constraint firstItem="KLU-NN-PXd" firstAttribute="centerY" secondItem="XZy-sa-cqU" secondAttribute="centerY" id="ZSd-MV-gWV"/>
@@ -708,9 +880,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qIp-N7-qPD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGP-Ca-ZNu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kGP-Ca-ZNu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0078431372549019607" green="0.3411764705882353" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -725,6 +898,9 @@
     <resources>
         <image name="HTLogo" width="147" height="77"/>
         <image name="icon_more_active" width="18" height="15"/>
+        <image name="insertCardIcon" width="71" height="34"/>
+        <image name="keyboardIcon" width="54" height="34"/>
+        <image name="row" width="6" height="11"/>
         <image name="spinner" width="158" height="153"/>
     </resources>
 </document>

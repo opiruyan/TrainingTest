@@ -22,13 +22,13 @@
     
 #pragma mark - UI Appearence
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor darkGrayColor]];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor darkGrayColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTitleTextAttributes:@{
         NSForegroundColorAttributeName : [UIColor whiteColor]
     }];
-    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     
     // title
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];

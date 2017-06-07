@@ -11,6 +11,7 @@
 #import "HTPayment.h"
 #import "HTPaymentManager+transactionTypes.h"
 #import "HTSpinnerViewController.h"
+#import "UIView+Animation.h"
 
 static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 
@@ -21,17 +22,25 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 
 @property (strong, nonatomic) HTCardInfo *cardInfo;
 @property (weak, nonatomic) IBOutlet UIButton *keyedTransactionButton;
+@property (weak, nonatomic) IBOutlet UIImageView *cardmageView;
 
 @end
 
 @implementation HTCardInfoViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // ui setup
     self.navigationItem.title = [@"Total $" stringByAppendingString:[[[HTPayment currentPayment] amount] stringValue]];
     
     self.paymentManager.transationType = htTransacionTypeEMV;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.cardmageView animateSwipe];
 }
 
 - (HTPaymentManager *)paymentManager

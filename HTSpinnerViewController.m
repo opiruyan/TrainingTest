@@ -23,7 +23,7 @@
 
 - (void)rotate
 {
-    [self rotateLayerInfinite:_spinnerImageView	.layer];
+    [self rotateLayerInfinite:_spinnerImageView.layer];
 }
 
 - (void)didReceiveMemoryWarning {

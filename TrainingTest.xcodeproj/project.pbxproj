@@ -18,6 +18,7 @@
 		5E0F547E1EDF2A610004259C /* HTKeyedTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F547D1EDF2A610004259C /* HTKeyedTransaction.m */; };
 		5E0F54831EE0921B0004259C /* HTTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54821EE0921B0004259C /* HTTicket.m */; };
 		5E0F54861EE59CC20004259C /* HTSpinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54851EE59CC20004259C /* HTSpinnerViewController.m */; };
+		5E0F548E1EE7DC900004259C /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F548D1EE7DC900004259C /* UIView+Animation.m */; };
 		5E4E1B1F1EAF51880001B301 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */; };
 		5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B231EAF86AD0001B301 /* NSString+SHA256.m */; };
 		5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */; };
@@ -100,6 +101,8 @@
 		5E0F54891EE738D30004259C /* Proxima Nova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova-Light.otf"; sourceTree = "<group>"; };
 		5E0F548A1EE738D30004259C /* Proxima Nova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova-Regular.otf"; sourceTree = "<group>"; };
 		5E0F548B1EE738D30004259C /* Proxima Nova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova-Semibold.otf"; sourceTree = "<group>"; };
+		5E0F548C1EE7DC900004259C /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
+		5E0F548D1EE7DC900004259C /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
 		5E4E1B1D1EAF51880001B301 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
 		5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 		5E4E1B221EAF86AD0001B301 /* NSString+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256.h"; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 		5E0F54871EE59CD00004259C /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F548C1EE7DC900004259C /* UIView+Animation.h */,
+				5E0F548D1EE7DC900004259C /* UIView+Animation.m */,
 				5E4E1B271EB0C3C20001B301 /* HTSafariViewContoller.h */,
 				5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */,
 				5E0F54841EE59CC20004259C /* HTSpinnerViewController.h */,
@@ -748,6 +753,7 @@
 				5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */,
 				5E0F54751EDF29D50004259C /* HTTransaction.m in Sources */,
 				F5C187B31E93A84B00800F52 /* HTKeypadViewController.m in Sources */,
+				5E0F548E1EE7DC900004259C /* UIView+Animation.m in Sources */,
 				F5C550821EA62E2400AAA07E /* HTSignatureView.m in Sources */,
 				5E4E1B741ECB26730001B301 /* HTPayment.m in Sources */,
 				5E0F54831EE0921B0004259C /* HTTicket.m in Sources */,

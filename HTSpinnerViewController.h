@@ -10,6 +10,8 @@
 
 @interface HTSpinnerViewController : UIViewController
 
+@property (weak, nonatomic, readonly) IBOutlet UIImageView *spinnerImageView;
+
 - (void)rotate;
 
 @end

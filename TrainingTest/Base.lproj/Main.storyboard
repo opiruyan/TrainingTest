@@ -625,11 +625,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="KLU-NN-PXd">
-                                <rect key="frame" x="108" y="257" width="158" height="153"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="KLU-NN-PXd">
+                                <rect key="frame" x="127" y="274" width="120" height="119"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.68235294117647061" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.93725490199999995" alpha="0.79585830479999997" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KLU-NN-PXd" firstAttribute="centerX" secondItem="XZy-sa-cqU" secondAttribute="centerX" id="PxZ-cX-xtx"/>
                             <constraint firstItem="KLU-NN-PXd" firstAttribute="centerY" secondItem="XZy-sa-cqU" secondAttribute="centerY" id="ZSd-MV-gWV"/>
@@ -923,6 +924,6 @@
         <image name="insertCardIcon" width="71" height="34"/>
         <image name="keyboardIcon" width="54" height="34"/>
         <image name="row" width="6" height="11"/>
-        <image name="spinner" width="158" height="153"/>
+        <image name="spinner" width="120" height="119"/>
     </resources>
 </document>

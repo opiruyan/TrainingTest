@@ -40,7 +40,16 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.cardmageView animateSwipe];
+    //[self.cardmageView animateSwipe];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    HTSpinnerViewController *spinnerViewController = [storyboard instantiateViewControllerWithIdentifier:SpinnerViewControllerIdentifier];
+    spinnerViewController.definesPresentationContext = YES;
+    spinnerViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    spinnerViewController.view.backgroundColor = [UIColor greenColor];
+    spinnerViewController.spinnerImageView.image = [UIImage imageNamed:@"confirmationIcon"];
+    [self presentViewController:spinnerViewController animated:YES completion:^{
+        [spinnerViewController rotate];
+    }];
 }
 
 - (HTPaymentManager *)paymentManager

@@ -19,6 +19,8 @@
 		5E0F54831EE0921B0004259C /* HTTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54821EE0921B0004259C /* HTTicket.m */; };
 		5E0F54861EE59CC20004259C /* HTSpinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54851EE59CC20004259C /* HTSpinnerViewController.m */; };
 		5E0F548E1EE7DC900004259C /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F548D1EE7DC900004259C /* UIView+Animation.m */; };
+		5E0F54971EE889AD0004259C /* HTDesignableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54961EE889AD0004259C /* HTDesignableView.m */; };
+		5E0F549A1EE88A650004259C /* HTKeypadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54991EE88A650004259C /* HTKeypadButton.m */; };
 		5E4E1B1F1EAF51880001B301 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */; };
 		5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B231EAF86AD0001B301 /* NSString+SHA256.m */; };
 		5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */; };
@@ -103,6 +105,10 @@
 		5E0F548B1EE738D30004259C /* Proxima Nova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova-Semibold.otf"; sourceTree = "<group>"; };
 		5E0F548C1EE7DC900004259C /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		5E0F548D1EE7DC900004259C /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		5E0F54951EE889AD0004259C /* HTDesignableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDesignableView.h; sourceTree = "<group>"; };
+		5E0F54961EE889AD0004259C /* HTDesignableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDesignableView.m; sourceTree = "<group>"; };
+		5E0F54981EE88A650004259C /* HTKeypadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKeypadButton.h; sourceTree = "<group>"; };
+		5E0F54991EE88A650004259C /* HTKeypadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKeypadButton.m; sourceTree = "<group>"; };
 		5E4E1B1D1EAF51880001B301 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
 		5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 		5E4E1B221EAF86AD0001B301 /* NSString+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256.h"; sourceTree = "<group>"; };
@@ -244,6 +250,10 @@
 		5E0F54871EE59CD00004259C /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F54981EE88A650004259C /* HTKeypadButton.h */,
+				5E0F54991EE88A650004259C /* HTKeypadButton.m */,
+				5E0F54951EE889AD0004259C /* HTDesignableView.h */,
+				5E0F54961EE889AD0004259C /* HTDesignableView.m */,
 				5E0F548C1EE7DC900004259C /* UIView+Animation.h */,
 				5E0F548D1EE7DC900004259C /* UIView+Animation.m */,
 				5E4E1B271EB0C3C20001B301 /* HTSafariViewContoller.h */,
@@ -759,6 +769,7 @@
 				5E0F54831EE0921B0004259C /* HTTicket.m in Sources */,
 				5E4E1B661EBC68360001B301 /* HTOrderedMutableDictionary.m in Sources */,
 				5E0F545F1ED9B02D0004259C /* HTPaymentManager+transactionTypes.m in Sources */,
+				5E0F549A1EE88A650004259C /* HTKeypadButton.m in Sources */,
 				5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */,
 				5E0F54781EDF2A1C0004259C /* HTMSRTransaction.m in Sources */,
 				F5C187B01E925D4500800F52 /* HTLoginScreenViewController.m in Sources */,
@@ -772,6 +783,7 @@
 				F5FE09C61E9E5303001C4826 /* HTCloseTicketViewController.m in Sources */,
 				5E0F546F1EDED6690004259C /* HTWebProvider+Settings.m in Sources */,
 				5E4E1B7E1ECD99A60001B301 /* HTPaymentManager.m in Sources */,
+				5E0F54971EE889AD0004259C /* HTDesignableView.m in Sources */,
 				5E4E1B711ECAF1EC0001B301 /* NSData+HexadecimalString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -86,11 +86,11 @@
                         <viewControllerLayoutGuide type="bottom" id="UeX-Gx-FiB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gqW-yA-lHB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mxg-L1-523">
-                                <rect key="frame" x="0.0" y="64" width="375" height="94"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mxg-L1-523" secondAttribute="height" multiplier="4:1" id="fyr-BM-rM9"/>
@@ -100,7 +100,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evQ-h3-fIC" customClass="HTKeypadButton">
-                                <rect key="frame" x="0.0" y="158" width="125" height="99.5"/>
+                                <rect key="frame" x="0.0" y="94" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="evQ-h3-fIC" secondAttribute="height" multiplier="5:4" id="TRP-Vx-crE"/>
@@ -126,7 +126,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpJ-e3-uCj" customClass="HTKeypadButton">
-                                <rect key="frame" x="125" y="158" width="125" height="100"/>
+                                <rect key="frame" x="125" y="94" width="125" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="8">
@@ -149,7 +149,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAi-YE-zb6" customClass="HTKeypadButton">
-                                <rect key="frame" x="250" y="158" width="125" height="99.5"/>
+                                <rect key="frame" x="250" y="94" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="9">
@@ -172,7 +172,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBg-ii-pLJ" customClass="HTKeypadButton">
-                                <rect key="frame" x="0.0" y="257.5" width="125" height="99.5"/>
+                                <rect key="frame" x="0.0" y="193.5" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="4">
@@ -195,7 +195,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbh-t9-BmE" customClass="HTKeypadButton">
-                                <rect key="frame" x="250" y="257.5" width="125" height="99.5"/>
+                                <rect key="frame" x="250" y="193.5" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="6">
@@ -218,7 +218,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7r-Wh-pJX" customClass="HTKeypadButton">
-                                <rect key="frame" x="125" y="258" width="125" height="100.5"/>
+                                <rect key="frame" x="125" y="194" width="125" height="100.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="5">
@@ -241,7 +241,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyA-O8-btR" customClass="HTKeypadButton">
-                                <rect key="frame" x="0.0" y="357" width="125" height="99"/>
+                                <rect key="frame" x="0.0" y="293" width="125" height="99"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="1">
@@ -264,7 +264,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXg-c5-XDC" customClass="HTKeypadButton">
-                                <rect key="frame" x="250" y="357" width="125" height="99"/>
+                                <rect key="frame" x="250" y="293" width="125" height="99"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="3">
@@ -287,7 +287,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9k-fx-cS7" customClass="HTKeypadButton">
-                                <rect key="frame" x="125" y="358.5" width="125" height="99.5"/>
+                                <rect key="frame" x="125" y="294.5" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="2">
@@ -310,7 +310,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xs-ac-N3o" customClass="HTKeypadButton">
-                                <rect key="frame" x="0.0" y="456" width="125" height="99.5"/>
+                                <rect key="frame" x="0.0" y="392" width="125" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="25"/>
                                 <state key="normal" title="Clear">
@@ -332,7 +332,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqb-rD-qVg" customClass="HTKeypadButton">
-                                <rect key="frame" x="250" y="456" width="125.5" height="99.5"/>
+                                <rect key="frame" x="250" y="392" width="125.5" height="99.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="00">
@@ -355,7 +355,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzn-hB-mXt" customClass="HTKeypadButton">
-                                <rect key="frame" x="125" y="458" width="125" height="99"/>
+                                <rect key="frame" x="125" y="394" width="125" height="99"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="30"/>
                                 <state key="normal" title="0">
@@ -378,7 +378,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ll5-qJ-WBD">
-                                <rect key="frame" x="0.0" y="557" width="375" height="110"/>
+                                <rect key="frame" x="0.0" y="493" width="375" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMI-9y-8id" customClass="HTButton">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
@@ -474,7 +474,7 @@
             </objects>
             <point key="canvasLocation" x="1959" y="170"/>
         </scene>
-        <!--Title-->
+        <!--Payment-->
         <scene sceneID="nUy-Og-xmA">
             <objects>
                 <viewController id="xsQ-pi-ZDu" customClass="HTCardInfoViewController" sceneMemberID="viewController">
@@ -483,32 +483,32 @@
                         <viewControllerLayoutGuide type="bottom" id="iTa-Pb-bX9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8t3-fD-0D5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$58.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njQ-e9-qJW">
-                                <rect key="frame" x="93.5" y="94" width="188.5" height="60"/>
+                                <rect key="frame" x="93.5" y="30" width="188.5" height="60"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe a card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjo-jy-Doh">
-                                <rect key="frame" x="136.5" y="162" width="102" height="18"/>
+                                <rect key="frame" x="136.5" y="98" width="102" height="18"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="pwT-LV-lGz">
-                                <rect key="frame" x="195" y="200" width="6" height="11"/>
+                                <rect key="frame" x="195" y="136" width="6" height="11"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="0Vv-2P-J2n">
-                                <rect key="frame" x="167" y="200" width="6" height="11"/>
+                                <rect key="frame" x="167" y="136" width="6" height="11"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="yv5-c6-mAb">
-                                <rect key="frame" x="181" y="200" width="6" height="11"/>
+                                <rect key="frame" x="181" y="136" width="6" height="11"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aud-XF-pwx">
-                                <rect key="frame" x="0.0" y="543" width="187.5" height="80"/>
+                                <rect key="frame" x="0.0" y="479" width="187.5" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByD-Xt-7mQ">
                                         <rect key="frame" x="63.5" y="57" width="61" height="8"/>
@@ -539,7 +539,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqf-kc-Y1Y">
-                                <rect key="frame" x="187.5" y="543" width="187.5" height="80"/>
+                                <rect key="frame" x="187.5" y="479" width="187.5" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdF-Na-mjf">
                                         <rect key="frame" x="70.5" y="57" width="48" height="8"/>
@@ -569,13 +569,13 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="YHK-J6-AFq">
-                                <rect key="frame" x="0.0" y="230.5" width="170" height="140"/>
+                                <rect key="frame" x="0.0" y="166.5" width="170" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="Jww-nE-GXV"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" image="hardware" translatesAutoresizingMaskIntoConstraints="NO" id="xgc-zY-njw">
-                                <rect key="frame" x="56" y="320.5" width="263" height="222.5"/>
+                                <rect key="frame" x="56" y="256.5" width="263" height="222.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xgc-zY-njw" secondAttribute="height" multiplier="320:271" id="HGY-Wd-yqQ"/>
                                 </constraints>
@@ -608,8 +608,9 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="SZA-ke-rAW">
+                    <navigationItem key="navigationItem" title="Payment" id="SZA-ke-rAW">
                         <barButtonItem key="backBarButtonItem" id="wnc-aQ-42H"/>
+                        <barButtonItem key="leftBarButtonItem" image="backBtn" id="us0-Hi-Adt"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -622,26 +623,26 @@
             </objects>
             <point key="canvasLocation" x="2709.5999999999999" y="169.56521739130437"/>
         </scene>
-        <!--View Controller-->
+        <!--Card Details-->
         <scene sceneID="7wi-RN-8ZI">
             <objects>
-                <viewController id="v2D-Z9-C2K" sceneMemberID="viewController">
+                <viewController title="Card Details" id="v2D-Z9-C2K" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hCQ-a7-m3Y"/>
                         <viewControllerLayoutGuide type="bottom" id="Jpc-Xa-ZYc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1oZ-km-S2L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5id-0M-Fi8">
-                                <rect key="frame" x="18" y="77" width="66" height="12"/>
+                                <rect key="frame" x="18" y="13" width="66" height="12"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                 <color key="textColor" red="0.58039215690000001" green="0.64705882349999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yun-n3-ukk">
-                                <rect key="frame" x="0.0" y="101" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="37" width="375" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUi-eE-Tvr">
                                         <rect key="frame" x="18" y="18" width="106.5" height="18"/>
@@ -666,7 +667,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxX-vG-dZU">
-                                <rect key="frame" x="0.0" y="156" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name On Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6V-vs-pSZ">
                                         <rect key="frame" x="18" y="18" width="118" height="18"/>
@@ -692,14 +693,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DR-X7-miq" userLabel="Separator">
-                                <rect key="frame" x="0.0" y="155" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="91" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="77h-PJ-3EZ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kx-h3-bkW">
-                                <rect key="frame" x="0.0" y="246" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="182" width="375" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk4-JO-8lU">
                                         <rect key="frame" x="18" y="18" width="50.5" height="18"/>
@@ -724,7 +725,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5l2-0P-UZX">
-                                <rect key="frame" x="0.0" y="301" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="237" width="375" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0M-EB-yzF">
                                         <rect key="frame" x="18" y="18" width="35" height="18"/>
@@ -749,20 +750,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SkK-7x-phU" userLabel="Separator">
-                                <rect key="frame" x="0.0" y="300" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="236" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="OZe-NU-ez0"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiration Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBs-Zi-wX7">
-                                <rect key="frame" x="18" y="222" width="83" height="12"/>
+                                <rect key="frame" x="18" y="158" width="83" height="12"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                 <color key="textColor" red="0.58039215690000001" green="0.64705882349999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ9-IW-tvU" customClass="HTButton">
-                                <rect key="frame" x="0.0" y="582" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="518" width="375" height="85"/>
                                 <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="9HA-0E-8QD"/>
@@ -806,6 +807,7 @@
                             <constraint firstItem="5l2-0P-UZX" firstAttribute="leading" secondItem="4kx-h3-bkW" secondAttribute="leading" id="xwd-og-1fi"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7g-EG-VG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -851,17 +853,17 @@
                         <viewControllerLayoutGuide type="bottom" id="1cQ-Cl-yIo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eqG-3P-hFd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Declined" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH8-TS-AVd">
-                                <rect key="frame" x="145" y="114" width="85" height="24"/>
+                                <rect key="frame" x="145" y="50" width="85" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06d-6t-LAs">
-                                <rect key="frame" x="0.0" y="408.5" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="367" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OQJ-H2-Dko"/>
@@ -898,11 +900,11 @@
                         <viewControllerLayoutGuide type="bottom" id="SFr-TY-7Ju"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nxb-6o-Jof">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EA-rY-CWm" customClass="HTSignatureView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dc-6B-f9N">
                                         <rect key="frame" x="266" y="30" width="77" height="18"/>
@@ -1078,8 +1080,8 @@
                                             <constraint firstItem="vqW-Xk-vSH" firstAttribute="centerY" secondItem="xSJ-kZ-emV" secondAttribute="centerY" id="dio-qj-KF3"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcK-0E-oVG">
-                                        <rect key="frame" x="20" y="272" width="338" height="47"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcK-0E-oVG">
+                                        <rect key="frame" x="18.5" y="359.5" width="338" height="47"/>
                                         <color key="backgroundColor" red="0.0" green="0.68627450980392157" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fcK-0E-oVG" secondAttribute="height" multiplier="338:47" id="L2C-cf-uaP"/>
@@ -1088,6 +1090,9 @@
                                         <state key="normal" title="Close Ticket">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="HBS-SL-4jq" kind="unwind" unwindAction="unwindToKeypad:" id="Gid-ig-F67"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1119,6 +1124,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkJ-iB-WKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HBS-SL-4jq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3301.5999999999999" y="949.47526236881572"/>
         </scene>
@@ -1127,10 +1133,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qIp-N7-qPD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kGP-Ca-ZNu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="kGP-Ca-ZNu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0078431372549019607" green="0.3411764705882353" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0078431372549019607" green="0.3411764705882353" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1144,6 +1150,7 @@
     </scenes>
     <resources>
         <image name="HTLogo" width="147" height="77"/>
+        <image name="backBtn" width="7" height="14"/>
         <image name="card" width="222" height="140"/>
         <image name="chatIcon" width="25" height="21"/>
         <image name="confirmationIcon" width="118" height="118"/>

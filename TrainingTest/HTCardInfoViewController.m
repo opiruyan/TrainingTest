@@ -31,15 +31,13 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // ui setup
-    self.navigationItem.title = [@"Total $" stringByAppendingString:[[[HTPayment currentPayment] amount] stringValue]];
-    
     self.paymentManager.transationType = htTransacionTypeEMV;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.cardmageView animateSwipe];
 }
 
 - (HTPaymentManager *)paymentManager

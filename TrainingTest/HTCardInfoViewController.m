@@ -40,16 +40,6 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //[self.cardmageView animateSwipe];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    HTSpinnerViewController *spinnerViewController = [storyboard instantiateViewControllerWithIdentifier:SpinnerViewControllerIdentifier];
-    spinnerViewController.definesPresentationContext = YES;
-    spinnerViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    spinnerViewController.view.backgroundColor = [UIColor greenColor];
-    spinnerViewController.spinnerImageView.image = [UIImage imageNamed:@"confirmationIcon"];
-    [self presentViewController:spinnerViewController animated:YES completion:^{
-        [spinnerViewController rotate];
-    }];
 }
 
 - (HTPaymentManager *)paymentManager
@@ -85,12 +75,21 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
     }
     else
     {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        HTSpinnerViewController *spinnerViewController = [storyboard instantiateViewControllerWithIdentifier:SpinnerViewControllerIdentifier];
-        [self presentViewController:spinnerViewController animated:YES completion:^{
-            [spinnerViewController rotate];
-        }];
+        [self showSpinner];
     }
+}
+
+#warning HTViewController category
+- (void)showSpinner
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    HTSpinnerViewController *spinnerViewController = [storyboard instantiateViewControllerWithIdentifier:SpinnerViewControllerIdentifier];
+    spinnerViewController.definesPresentationContext = YES;
+    spinnerViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    spinnerViewController.spinnerImageView.image = [UIImage imageNamed:@"spinner"];
+    [self presentViewController:spinnerViewController animated:YES completion:^{
+        [spinnerViewController rotate];
+    }];
 }
 
 #pragma mark - Navigation

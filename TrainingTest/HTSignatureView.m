@@ -23,7 +23,6 @@
     if (self)
     {
         self.path = [UIBezierPath bezierPath];
-        
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         pan.maximumNumberOfTouches = 1;
         pan.minimumNumberOfTouches = 1;
@@ -66,7 +65,9 @@ CGPoint midpoint(CGPoint a, CGPoint b)
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    [[UIColor blackColor] setStroke];
+    UIColor *color = [UIColor colorWithRed:95 green:101 blue:206 alpha:1];
+    color = [UIColor blueColor];
+    [color setStroke];
     [self.path stroke];
 }
 

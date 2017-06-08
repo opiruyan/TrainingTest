@@ -21,6 +21,9 @@
 		5E0F548E1EE7DC900004259C /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F548D1EE7DC900004259C /* UIView+Animation.m */; };
 		5E0F54971EE889AD0004259C /* HTDesignableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54961EE889AD0004259C /* HTDesignableView.m */; };
 		5E0F549A1EE88A650004259C /* HTKeypadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54991EE88A650004259C /* HTKeypadButton.m */; };
+		5E0F549D1EE946380004259C /* HTKeyedTransationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F549C1EE946380004259C /* HTKeyedTransationViewController.m */; };
+		5E0F54A01EE94BD30004259C /* UIViewController+Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F549F1EE94BD30004259C /* UIViewController+Spinner.m */; };
+		5E0F54A31EE950450004259C /* UIViewController+Processing.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54A21EE950450004259C /* UIViewController+Processing.m */; };
 		5E4E1B1F1EAF51880001B301 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */; };
 		5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B231EAF86AD0001B301 /* NSString+SHA256.m */; };
 		5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */; };
@@ -109,6 +112,12 @@
 		5E0F54961EE889AD0004259C /* HTDesignableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDesignableView.m; sourceTree = "<group>"; };
 		5E0F54981EE88A650004259C /* HTKeypadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKeypadButton.h; sourceTree = "<group>"; };
 		5E0F54991EE88A650004259C /* HTKeypadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKeypadButton.m; sourceTree = "<group>"; };
+		5E0F549B1EE946380004259C /* HTKeyedTransationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKeyedTransationViewController.h; sourceTree = "<group>"; };
+		5E0F549C1EE946380004259C /* HTKeyedTransationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKeyedTransationViewController.m; sourceTree = "<group>"; };
+		5E0F549E1EE94BD30004259C /* UIViewController+Spinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Spinner.h"; sourceTree = "<group>"; };
+		5E0F549F1EE94BD30004259C /* UIViewController+Spinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Spinner.m"; sourceTree = "<group>"; };
+		5E0F54A11EE950450004259C /* UIViewController+Processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Processing.h"; sourceTree = "<group>"; };
+		5E0F54A21EE950450004259C /* UIViewController+Processing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Processing.m"; sourceTree = "<group>"; };
 		5E4E1B1D1EAF51880001B301 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
 		5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 		5E4E1B221EAF86AD0001B301 /* NSString+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256.h"; sourceTree = "<group>"; };
@@ -250,6 +259,8 @@
 		5E0F54871EE59CD00004259C /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F549E1EE94BD30004259C /* UIViewController+Spinner.h */,
+				5E0F549F1EE94BD30004259C /* UIViewController+Spinner.m */,
 				5E0F54981EE88A650004259C /* HTKeypadButton.h */,
 				5E0F54991EE88A650004259C /* HTKeypadButton.m */,
 				5E0F54951EE889AD0004259C /* HTDesignableView.h */,
@@ -270,6 +281,8 @@
 		5E4E1B211EAF51AD0001B301 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F54A11EE950450004259C /* UIViewController+Processing.h */,
+				5E0F54A21EE950450004259C /* UIViewController+Processing.m */,
 				5E4E1B1D1EAF51880001B301 /* NSString+UUID.h */,
 				5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */,
 				5E4E1B221EAF86AD0001B301 /* NSString+SHA256.h */,
@@ -292,6 +305,8 @@
 		5E4E1B631EBC67400001B301 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F549B1EE946380004259C /* HTKeyedTransationViewController.h */,
+				5E0F549C1EE946380004259C /* HTKeyedTransationViewController.m */,
 				5E0F547F1EDF2A690004259C /* Transaction */,
 				5E0F545D1ED9B02D0004259C /* HTPaymentManager+transactionTypes.h */,
 				5E0F545E1ED9B02D0004259C /* HTPaymentManager+transactionTypes.m */,
@@ -761,13 +776,16 @@
 				5E0F547B1EDF2A4B0004259C /* HTEMVTransaction.m in Sources */,
 				5E0F54651EDEB4A80004259C /* HTSettings.m in Sources */,
 				5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */,
+				5E0F54A31EE950450004259C /* UIViewController+Processing.m in Sources */,
 				5E0F54751EDF29D50004259C /* HTTransaction.m in Sources */,
+				5E0F54A01EE94BD30004259C /* UIViewController+Spinner.m in Sources */,
 				F5C187B31E93A84B00800F52 /* HTKeypadViewController.m in Sources */,
 				5E0F548E1EE7DC900004259C /* UIView+Animation.m in Sources */,
 				F5C550821EA62E2400AAA07E /* HTSignatureView.m in Sources */,
 				5E4E1B741ECB26730001B301 /* HTPayment.m in Sources */,
 				5E0F54831EE0921B0004259C /* HTTicket.m in Sources */,
 				5E4E1B661EBC68360001B301 /* HTOrderedMutableDictionary.m in Sources */,
+				5E0F549D1EE946380004259C /* HTKeyedTransationViewController.m in Sources */,
 				5E0F545F1ED9B02D0004259C /* HTPaymentManager+transactionTypes.m in Sources */,
 				5E0F549A1EE88A650004259C /* HTKeypadButton.m in Sources */,
 				5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */,

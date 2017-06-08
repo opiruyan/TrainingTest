@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
+
 @interface HTSpinnerViewController : UIViewController
 
 @property (weak, nonatomic, readonly) IBOutlet UIImageView *spinnerImageView;
+@property (weak, nonatomic, readonly) IBOutlet UILabel *messgaeLabel;
 
 - (void)rotate;
+- (void)finish;
 
 @end

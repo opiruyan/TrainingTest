@@ -12,8 +12,7 @@
 #import "HTPaymentManager+transactionTypes.h"
 #import "HTSpinnerViewController.h"
 #import "UIView+Animation.h"
-
-static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
+#import "UIViewController+Spinner.h"
 
 @interface HTCardInfoViewController () <HTPaymentManagerProtocol>
 
@@ -73,19 +72,6 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
     {
         [self showSpinner];
     }
-}
-
-#warning HTViewController category
-- (void)showSpinner
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    HTSpinnerViewController *spinnerViewController = [storyboard instantiateViewControllerWithIdentifier:SpinnerViewControllerIdentifier];
-    spinnerViewController.definesPresentationContext = YES;
-    spinnerViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    spinnerViewController.spinnerImageView.image = [UIImage imageNamed:@"spinner"];
-    [self presentViewController:spinnerViewController animated:YES completion:^{
-        [spinnerViewController rotate];
-    }];
 }
 
 #pragma mark - Navigation

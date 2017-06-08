@@ -11,6 +11,7 @@
 @interface HTSpinnerViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *spinnerImageView;
+@property (weak, nonatomic) IBOutlet UILabel *messgaeLabel;
 
 @end
 
@@ -41,6 +42,11 @@
     rotation.repeatCount = HUGE_VALF; // Repeat forever. Can be a finite number.
     [layer removeAllAnimations];
     [layer addAnimation:rotation forKey:@"Spin"];
+}
+
+- (void)finish
+{
+    [self performSegueWithIdentifier:@"closeTicketSegue" sender:self];
 }
 
 @end

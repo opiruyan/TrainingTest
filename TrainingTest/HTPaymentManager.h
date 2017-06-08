@@ -37,5 +37,6 @@ typedef enum
 @property (strong, nonatomic) HTTransaction *processingTransaction;
 
 - (void)startTransaction;
+- (void)processTransactionWithCompletion:(transactionCompletionHandler)completion;
 
 @end

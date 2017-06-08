@@ -32,6 +32,7 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 {
     [super viewDidLoad];
     self.paymentManager.transationType = htTransacionTypeEMV;
+    [self.paymentManager startTransaction];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -52,12 +53,9 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 
 #pragma mark - Payment Manager Delegate
 
-- (void)paymentManager:(HTPaymentManager *)manager didRecieveCardData:(HTCardInfo *)cardInfo
-{
-}
 - (IBAction)keyedTransactionPressed:(UIButton *)sender
 {
-    [self.paymentManager start];
+    [self.paymentManager startTransaction];
 }
 
 - (void)paymentManagerdidCompleteTransaction:(HTPaymentManager *)manager

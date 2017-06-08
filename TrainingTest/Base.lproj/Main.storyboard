@@ -511,7 +511,7 @@
                                 <rect key="frame" x="0.0" y="479" width="187.5" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByD-Xt-7mQ">
-                                        <rect key="frame" x="63.5" y="57" width="61" height="8"/>
+                                        <rect key="frame" x="64" y="57" width="61" height="8"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -523,17 +523,24 @@
                                             <constraint firstAttribute="height" constant="34" id="Pbd-pc-FEQ"/>
                                         </constraints>
                                         <state key="normal" image="insertCardIcon"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EF9-yQ-Pxh">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="80"/>
                                         <connections>
-                                            <segue destination="gRH-T1-za9" kind="show" id="VSt-Cb-wfn"/>
+                                            <action selector="keyedTransactionPressed:" destination="xsQ-pi-ZDu" eventType="touchUpInside" id="uvH-Hj-ouC"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ByD-Xt-7mQ" firstAttribute="top" secondItem="8R0-89-6GT" secondAttribute="bottom" constant="5" id="745-Pp-5ki"/>
+                                    <constraint firstAttribute="trailing" secondItem="EF9-yQ-Pxh" secondAttribute="trailing" id="AS6-QD-enl"/>
                                     <constraint firstAttribute="height" constant="80" id="CaR-kM-9lh"/>
+                                    <constraint firstItem="EF9-yQ-Pxh" firstAttribute="leading" secondItem="aud-XF-pwx" secondAttribute="leading" id="Drf-SK-mni"/>
+                                    <constraint firstAttribute="bottom" secondItem="EF9-yQ-Pxh" secondAttribute="bottom" id="KZ6-lb-M6n"/>
                                     <constraint firstItem="8R0-89-6GT" firstAttribute="centerX" secondItem="aud-XF-pwx" secondAttribute="centerX" constant="8" id="Lv4-sG-5cV"/>
                                     <constraint firstAttribute="bottom" secondItem="ByD-Xt-7mQ" secondAttribute="bottom" constant="15" id="UYE-7J-UFe"/>
+                                    <constraint firstItem="EF9-yQ-Pxh" firstAttribute="top" secondItem="aud-XF-pwx" secondAttribute="top" id="e5j-Rv-7Z2"/>
                                     <constraint firstItem="8R0-89-6GT" firstAttribute="top" secondItem="aud-XF-pwx" secondAttribute="top" constant="18" id="exE-kW-tUI"/>
                                     <constraint firstItem="ByD-Xt-7mQ" firstAttribute="centerX" secondItem="aud-XF-pwx" secondAttribute="centerX" id="h5K-eZ-AdG"/>
                                 </constraints>
@@ -1006,13 +1013,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transactioin Confirmed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8W-eU-wWt">
-                                        <rect key="frame" x="96.5" y="155" width="182" height="18"/>
+                                        <rect key="frame" x="97" y="155" width="182" height="18"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%58.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFf-Ii-w7b">
-                                        <rect key="frame" x="156.5" y="181" width="62" height="18"/>
+                                        <rect key="frame" x="157" y="181" width="61.5" height="18"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1178,7 +1185,4 @@
         <image name="row" width="6" height="11"/>
         <image name="spinner" width="120" height="119"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="y38-Xw-Ogz"/>
-    </inferredMetricsTieBreakers>
 </document>

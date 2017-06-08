@@ -30,24 +30,27 @@
     self = [super init];
     if (self)
     {
-        _cardReaderManager = [[IDTechCardReaderManager alloc] init];
-        _cardReaderManager.readerDelegate = self;
-        [[IDT_UniPayIII sharedController] setDelegate:_cardReaderManager];
+        [[IDTechCardReaderManager sharedManager] setReaderDelegate:self];
     }
     return self;
 }
 
-- (void)start
+- (IDTechCardReaderManager *)cardReaderManager
 {
-//    NSDecimalNumber *amount = [[HTPayment currentPayment] amount];
-//    if (self.transationType == htTransacionTypeEMV)
-//    {
-//        [self.cardReaderManager startEmvTransactionWithAmount:amount];
-//    }
-//    else
-//    {
-//        [self.cardReaderManager startMSRTransaction];
-//    }
+    return [IDTechCardReaderManager sharedManager];
+}
+
+- (void)startTransaction
+{
+    NSDecimalNumber *amount = [[HTPayment currentPayment] amount];
+    if (self.transationType == htTransacionTypeEMV)
+    {
+        [self.cardReaderManager startEmvTransactionWithAmount:amount];
+    }
+    else
+    {
+        [self.cardReaderManager startMSRTransaction];
+    }
 }
 
 #pragma mark - Reader Manager Delegate
@@ -55,11 +58,13 @@
 - (void)readerManager:(IDTechCardReaderManager *)manager detectedDevicePlugged:(BOOL)status
 {
     [self.delegate devicePlugged:status];
-    BOOL connected = [[IDT_UniPayIII sharedController] device_isAudioReaderConnected];
-    BOOL set = [[IDT_UniPayIII sharedController] device_isConnected:IDT_DEVICE_UNIPAYIII_IOS];
-    BOOL set2 = [[IDT_UniPayIII sharedController] isConnected];
-    if (status)
+}
+
+- (void)readerManager:(IDTechCardReaderManager *)manager didInitiateTransaction:(BOOL)success
+{
+    if (!success)
     {
+        [self startTransaction];
     }
 }
 
@@ -74,9 +79,10 @@
         {
             // store payment to backend
             [[HTPayment currentPayment] storeTicket:saleResponse];
+            [self.cardReaderManager completeEMV];
         };
     }];
-    [self.delegate devicePlugged:NO]; // show spinner
+    //[self.delegate devicePlugged:NO]; // show spinner
 }
 
 - (void)didReadMSRData:(IDTMSRData *)cardData

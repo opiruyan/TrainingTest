@@ -16,6 +16,16 @@
 
 @implementation IDTechCardReaderManager
 
++ (id)sharedManager
+{
+    static IDTechCardReaderManager *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    return sharedManager;
+}
+
 #pragma mark UniPay delegate methods
 
 -(void)deviceConnected
@@ -62,8 +72,10 @@
     }
     else
     {
+        // we dont neet to stop transaction if it wasnt stopped
         NSLog(@"Start Transaction info");
     }
+    NSLog(@"%@", [[IDT_UniPayIII sharedController] device_getResponseCodeString:rt]);
 }
 
 - (void)swipeMSRData:(IDTMSRData*)cardData

@@ -21,12 +21,15 @@
 @optional
 
 - (void)didReadMSRData:(IDTMSRData *)cardData;
+- (void)readerManager:(IDTechCardReaderManager *)manager didInitiateTransaction:(BOOL)success;
 
 @end
 
 @interface IDTechCardReaderManager : NSObject <IDT_UniPayIII_Delegate>
 
 @property (nonatomic, weak) id <CardReaderDelegate> readerDelegate;
+
++ (id)sharedManager;
 
 - (void)startEmvTransactionWithAmount:(NSDecimalNumber *)amount;
 - (void)startMSRTransaction;

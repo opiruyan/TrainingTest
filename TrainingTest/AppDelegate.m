@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HTLoginScreenViewController.h"
 #import "HTAuthenticationManager.h"
+#import "IDTechCardReaderManager.h"
 
 @interface AppDelegate ()
 
@@ -32,6 +33,8 @@
     
     // title
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+
+    [[IDT_UniPayIII sharedController] setDelegate:[IDTechCardReaderManager sharedManager]];
 
     return YES;
 }

@@ -1,52 +1,30 @@
 //
-//  HTLoginScreenViewController.m
+//  HTStartNavigationController.m
 //  TrainingTest
 //
-//  Created by Oleg Piruyan on 4/3/17.
+//  Created by Oleg Piruyan on 09/06/2017.
 //  Copyright © 2017 Harbortouch. All rights reserved.
 //
 
-#import "HTLoginScreenViewController.h"
-#import <SafariServices/SafariServices.h>
+#import "HTStartNavigationController.h"
 #import "HTAuthenticationManager.h"
+#import <SafariServices/SafariServices.h>
 #import "HTSettings.h"
 
 #define clientId @"1688719b-f2a6-47c4-b727-bee9aeee90b1"
 
-@interface HTLoginScreenViewController () <SFSafariViewControllerDelegate>
+@interface HTStartNavigationController ()
 
 @end
 
-@implementation HTLoginScreenViewController
+@implementation HTStartNavigationController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBar.hidden = YES;
-    self.isLogged = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedAuthentication) name:kHandlingURLNotification object:nil];
-    if ([[HTAuthenticationManager sharedManager] authorized])
-    {
-        [self performSegueWithIdentifier:@"skipLogin" sender:self];
-    }
 }
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    HTAuthenticationManager *manager = [HTAuthenticationManager sharedManager];
-    if (![manager authorized] && !self.isLogged)
-    {
-        [self oauth2];
-    }
-    else
-    {
-        [self performSegueWithIdentifier:@"skipLogin" sender:self];
-    }
-}
-
-#pragma mark - Authorization
-
 
 - (void)oauth2
 {
@@ -65,22 +43,29 @@
     NSString *urlString = [NSString stringWithFormat:@"%@/oauth2/authorize/?client_id=%@&redirect_uri=%@://&response_type=code", host, clientId, urlSchemes.firstObject];
     SFSafariViewController *authViewContoller = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:urlString]];
     authViewContoller.preferredBarTintColor = [UIColor grayColor];
-    authViewContoller.delegate = self;
     [self presentViewController:authViewContoller animated:YES completion:nil];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)finishedAuthentication
 {
-    self.isLogged = YES;
     [self dismissViewControllerAnimated:NO completion:^{
         [self performSegueWithIdentifier:@"loginFinishedSegue" sender:self];
     }];
 }
+/*
+#pragma mark - Navigation
 
-- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
-{
-    self.isLogged = YES;
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end
-

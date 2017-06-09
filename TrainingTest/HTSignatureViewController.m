@@ -8,6 +8,7 @@
 
 #import "HTSignatureViewController.h"
 #import "HTSignatureView.h"
+#import "UIViewController+Processing.h"
 
 @interface HTSignatureViewController () <HTSignatureViewDelegate>
 
@@ -55,6 +56,7 @@
 
 - (IBAction)confirmPressed:(UIButton *)sender
 {
+    [self showComplete];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     HTSignatureViewController *signatureViewController = [storyboard instantiateViewControllerWithIdentifier:@"HTCloseTicketViewController"];
     [self presentViewController:signatureViewController animated:YES completion:nil];

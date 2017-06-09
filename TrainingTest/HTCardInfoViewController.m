@@ -95,7 +95,7 @@
     }
     else
     {
-        [self showSpinner];
+        //[self showSpinner];
     }
 }
 

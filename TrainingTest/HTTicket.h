@@ -12,8 +12,11 @@
 
 @property (nonatomic, strong, readonly) NSString *authCode;
 @property (nonatomic, strong, readonly) NSString *customerReceipt;
-@property (nonatomic, strong, readonly) NSString *transactionId;
+@property (nonatomic, strong, readonly) NSString *gatewayId;
 @property (nonatomic, strong, readonly) NSString *timestamp;
+@property (nonatomic, strong, readonly) NSString *cardType;
+@property (nonatomic, strong, readonly) NSString *cardLast4;
+@property (nonatomic, strong, readonly) NSString *gatewayMessage;
 
 + (HTTicket *)ticketWithDictionary:(NSDictionary *)dictionary;
 

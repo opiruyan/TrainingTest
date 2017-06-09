@@ -92,8 +92,10 @@
         {
             // store payment to backend
             [[HTPayment currentPayment] storeTicket:saleResponse];
-            [self.cardReaderManager completeEMV];
-            [self.delegate paymentManagerdidCompleteTransaction:self];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 //[self.cardReaderManager completeEMV];
+                [self.delegate paymentManagerdidCompleteTransaction:self];
+            });
         };
     }];
     //[self.delegate devicePlugged:NO]; // show spinner
@@ -107,8 +109,11 @@
         //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
         if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
         {
-            // store payment to backend
             [[HTPayment currentPayment] storeTicket:saleResponse];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.cardReaderManager cancelMSR];
+                [self.delegate paymentManagerdidCompleteTransaction:self];
+            });
         };
     }];
 }

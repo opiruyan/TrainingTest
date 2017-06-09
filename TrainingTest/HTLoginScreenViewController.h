@@ -10,4 +10,6 @@
 
 @interface HTLoginScreenViewController : UIViewController
 
+@property (nonatomic) BOOL isLogged;
+
 @end

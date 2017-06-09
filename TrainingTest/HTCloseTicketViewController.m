@@ -18,6 +18,8 @@
 @interface HTCloseTicketViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet HTKeyboardInputView *inputView;
+@property (weak, nonatomic) IBOutlet UILabel *amoutLabel;
+@property (nonatomic) BOOL sendSMS;
 
 @end
 
@@ -26,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    self.amoutLabel.text = [NSString stringWithFormat:@"$%.2f", [HTPayment currentPayment].amount.floatValue];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -80,12 +83,14 @@
 }
 - (IBAction)sendReceiptPressed:(id)sender
 {
+    self.sendSMS = NO;
     self.inputView.hidden = NO;
     [self.inputView.email becomeFirstResponder];
 }
 
 - (IBAction)textReceiptPressed:(UIButton *)sender
 {
+    self.sendSMS = YES;
     self.inputView.hidden = NO;
     [self.inputView.iconButton setImage:[UIImage imageNamed:@"chatIcon"] forState:UIControlStateNormal];
     [self.inputView.email becomeFirstResponder];
@@ -93,30 +98,37 @@
 
 - (IBAction)emailReceiptPressed:(UIButton *)sender
 {
-//    HTEmailReceipt *email = [HTEmailReceipt new];
-//    email.from = @"notifications@harbortouch.com";
-//    email.to = self.inputView.email.text;
-//    email.subject = @"Receipt";
-//    email.text = @"your email has been sent";
-//    [[HTWebProvider sharedProvider] sendEmail:email];
-    HTSMSReceipt *sms = [HTSMSReceipt new];
-    sms.to = self.inputView.email.text;
-    sms.text = @"your email has been sent";
-    [[HTWebProvider sharedProvider] sendSms:sms];
+    if (!self.sendSMS)
+    {
+        HTEmailReceipt *email = [HTEmailReceipt new];
+        email.from = @"notifications@harbortouch.com";
+        email.to = self.inputView.email.text;
+        email.subject = @"Receipt";
+        email.text = @"your email has been sent";
+        [[HTWebProvider sharedProvider] sendEmail:email];
+
+    }
+    else
+    {
+        HTSMSReceipt *sms = [HTSMSReceipt new];
+        sms.to = self.inputView.email.text;
+        sms.text = @"your email has been sent";
+        [[HTWebProvider sharedProvider] sendSms:sms];
+    }
     self.inputView.hidden = YES;
     [self.view.subviews.lastObject removeFromSuperview];
     [self.view endEditing:YES];
     
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [[HTPayment currentPayment] setAmount:[NSDecimalNumber zero]];
 }
-*/
+
 
 @end

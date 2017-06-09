@@ -43,6 +43,7 @@
 		5E54F0D21EEA6FB10085C91C /* UIViewController+Back.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0D11EEA6FB10085C91C /* UIViewController+Back.m */; };
 		5E54F0D51EEA72290085C91C /* HTKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0D41EEA72290085C91C /* HTKeyboardInputView.m */; };
 		5E54F0D81EEA98F20085C91C /* HTSMSReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0D71EEA98F20085C91C /* HTSMSReceipt.m */; };
+		5E54F0E11EEAB59F0085C91C /* HTStartNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0E01EEAB59F0085C91C /* HTStartNavigationController.m */; };
 		5E564BA81EA7557F0076F83C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BA71EA7557F0076F83C /* AudioToolbox.framework */; };
 		5E564BAA1EA755C50076F83C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BA91EA755C50076F83C /* AVFoundation.framework */; };
 		5E564BAC1EA756FB0076F83C /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BAB1EA756FB0076F83C /* ExternalAccessory.framework */; };
@@ -159,6 +160,8 @@
 		5E54F0D41EEA72290085C91C /* HTKeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKeyboardInputView.m; sourceTree = "<group>"; };
 		5E54F0D61EEA98F20085C91C /* HTSMSReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSMSReceipt.h; sourceTree = "<group>"; };
 		5E54F0D71EEA98F20085C91C /* HTSMSReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSMSReceipt.m; sourceTree = "<group>"; };
+		5E54F0DF1EEAB59F0085C91C /* HTStartNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStartNavigationController.h; sourceTree = "<group>"; };
+		5E54F0E01EEAB59F0085C91C /* HTStartNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStartNavigationController.m; sourceTree = "<group>"; };
 		5E564BA51EA653D70076F83C /* IDTech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDTech.framework; path = "../80149801-001-A/SDK/1.1.085/IDTech.framework"; sourceTree = "<group>"; };
 		5E564BA71EA7557F0076F83C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5E564BA91EA755C50076F83C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -307,6 +310,8 @@
 		5E4E1B5F1EBA07210001B301 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				5E54F0DF1EEAB59F0085C91C /* HTStartNavigationController.h */,
+				5E54F0E01EEAB59F0085C91C /* HTStartNavigationController.m */,
 				5E4E1B8C1ED841A60001B301 /* HTAuthenticationToken.h */,
 				5E4E1B8D1ED841A60001B301 /* HTAuthenticationToken.m */,
 				5E4E1B5C1EBA07160001B301 /* HTAuthenticationManager.h */,
@@ -784,6 +789,7 @@
 				F5DDCCF71E8D019C00904CD4 /* AppDelegate.m in Sources */,
 				5E0F547E1EDF2A610004259C /* HTKeyedTransaction.m in Sources */,
 				5E4E1B911ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m in Sources */,
+				5E54F0E11EEAB59F0085C91C /* HTStartNavigationController.m in Sources */,
 				5E4E1B8E1ED841A60001B301 /* HTAuthenticationToken.m in Sources */,
 				5E4E1B811ECF53470001B301 /* HTTSYSManager+RequestJSONs.m in Sources */,
 				F5FE09C31E9D189B001C4826 /* HTSignatureViewController.m in Sources */,

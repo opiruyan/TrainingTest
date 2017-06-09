@@ -44,14 +44,13 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
     return self;
 }
 
-- (HTAuthenticationToken *)authToken
+- (void)setAuthToken:(HTAuthenticationToken *)authToken
 {
-#warning move refreshing out of here
+    _authToken = authToken;
     if (_authToken.expired)
     {
         [self refreshToken];
     }
-    return _authToken;
 }
 
 - (void)didAuthenticateNotification:(NSNotification *)notification

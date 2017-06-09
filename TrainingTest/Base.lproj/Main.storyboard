@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1n7-hd-gLV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qIp-N7-qPD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -443,25 +443,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjo-jy-Doh">
-                                <rect key="frame" x="139" y="98" width="98" height="18"/>
+                                <rect key="frame" x="138.5" y="98" width="98" height="18"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="pwT-LV-lGz">
-                                <rect key="frame" x="196" y="136" width="6" height="11"/>
+                                <rect key="frame" x="195" y="136" width="6" height="11"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="0Vv-2P-J2n">
-                                <rect key="frame" x="168" y="136" width="6" height="11"/>
+                                <rect key="frame" x="167" y="136" width="6" height="11"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="yv5-c6-mAb">
-                                <rect key="frame" x="182" y="136" width="6" height="11"/>
+                                <rect key="frame" x="181" y="136" width="6" height="11"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aud-XF-pwx" customClass="HTDesignableView">
                                 <rect key="frame" x="0.0" y="479" width="187.5" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByD-Xt-7mQ">
-                                        <rect key="frame" x="63.5" y="57" width="61" height="13"/>
+                                        <rect key="frame" x="64" y="57" width="61" height="13"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -807,7 +807,7 @@
                                 <rect key="frame" x="127.5" y="274" width="120" height="119"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Processing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khV-tx-HjH">
-                                <rect key="frame" x="144.5" y="431" width="87" height="18"/>
+                                <rect key="frame" x="144" y="431" width="87" height="18"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -831,6 +831,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40D-Wp-TPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4276" y="181"/>
+        </scene>
+        <!--Login Screen View Controller-->
+        <scene sceneID="sUq-1K-PeH">
+            <objects>
+                <viewController id="d7I-1Q-fRg" customClass="HTLoginScreenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vyx-is-Qi8"/>
+                        <viewControllerLayoutGuide type="bottom" id="BPy-Sk-yM9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bUG-Nr-g5Z">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dDT-ce-M6N">
+                                <rect key="frame" x="68.5" y="280.5" width="238" height="42"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0078431372549019607" green="0.3411764705882353" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dDT-ce-M6N" firstAttribute="centerX" secondItem="bUG-Nr-g5Z" secondAttribute="centerX" id="I7W-fU-YZU"/>
+                            <constraint firstItem="dDT-ce-M6N" firstAttribute="centerY" secondItem="bUG-Nr-g5Z" secondAttribute="centerY" id="vri-uv-6SL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iG2-5G-ggS"/>
+                    <connections>
+                        <segue destination="F7u-6J-PJj" kind="show" identifier="skipLogin" id="yWN-uF-EMW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhG-Wy-utd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831" y="1015"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="avV-7A-1aG">
@@ -980,13 +1011,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Transactioin Confirmed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8W-eU-wWt">
-                                        <rect key="frame" x="97" y="155.5" width="182" height="18"/>
+                                        <rect key="frame" x="96.5" y="155.5" width="182" height="18"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$58.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFf-Ii-w7b">
-                                        <rect key="frame" x="158" y="181.5" width="59" height="18"/>
+                                        <rect key="frame" x="158.5" y="181.5" width="59" height="18"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1162,6 +1193,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="amoutLabel" destination="JFf-Ii-w7b" id="1xK-1u-f5t"/>
                         <outlet property="inputView" destination="4oU-4l-Xe0" id="wcM-1t-DN6"/>
                     </connections>
                 </viewController>
@@ -1170,24 +1202,25 @@
             </objects>
             <point key="canvasLocation" x="4198" y="1003"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Start Navigation Controller-->
         <scene sceneID="Yli-sT-riP">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qIp-N7-qPD" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qIp-N7-qPD" customClass="HTStartNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="kGP-Ca-ZNu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0078431372549019607" green="0.3411764705882353" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0078431372549019607" green="0.3411764705882353" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="F7u-6J-PJj" kind="relationship" relationship="rootViewController" id="jUz-s4-YJU"/>
+                        <segue destination="d7I-1Q-fRg" kind="relationship" relationship="rootViewController" id="ZZa-D3-2k0"/>
+                        <segue destination="F7u-6J-PJj" kind="show" identifier="loginFinishedSegue" id="voe-G2-ozR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7a-GQ-gYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="170"/>
+            <point key="canvasLocation" x="721" y="170"/>
         </scene>
     </scenes>
     <resources>
@@ -1200,7 +1233,11 @@
         <image name="icon_more_active" width="18" height="15"/>
         <image name="insertCardIcon" width="71" height="34"/>
         <image name="keyboardIcon" width="54" height="34"/>
+        <image name="logo" width="238" height="42"/>
         <image name="row" width="6" height="11"/>
         <image name="spinner" width="120" height="119"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="yWN-uF-EMW"/>
+    </inferredMetricsTieBreakers>
 </document>

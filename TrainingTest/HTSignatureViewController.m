@@ -53,6 +53,13 @@
     self.placeholderLabel.hidden = NO;
 }
 
+- (IBAction)confirmPressed:(UIButton *)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    HTSignatureViewController *signatureViewController = [storyboard instantiateViewControllerWithIdentifier:@"HTCloseTicketViewController"];
+    [self presentViewController:signatureViewController animated:YES completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 

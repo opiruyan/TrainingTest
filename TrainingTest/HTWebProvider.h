@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class HTEmailReceipt;
+@class HTEmailReceipt, HTSMSReceipt;
 
 typedef void (^completionHandler)(NSData *data);
 typedef void (^paymentCompletion) (void);
@@ -19,6 +19,7 @@ typedef void (^paymentCompletion) (void);
 - (void)paymentRequestWithData:(NSDictionary *)paymentData completion:(completionHandler)completionBlock;
 - (void)createNewTicketWithBody:(NSDictionary *)body;
 - (void)sendEmail:(HTEmailReceipt *)email;
+- (void)sendSms:(HTSMSReceipt *)sms;
 - (void)refreshToken:(NSDictionary *)body completionHandler:(completionHandler)completionBlock;
 
 - (void)postRequestWithBody:(NSData *)body completionHandler:(completionHandler)completionBlock;

@@ -10,6 +10,8 @@
 #import "HTEmailReceipt.h"
 #import "HTWebProvider.h"
 #import "HTKeyboardInputView.h"
+#import "HTPayment.h"
+#import "HTSMSReceipt.h"
 
 #define kOFFSET_FOR_KEYBOARD 80.0
 
@@ -31,6 +33,7 @@
                                                object:self.view.window];
     self.inputView.translatesAutoresizingMaskIntoConstraints = YES;
     self.inputView.frame = CGRectMake(0, self.inputView.superview.frame.size.height, self.inputView.frame.size.width, self.inputView.frame.size.height);
+    self.inputView.email.clearsOnBeginEditing = YES;
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -96,6 +99,10 @@
 //    email.subject = @"Receipt";
 //    email.text = @"your email has been sent";
 //    [[HTWebProvider sharedProvider] sendEmail:email];
+    HTSMSReceipt *sms = [HTSMSReceipt new];
+    sms.to = self.inputView.email.text;
+    sms.text = @"your email has been sent";
+    [[HTWebProvider sharedProvider] sendSms:sms];
     self.inputView.hidden = YES;
     [self.view.subviews.lastObject removeFromSuperview];
     [self.view endEditing:YES];

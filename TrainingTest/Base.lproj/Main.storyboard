@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qIp-N7-qPD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1n7-hd-gLV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -443,25 +443,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjo-jy-Doh">
-                                <rect key="frame" x="138.5" y="98" width="98" height="18"/>
+                                <rect key="frame" x="139" y="98" width="98" height="18"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="pwT-LV-lGz">
-                                <rect key="frame" x="195" y="136" width="6" height="11"/>
+                                <rect key="frame" x="196" y="136" width="6" height="11"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="0Vv-2P-J2n">
-                                <rect key="frame" x="167" y="136" width="6" height="11"/>
+                                <rect key="frame" x="168" y="136" width="6" height="11"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="yv5-c6-mAb">
-                                <rect key="frame" x="181" y="136" width="6" height="11"/>
+                                <rect key="frame" x="182" y="136" width="6" height="11"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aud-XF-pwx" customClass="HTDesignableView">
                                 <rect key="frame" x="0.0" y="479" width="187.5" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByD-Xt-7mQ">
-                                        <rect key="frame" x="64" y="57" width="61" height="13"/>
+                                        <rect key="frame" x="63.5" y="57" width="61" height="13"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -592,7 +592,6 @@
                         <outlet property="cardmageView" destination="YHK-J6-AFq" id="etM-S0-BZ0"/>
                         <outlet property="instructionLabel" destination="Tjo-jy-Doh" id="oir-Me-FG1"/>
                         <segue destination="COq-pg-5iV" kind="show" identifier="Decline" id="pdJ-08-cwr"/>
-                        <segue destination="gRH-T1-za9" kind="show" identifier="Accept" id="y38-Xw-Ogz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9s-dq-xbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -880,20 +879,20 @@
             </objects>
             <point key="canvasLocation" x="1726" y="940"/>
         </scene>
-        <!--Signature View Controller-->
+        <!--HTSignatureViewController-->
         <scene sceneID="X4X-Cl-IPi">
             <objects>
-                <viewController id="gRH-T1-za9" customClass="HTSignatureViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HTSignatureViewController" title="HTSignatureViewController" id="gRH-T1-za9" customClass="HTSignatureViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GnG-KC-4Zr"/>
                         <viewControllerLayoutGuide type="bottom" id="SFr-TY-7Ju"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nxb-6o-Jof">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EA-rY-CWm" customClass="HTSignatureView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dc-6B-f9N">
                                         <rect key="frame" x="266" y="30" width="77" height="18"/>
@@ -907,7 +906,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWR-It-iIZ">
-                                        <rect key="frame" x="20" y="521" width="64" height="18"/>
+                                        <rect key="frame" x="20" y="609" width="64" height="18"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="Clear">
@@ -915,10 +914,11 @@
                                         </state>
                                         <connections>
                                             <action selector="cancelPressed:" destination="gRH-T1-za9" eventType="touchUpInside" id="Ga9-qX-a7p"/>
+                                            <action selector="cleanPressed:" destination="gRH-T1-za9" eventType="touchUpInside" id="iMZ-hy-5Fu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orb-AN-UMd">
-                                        <rect key="frame" x="132" y="481" width="223" height="58"/>
+                                        <rect key="frame" x="132" y="569" width="223" height="58"/>
                                         <color key="backgroundColor" red="0.5607843137254902" green="0.82352941176470584" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="20" maxX="18" maxY="20"/>
@@ -927,6 +927,7 @@
                                         </state>
                                         <connections>
                                             <action selector="cancelPressed:" destination="gRH-T1-za9" eventType="touchUpInside" id="1wq-sC-Dcv"/>
+                                            <action selector="confirmPressed:" destination="gRH-T1-za9" eventType="touchUpInside" id="GtA-ZC-PPe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -937,15 +938,15 @@
                                     <constraint firstAttribute="bottom" secondItem="orb-AN-UMd" secondAttribute="bottom" constant="20" id="VMQ-aq-Wl1"/>
                                     <constraint firstAttribute="trailing" secondItem="orb-AN-UMd" secondAttribute="trailing" constant="20" id="avb-i0-zRc"/>
                                     <constraint firstAttribute="trailing" secondItem="6dc-6B-f9N" secondAttribute="trailing" constant="32" id="jJ7-41-Q8T"/>
-                                    <constraint firstItem="6dc-6B-f9N" firstAttribute="top" secondItem="8EA-rY-CWm" secondAttribute="top" constant="30" id="zUE-u0-Uzf"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8EA-rY-CWm" secondAttribute="trailing" id="EM6-yF-bgN"/>
                             <constraint firstItem="8EA-rY-CWm" firstAttribute="top" secondItem="GnG-KC-4Zr" secondAttribute="bottom" id="HN1-df-u4y"/>
                             <constraint firstItem="SFr-TY-7Ju" firstAttribute="top" secondItem="8EA-rY-CWm" secondAttribute="bottom" id="XYc-PA-on7"/>
+                            <constraint firstItem="6dc-6B-f9N" firstAttribute="top" secondItem="GnG-KC-4Zr" secondAttribute="bottom" constant="30" id="eNX-pN-QaJ"/>
                             <constraint firstItem="8EA-rY-CWm" firstAttribute="leading" secondItem="Nxb-6o-Jof" secondAttribute="leading" id="s5t-bQ-cl5"/>
                         </constraints>
                     </view>
@@ -960,7 +961,7 @@
         <!--Close Ticket View Controller-->
         <scene sceneID="XMw-qo-ygc">
             <objects>
-                <viewController id="1n7-hd-gLV" customClass="HTCloseTicketViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HTCloseTicketViewController" id="1n7-hd-gLV" customClass="HTCloseTicketViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A07-BV-IZY"/>
                         <viewControllerLayoutGuide type="bottom" id="XKs-IA-bMq"/>

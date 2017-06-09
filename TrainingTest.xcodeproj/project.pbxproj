@@ -42,6 +42,7 @@
 		5E4E1B911ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B901ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m */; };
 		5E54F0D21EEA6FB10085C91C /* UIViewController+Back.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0D11EEA6FB10085C91C /* UIViewController+Back.m */; };
 		5E54F0D51EEA72290085C91C /* HTKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0D41EEA72290085C91C /* HTKeyboardInputView.m */; };
+		5E54F0D81EEA98F20085C91C /* HTSMSReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0D71EEA98F20085C91C /* HTSMSReceipt.m */; };
 		5E564BA81EA7557F0076F83C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BA71EA7557F0076F83C /* AudioToolbox.framework */; };
 		5E564BAA1EA755C50076F83C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BA91EA755C50076F83C /* AVFoundation.framework */; };
 		5E564BAC1EA756FB0076F83C /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BAB1EA756FB0076F83C /* ExternalAccessory.framework */; };
@@ -156,6 +157,8 @@
 		5E54F0D11EEA6FB10085C91C /* UIViewController+Back.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Back.m"; sourceTree = "<group>"; };
 		5E54F0D31EEA72290085C91C /* HTKeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKeyboardInputView.h; sourceTree = "<group>"; };
 		5E54F0D41EEA72290085C91C /* HTKeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKeyboardInputView.m; sourceTree = "<group>"; };
+		5E54F0D61EEA98F20085C91C /* HTSMSReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSMSReceipt.h; sourceTree = "<group>"; };
+		5E54F0D71EEA98F20085C91C /* HTSMSReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSMSReceipt.m; sourceTree = "<group>"; };
 		5E564BA51EA653D70076F83C /* IDTech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDTech.framework; path = "../80149801-001-A/SDK/1.1.085/IDTech.framework"; sourceTree = "<group>"; };
 		5E564BA71EA7557F0076F83C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5E564BA91EA755C50076F83C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -352,6 +355,8 @@
 		5E4E1B7B1ECC7AEF0001B301 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5E54F0D61EEA98F20085C91C /* HTSMSReceipt.h */,
+				5E54F0D71EEA98F20085C91C /* HTSMSReceipt.m */,
 				5E0F54811EE0921B0004259C /* HTTicket.h */,
 				5E0F54821EE0921B0004259C /* HTTicket.m */,
 				5E0F54631EDEB4A80004259C /* HTSettings.h */,
@@ -801,6 +806,7 @@
 				5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */,
 				5E0F54781EDF2A1C0004259C /* HTMSRTransaction.m in Sources */,
 				F5C187B01E925D4500800F52 /* HTLoginScreenViewController.m in Sources */,
+				5E54F0D81EEA98F20085C91C /* HTSMSReceipt.m in Sources */,
 				5E4E1B5E1EBA07160001B301 /* HTAuthenticationManager.m in Sources */,
 				5E4E1B771ECC76530001B301 /* HTWebProvider.m in Sources */,
 				5E4E1B6A1EC3284C0001B301 /* IDTechCardReaderManager.m in Sources */,

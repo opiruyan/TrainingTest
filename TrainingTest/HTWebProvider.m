@@ -10,6 +10,7 @@
 #import "HTEmailReceipt.h"
 #import "HTWebProvider+Settings.h"
 #import "HTSettings.h"
+#import "HTSMSReceipt.h"
 
 
 #define gatewayEndpoint @"https://stagegw.transnox.com/servlets/TransNox_API_Server"
@@ -120,9 +121,18 @@
 - (void)sendEmail:(HTEmailReceipt *)email
 {
     NSDictionary *data = [email deserialize];
-    [self POSTRequestToEndpoint:@"/api/v1/notifications/email" body:data withToken:self.token completionHandler:^(NSData *data) {
+    [self POSTRequestToEndpoint:@"/api/v1/notifications/email" body:data withToken:self.token.accessToken completionHandler:^(NSData *data) {
         NSLog(@"%@", [NSJSONSerialization JSONObjectWithData:data options:0 error:nil]);
     }];
 }
+
+- (void)sendSms:(HTSMSReceipt *)sms
+{
+    NSDictionary *data = [sms deserialize];
+    [self POSTRequestToEndpoint:@"/api/v1/notifications/sms" body:data withToken:self.token.accessToken completionHandler:^(NSData *data) {
+        NSLog(@"%@", [NSJSONSerialization JSONObjectWithData:data options:0 error:nil]);
+    }];
+}
+
 
 @end

@@ -82,7 +82,7 @@
 
 - (void)gotEMVData:(IDTEMVData *)emvData
 {
-    [self.delegate paymentManager:self didRecieveCardData:emvData];
+    [self.delegate paymentManager:self didRecieveCardData:nil];
     self.processingTransaction = [HTEMVTransaction transactionWithEmvData:emvData.unencryptedTags];
     // start transaction
     [self processTransactionWithCompletion:^(NSDictionary *response) {
@@ -93,6 +93,7 @@
             // store payment to backend
             [[HTPayment currentPayment] storeTicket:saleResponse];
             [self.cardReaderManager completeEMV];
+            [self.delegate paymentManagerdidCompleteTransaction:self];
         };
     }];
     //[self.delegate devicePlugged:NO]; // show spinner

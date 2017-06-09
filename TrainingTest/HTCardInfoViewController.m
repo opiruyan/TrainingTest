@@ -14,6 +14,7 @@
 #import "UIView+Animation.h"
 #import "UIViewController+Spinner.h"
 #import "UIViewController+Back.h"
+#import "HTSignatureViewController.h"
 
 @interface HTCardInfoViewController () <HTPaymentManagerProtocol>
 
@@ -83,6 +84,7 @@
 - (void)paymentManagerdidCompleteTransaction:(HTPaymentManager *)manager
 {
     [self hideSpinner];
+    [self completeTransaction];
 }
 
 - (void)devicePlugged:(BOOL)status
@@ -103,5 +105,14 @@
  {
      
  }
+
+#pragma mark wireframe methods
+
+- (void)completeTransaction
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    HTSignatureViewController *signatureViewController = [storyboard instantiateViewControllerWithIdentifier:@"HTSignatureViewController"];
+    [self presentViewController:signatureViewController animated:YES completion:nil];
+}
 
 @end

@@ -13,6 +13,7 @@
 #import "HTSpinnerViewController.h"
 #import "UIView+Animation.h"
 #import "UIViewController+Spinner.h"
+#import "UIViewController+Back.h"
 
 @interface HTCardInfoViewController () <HTPaymentManagerProtocol>
 
@@ -32,6 +33,7 @@
     [super viewDidLoad];
     self.paymentManager.transationType = htTransacionTypeEMV;
     [self.paymentManager startTransaction];
+    //[self setCustomBackWithTarget:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated

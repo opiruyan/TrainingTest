@@ -46,7 +46,7 @@
     [super viewDidLoad];
     self.totalString =[NSMutableString string];
     self.TotalTextField.delegate = self;
-    self.payButton.enabled = NO;
+    [self.TotalTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"$0.00" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];
 }
 
 
@@ -58,7 +58,7 @@
 - (IBAction)numberPressed:(HTKeypadButton *)sender
 {
     [self.totalString appendString:sender.number];
-    self.TotalTextField.text = self.totalString;
+    self.TotalTextField.text = [@"$" stringByAppendingString:self.totalString];
     HTPayment *currentPayment = [HTPayment currentPayment];
     currentPayment.amount = [NSDecimalNumber decimalNumberWithString:self.totalString];
     self.payButton.enabled = [NSDecimalNumber decimalNumberWithString:self.totalString].floatValue > 0 ;
@@ -68,7 +68,7 @@
 {
     self.totalString = [NSMutableString new];
     self.TotalTextField.text = nil;
-    [self.TotalTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"0" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];
+    [self.TotalTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"$0.00" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];
     self.payButton.enabled = NO;
 }
 

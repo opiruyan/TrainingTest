@@ -40,6 +40,8 @@
 		5E4E1B841ED6C7D60001B301 /* HTEmailReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B831ED6C7D60001B301 /* HTEmailReceipt.m */; };
 		5E4E1B8E1ED841A60001B301 /* HTAuthenticationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B8D1ED841A60001B301 /* HTAuthenticationToken.m */; };
 		5E4E1B911ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B901ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m */; };
+		5E54F0D21EEA6FB10085C91C /* UIViewController+Back.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0D11EEA6FB10085C91C /* UIViewController+Back.m */; };
+		5E54F0D51EEA72290085C91C /* HTKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54F0D41EEA72290085C91C /* HTKeyboardInputView.m */; };
 		5E564BA81EA7557F0076F83C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BA71EA7557F0076F83C /* AudioToolbox.framework */; };
 		5E564BAA1EA755C50076F83C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BA91EA755C50076F83C /* AVFoundation.framework */; };
 		5E564BAC1EA756FB0076F83C /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E564BAB1EA756FB0076F83C /* ExternalAccessory.framework */; };
@@ -150,6 +152,10 @@
 		5E4E1B8D1ED841A60001B301 /* HTAuthenticationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAuthenticationToken.m; sourceTree = "<group>"; };
 		5E4E1B8F1ED871940001B301 /* HTPaymentManager+transactionInfoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTPaymentManager+transactionInfoJSON.h"; sourceTree = "<group>"; };
 		5E4E1B901ED871940001B301 /* HTPaymentManager+transactionInfoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTPaymentManager+transactionInfoJSON.m"; sourceTree = "<group>"; };
+		5E54F0D01EEA6FB10085C91C /* UIViewController+Back.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Back.h"; sourceTree = "<group>"; };
+		5E54F0D11EEA6FB10085C91C /* UIViewController+Back.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Back.m"; sourceTree = "<group>"; };
+		5E54F0D31EEA72290085C91C /* HTKeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKeyboardInputView.h; sourceTree = "<group>"; };
+		5E54F0D41EEA72290085C91C /* HTKeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKeyboardInputView.m; sourceTree = "<group>"; };
 		5E564BA51EA653D70076F83C /* IDTech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDTech.framework; path = "../80149801-001-A/SDK/1.1.085/IDTech.framework"; sourceTree = "<group>"; };
 		5E564BA71EA7557F0076F83C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5E564BA91EA755C50076F83C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -259,6 +265,8 @@
 		5E0F54871EE59CD00004259C /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				5E54F0D31EEA72290085C91C /* HTKeyboardInputView.h */,
+				5E54F0D41EEA72290085C91C /* HTKeyboardInputView.m */,
 				5E0F549E1EE94BD30004259C /* UIViewController+Spinner.h */,
 				5E0F549F1EE94BD30004259C /* UIViewController+Spinner.m */,
 				5E0F54981EE88A650004259C /* HTKeypadButton.h */,
@@ -281,6 +289,8 @@
 		5E4E1B211EAF51AD0001B301 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				5E54F0D01EEA6FB10085C91C /* UIViewController+Back.h */,
+				5E54F0D11EEA6FB10085C91C /* UIViewController+Back.m */,
 				5E0F54A11EE950450004259C /* UIViewController+Processing.h */,
 				5E0F54A21EE950450004259C /* UIViewController+Processing.m */,
 				5E4E1B1D1EAF51880001B301 /* NSString+UUID.h */,
@@ -797,8 +807,10 @@
 				F5DDCCF41E8D019C00904CD4 /* main.m in Sources */,
 				5E6C170A1EA8D72300540385 /* HTCardInfo.m in Sources */,
 				F5C187B61E9508E900800F52 /* HTCardInfoViewController.m in Sources */,
+				5E54F0D51EEA72290085C91C /* HTKeyboardInputView.m in Sources */,
 				5E4E1B841ED6C7D60001B301 /* HTEmailReceipt.m in Sources */,
 				F5FE09C61E9E5303001C4826 /* HTCloseTicketViewController.m in Sources */,
+				5E54F0D21EEA6FB10085C91C /* UIViewController+Back.m in Sources */,
 				5E0F546F1EDED6690004259C /* HTWebProvider+Settings.m in Sources */,
 				5E4E1B7E1ECD99A60001B301 /* HTPaymentManager.m in Sources */,
 				5E0F54971EE889AD0004259C /* HTDesignableView.m in Sources */,

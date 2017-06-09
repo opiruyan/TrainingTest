@@ -57,9 +57,9 @@
 - (IBAction)confirmPressed:(UIButton *)sender
 {
     [self showComplete];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    HTSignatureViewController *signatureViewController = [storyboard instantiateViewControllerWithIdentifier:@"HTCloseTicketViewController"];
-    [self presentViewController:signatureViewController animated:YES completion:nil];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    HTSignatureViewController *signatureViewController = [storyboard instantiateViewControllerWithIdentifier:@"HTCloseTicketViewController"];
+//    [self presentViewController:signatureViewController animated:YES completion:nil];
 }
 
 /*

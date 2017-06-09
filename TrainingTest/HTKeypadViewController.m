@@ -44,12 +44,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.totalString =[NSMutableString string];
+    self.totalString = @"0.00";
     self.TotalTextField.delegate = self;
-    [self.TotalTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"$0.00" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];
 }
 
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.TotalTextField.text = @"$0.00";//[[[HTPayment currentPayment] amount] stringValue];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -57,15 +59,24 @@
 }
 - (IBAction)numberPressed:(HTKeypadButton *)sender
 {
-    [self.totalString appendString:sender.number];
-    self.TotalTextField.text = [@"$" stringByAppendingString:self.totalString];
     HTPayment *currentPayment = [HTPayment currentPayment];
-    currentPayment.amount = [NSDecimalNumber decimalNumberWithString:self.totalString];
-    self.payButton.enabled = [NSDecimalNumber decimalNumberWithString:self.totalString].floatValue > 0 ;
+    NSDecimalNumber *total = currentPayment.amount;
+    float first = total.floatValue;
+    float digit = [[NSDecimalNumber decimalNumberWithString:sender.number] floatValue];
+    float result = first*10 + digit/100;
+    total = [[NSDecimalNumber alloc] initWithFloat:result];
+    //[self.totalString appendString:sender.number];
+    self.TotalTextField.text = [NSString stringWithFormat:@"$%.2f", total.floatValue];
+    //self.TotalTextField.text = [@"$" stringByAppendingString:self.totalString];
+    currentPayment.amount = total;
+    //currentPayment.amount = [NSDecimalNumber decimalNumberWithString:self.totalString];
+    //self.payButton.enabled = [NSDecimalNumber decimalNumberWithString:self.totalString].floatValue > 0 ;
 }
 
 - (IBAction)cancelPressed:(UIButton *)sender
 {
+    HTPayment *currentPayment = [HTPayment currentPayment];
+    currentPayment.amount = [NSDecimalNumber zero];
     self.totalString = [NSMutableString new];
     self.TotalTextField.text = nil;
     [self.TotalTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"$0.00" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];

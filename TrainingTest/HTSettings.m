@@ -8,6 +8,8 @@
 
 #import "HTSettings.h"
 #import "HTWebProvider.h"
+#import <Lockbox/Lockbox.h>
+#import "HTAuthenticationToken.h"
 
 @interface HTSettings ()
 
@@ -43,6 +45,11 @@
     self.token = [HTAuthenticationToken tokenWithDicitonary:tokenDictionary];
     [self.token save];
     [self getTSYSProcessingCredintials];
+}
+
+- (HTAuthenticationToken *)token
+{
+    return [HTAuthenticationToken tokenFromKeychain];
 }
 
 - (void)getTSYSProcessingCredintials

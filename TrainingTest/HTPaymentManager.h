@@ -24,7 +24,7 @@ typedef enum
 @protocol HTPaymentManagerProtocol <NSObject>
 
 - (void)paymentManager:(HTPaymentManager *)manager didRecieveCardData:(HTCardInfo *)cardInfo;
-- (void)paymentManagerdidCompleteTransaction:(HTPaymentManager *)manager;
+- (void)paymentManagerdidCompleteTransaction:(BOOL)result;
 
 - (void)devicePlugged:(BOOL)status;
 

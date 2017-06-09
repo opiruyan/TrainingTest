@@ -68,6 +68,7 @@
 {
     [self.paymentManager stopTransaction];
     self.transationType = (self.transationType + 1) % 2;
+    self.paymentManager.transationType = self.transationType;
     if (self.transationType == htTransacionTypeEMV)
     {
         self.instructionLabel.text = @"Insert a card";
@@ -81,10 +82,13 @@
     [self.paymentManager startTransaction];
 }
 
-- (void)paymentManagerdidCompleteTransaction:(HTPaymentManager *)manager
+- (void)paymentManagerdidCompleteTransaction:(BOOL)result
 {
     [self hideSpinner];
-    [self completeTransaction];
+    if (result)
+    {
+        [self completeTransaction];
+    }
 }
 
 - (void)devicePlugged:(BOOL)status

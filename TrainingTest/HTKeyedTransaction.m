@@ -19,7 +19,7 @@
     [dict setObject:@"88800000171001" forKey:@"deviceID"];
     [dict setObject:@"MXPNPOAG5FOFGIZJCSS1M4DFF4PQPXC4" forKey:@"transactionKey"];
     [dict setObject:@"MANUAL" forKey:@"cardDataSource"];
-    [dict setObject:self.amount forKey:@"transactionAmount"];
+    [dict setObject:[NSString stringWithFormat:@"%.2f", self.amount.floatValue] forKey:@"transactionAmount"];
     [dict setObject:@"5469420014586922" forKey:@"cardNumber"];
     [dict setObject:@"1117" forKey:@"expirationDate"];
     [dict setObject:@"Oleg" forKey:@"firstName"];

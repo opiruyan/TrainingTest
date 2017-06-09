@@ -26,16 +26,16 @@
     self.navigationController.navigationBar.hidden = YES;
     self.isLogged = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedAuthentication) name:kHandlingURLNotification object:nil];
-    if ([[HTAuthenticationManager sharedManager] authorized])
-    {
-        [self performSegueWithIdentifier:@"skipLogin" sender:self];
-    }
+//    if ([[HTAuthenticationManager sharedManager] authorized])
+//    {
+//        [self performSegueWithIdentifier:@"skipLogin" sender:self];
+//    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     HTAuthenticationManager *manager = [HTAuthenticationManager sharedManager];
-    if (![manager authorized] && !self.isLogged)
+    if ([manager authorized] && !self.isLogged)
     {
         [self oauth2];
     }

@@ -55,14 +55,14 @@
 
 - (void)stopTransaction
 {
-    if (self.transationType == htTransacionTypeEMV)
-    {
-        [self.cardReaderManager completeEMV];
-    }
-    else
-    {
-        [self.cardReaderManager cancelMSR];
-    }
+//    if (self.transationType == htTransacionTypeEMV)
+//    {
+//        [self.cardReaderManager completeEMV];
+//    }
+//    else
+//    {
+//        [self.cardReaderManager cancelMSR];
+//    }
 }
 
 #pragma mark - Reader Manager Delegate
@@ -88,17 +88,16 @@
     [self processTransactionWithCompletion:^(NSDictionary *response) {
         NSDictionary *saleResponse = [response objectForKey:@"SaleResponse"];
         //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
-        if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
+        BOOL result = [[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"];
+        if (result)
         {
             // store payment to backend
             [[HTPayment currentPayment] storeTicket:saleResponse];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                 //[self.cardReaderManager completeEMV];
-                [self.delegate paymentManagerdidCompleteTransaction:self];
-            });
         };
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate paymentManagerdidCompleteTransaction:result];
+        });
     }];
-    //[self.delegate devicePlugged:NO]; // show spinner
 }
 
 - (void)didReadMSRData:(IDTMSRData *)cardData
@@ -106,7 +105,6 @@
     self.processingTransaction = [HTMSRTransaction transactionWithCardData:cardData];
     [self processTransactionWithCompletion:^(NSDictionary *response) {
         NSDictionary *saleResponse = [response objectForKey:@"SaleResponse"];
-        //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
         if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
         {
             [[HTPayment currentPayment] storeTicket:saleResponse];

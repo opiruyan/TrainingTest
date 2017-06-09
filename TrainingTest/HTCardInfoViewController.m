@@ -23,6 +23,9 @@
 @property (strong, nonatomic) HTCardInfo *cardInfo;
 @property (weak, nonatomic) IBOutlet UIButton *keyedTransactionButton;
 @property (weak, nonatomic) IBOutlet UIImageView *cardmageView;
+@property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *buttonInstructionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 
 @end
 
@@ -33,7 +36,8 @@
     [super viewDidLoad];
     self.paymentManager.transationType = htTransacionTypeEMV;
     [self.paymentManager startTransaction];
-    //[self setCustomBackWithTarget:self];
+    [self setCustomBackWithTarget:self];
+    self.amountLabel.text = [NSString stringWithFormat:@"$%.02f", [[HTPayment currentPayment] amount].floatValue];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -54,14 +58,31 @@
 
 #pragma mark - Payment Manager Delegate
 
-- (IBAction)keyedTransactionPressed:(UIButton *)sender
+- (void)paymentManager:(HTPaymentManager *)manager didRecieveCardData:(HTCardInfo *)cardInfo
 {
+    [self showSpinner];
+}
+
+- (IBAction)transactionTypePressed:(UIButton *)sender
+{
+    [self.paymentManager stopTransaction];
+    self.transationType = (self.transationType + 1) % 2;
+    if (self.transationType == htTransacionTypeEMV)
+    {
+        self.instructionLabel.text = @"Insert a card";
+        self.buttonInstructionLabel.text = @"Swipe Card";
+    }
+    else
+    {
+        self.instructionLabel.text = @"Swipe a card";
+        self.buttonInstructionLabel.text = @"Insert Card";
+    }
     [self.paymentManager startTransaction];
 }
 
 - (void)paymentManagerdidCompleteTransaction:(HTPaymentManager *)manager
 {
-    // show succes screen and initiate a new segue
+    [self hideSpinner];
 }
 
 - (void)devicePlugged:(BOOL)status

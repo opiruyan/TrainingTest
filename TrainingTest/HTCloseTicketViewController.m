@@ -77,17 +77,28 @@
 }
 - (IBAction)sendReceiptPressed:(id)sender
 {
+    self.inputView.hidden = NO;
+    [self.inputView.email becomeFirstResponder];
+}
+
+- (IBAction)textReceiptPressed:(UIButton *)sender
+{
+    self.inputView.hidden = NO;
+    [self.inputView.iconButton setImage:[UIImage imageNamed:@"chatIcon"] forState:UIControlStateNormal];
     [self.inputView.email becomeFirstResponder];
 }
 
 - (IBAction)emailReceiptPressed:(UIButton *)sender
 {
-    HTEmailReceipt *email = [HTEmailReceipt new];
-    email.from = @"notifications@harbortouch.com";
-    email.to = self.emailTextField.text;
-    email.subject = @"Receipt";
-    email.text = @"your email has been sent";
-    [[HTWebProvider sharedProvider] sendEmail:email];
+//    HTEmailReceipt *email = [HTEmailReceipt new];
+//    email.from = @"notifications@harbortouch.com";
+//    email.to = self.inputView.email.text;
+//    email.subject = @"Receipt";
+//    email.text = @"your email has been sent";
+//    [[HTWebProvider sharedProvider] sendEmail:email];
+    self.inputView.hidden = YES;
+    [self.view.subviews.lastObject removeFromSuperview];
+    [self.view endEditing:YES];
     
 }
 

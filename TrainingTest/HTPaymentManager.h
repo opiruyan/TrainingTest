@@ -14,16 +14,16 @@
 
 typedef enum
 {
-    htTransacionTypeManual = 0,
+    htTransacionTypeEMV = 0,
     htTransacionTypeMSR,
-    htTransacionTypeEMV
+    htTransacionTypeManual
 } htTransationType;
 
 @class HTPaymentManager;
 
 @protocol HTPaymentManagerProtocol <NSObject>
 
-//- (void)paymentManager:(HTPaymentManager *)manager didRecieveCardData:(HTCardInfo *)cardInfo;
+- (void)paymentManager:(HTPaymentManager *)manager didRecieveCardData:(HTCardInfo *)cardInfo;
 - (void)paymentManagerdidCompleteTransaction:(HTPaymentManager *)manager;
 
 - (void)devicePlugged:(BOOL)status;
@@ -37,6 +37,7 @@ typedef enum
 @property (strong, nonatomic) HTTransaction *processingTransaction;
 
 - (void)startTransaction;
+- (void)stopTransaction;
 - (void)processTransactionWithCompletion:(transactionCompletionHandler)completion;
 
 @end

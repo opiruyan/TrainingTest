@@ -11,6 +11,6 @@
 @interface HTKeyboardInputView : UIView
 
 @property (nonatomic ,weak) IBOutlet UITextField *email;
-@property (nonatomic ,weak) IBOutlet NSLayoutConstraint *heightContraint;
+@property (nonatomic ,weak) IBOutlet UIButton *iconButton;
 
 @end

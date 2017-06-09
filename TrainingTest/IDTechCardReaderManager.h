@@ -34,5 +34,6 @@
 - (void)startEmvTransactionWithAmount:(NSDecimalNumber *)amount;
 - (void)startMSRTransaction;
 - (void)completeEMV;
+- (void)cancelMSR;
 
 @end

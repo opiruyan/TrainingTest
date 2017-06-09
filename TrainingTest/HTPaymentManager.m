@@ -53,6 +53,18 @@
     }
 }
 
+- (void)stopTransaction
+{
+    if (self.transationType == htTransacionTypeEMV)
+    {
+        [self.cardReaderManager completeEMV];
+    }
+    else
+    {
+        [self.cardReaderManager cancelMSR];
+    }
+}
+
 #pragma mark - Reader Manager Delegate
 
 - (void)readerManager:(IDTechCardReaderManager *)manager detectedDevicePlugged:(BOOL)status
@@ -70,6 +82,7 @@
 
 - (void)gotEMVData:(IDTEMVData *)emvData
 {
+    [self.delegate paymentManager:self didRecieveCardData:emvData];
     self.processingTransaction = [HTEMVTransaction transactionWithEmvData:emvData.unencryptedTags];
     // start transaction
     [self processTransactionWithCompletion:^(NSDictionary *response) {

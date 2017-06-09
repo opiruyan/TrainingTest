@@ -137,6 +137,11 @@
     }
 }
 
+- (void)cancelMSR
+{
+    RETURN_CODE rt = [[IDT_UniPayIII sharedController] msr_cancelMSRSwipe];
+}
+
 #pragma mark - Utility
 
 static int _lcdDisplayMode = 0;

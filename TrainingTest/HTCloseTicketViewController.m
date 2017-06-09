@@ -29,6 +29,8 @@
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:self.view.window];
+    self.inputView.translatesAutoresizingMaskIntoConstraints = YES;
+    self.inputView.frame = CGRectMake(0, self.inputView.superview.frame.size.height, self.inputView.frame.size.width, self.inputView.frame.size.height);
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -62,9 +64,14 @@
                          // Now we just animate the text field up an amount according to the keyboard's height,
                          // as we mentioned above.
                          CGRect textFieldFrame = self.inputView.frame;
-                         //textFieldFrame.origin.y = keyboardEndFrame.origin.y - textFieldFrame.size.height - 40; //I don't think the keyboard takes into account the status bar
-                         //self.inputView.frame = textFieldFrame;
-                         self.inputView.heightContraint.constant = keyboardEndFrame.origin.y - textFieldFrame.size.height;
+                         textFieldFrame.origin.y = keyboardEndFrame.origin.y - textFieldFrame.size.height - self.inputView.superview.frame.origin.y; //I don't think the keyboard takes into account the status bar
+                         textFieldFrame.size.width = self.inputView.superview.frame.size.width;
+                         self.inputView.frame = textFieldFrame;
+                         // greay out everythin on top of input view
+                         
+                         UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, textFieldFrame.size.width, keyboardEndFrame.origin.y - textFieldFrame.size.height)];
+                         grayView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+                         [self.view addSubview:grayView];
                      }
                      completion:^(BOOL finished) {}];
 }

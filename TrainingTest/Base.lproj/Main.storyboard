@@ -1118,7 +1118,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="email" destination="RQi-c4-Uhw" id="1jK-tR-JvV"/>
-                                            <outlet property="heightContraint" destination="JLW-La-FhM" id="1vI-n3-PTr"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -1142,7 +1141,6 @@
                         <color key="backgroundColor" red="0.5607843137254902" green="0.82352941176470584" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BZu-q4-wBG" firstAttribute="top" secondItem="PU9-3h-ydR" secondAttribute="bottom" id="DAL-HH-nv8"/>
-                            <constraint firstItem="XKs-IA-bMq" firstAttribute="top" secondItem="4oU-4l-Xe0" secondAttribute="bottom" constant="113.5" id="JLW-La-FhM"/>
                             <constraint firstAttribute="trailing" secondItem="BZu-q4-wBG" secondAttribute="trailing" id="Y3Y-9H-ewD"/>
                             <constraint firstItem="PU9-3h-ydR" firstAttribute="height" secondItem="6Fa-Mv-HtC" secondAttribute="height" multiplier="1:3" priority="600" id="cA5-1v-BCU"/>
                             <constraint firstAttribute="trailing" secondItem="PU9-3h-ydR" secondAttribute="trailing" id="jAF-Ry-hNc"/>

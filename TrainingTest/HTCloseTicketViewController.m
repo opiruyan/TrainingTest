@@ -104,7 +104,7 @@
         email.from = @"notifications@harbortouch.com";
         email.to = self.inputView.email.text;
         email.subject = @"Receipt";
-        email.text = [NSString stringWithFormat:@"Your transaction for %@ has been completed.", [[HTPayment currentPayment] amount]];
+        email.text = [NSString stringWithFormat:@"Your transaction for %.2f has been completed.", [[HTPayment currentPayment] amount].floatValue];
         [[HTWebProvider sharedProvider] sendEmail:email];
 
     }
@@ -112,7 +112,7 @@
     {
         HTSMSReceipt *sms = [HTSMSReceipt new];
         sms.to = self.inputView.email.text;
-        sms.text = [NSString stringWithFormat:@"Your transaction for %@ has been completed.", [[HTPayment currentPayment] amount]];
+        sms.text = [NSString stringWithFormat:@"Your transaction for %.2f has been completed.", [[HTPayment currentPayment] amount].floatValue];
         [[HTWebProvider sharedProvider] sendSms:sms];
     }
     self.inputView.hidden = YES;

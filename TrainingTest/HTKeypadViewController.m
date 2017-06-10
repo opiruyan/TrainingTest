@@ -80,7 +80,6 @@
     self.totalString = [NSMutableString new];
     self.TotalTextField.text = nil;
     [self.TotalTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"$0.00" attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor]}]];
-    self.payButton.enabled = NO;
 }
 
 - (IBAction)unwindToKeypad:(UIStoryboardSegue *)unwindSegue

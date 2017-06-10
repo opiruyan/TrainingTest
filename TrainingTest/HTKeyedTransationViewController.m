@@ -15,7 +15,13 @@
 
 @interface HTKeyedTransationViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *cardNumberTextField;
 @property (nonatomic ,strong) HTPaymentManager *paymentManager;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *monthTextField;
+@property (weak, nonatomic) IBOutlet UITextField *yearTextField;
+@property (weak, nonatomic) IBOutlet UIButton *payButton;
+
 
 @end
 

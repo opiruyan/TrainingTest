@@ -24,24 +24,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.hidden = YES;
-    self.isLogged = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedAuthentication) name:kHandlingURLNotification object:nil];
-//    if ([[HTAuthenticationManager sharedManager] authorized])
-//    {
-//        [self performSegueWithIdentifier:@"skipLogin" sender:self];
-//    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     HTAuthenticationManager *manager = [HTAuthenticationManager sharedManager];
-    if ([manager authorized] && !self.isLogged)
+    if (![manager authorized])
     {
         [self oauth2];
     }
     else
     {
-        [self performSegueWithIdentifier:@"skipLogin" sender:self];
+        [self performSegueWithIdentifier:@"loginFinishedSegue" sender:self];
     }
 }
 
@@ -65,7 +60,6 @@
     NSString *urlString = [NSString stringWithFormat:@"%@/oauth2/authorize/?client_id=%@&redirect_uri=%@://&response_type=code", host, clientId, urlSchemes.firstObject];
     SFSafariViewController *authViewContoller = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:urlString]];
     authViewContoller.preferredBarTintColor = [UIColor grayColor];
-    authViewContoller.delegate = self;
     [self presentViewController:authViewContoller animated:YES completion:nil];
 }
 
@@ -75,11 +69,6 @@
     [self dismissViewControllerAnimated:NO completion:^{
         [self performSegueWithIdentifier:@"loginFinishedSegue" sender:self];
     }];
-}
-
-- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
-{
-    self.isLogged = YES;
 }
 
 @end

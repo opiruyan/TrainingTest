@@ -542,7 +542,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="YHK-J6-AFq">
-                                <rect key="frame" x="0.0" y="242.5" width="194" height="140"/>
+                                <rect key="frame" x="-230" y="242.5" width="194" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="194" id="Jww-nE-GXV"/>
                                 </constraints>
@@ -577,7 +577,7 @@
                             <constraint firstItem="aud-XF-pwx" firstAttribute="trailing" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="tt8-o0-MNm"/>
                             <constraint firstItem="YHK-J6-AFq" firstAttribute="centerY" secondItem="xgc-zY-njw" secondAttribute="centerY" constant="-30" id="viK-AS-4VS"/>
                             <constraint firstItem="iTa-Pb-bX9" firstAttribute="top" secondItem="aud-XF-pwx" secondAttribute="bottom" id="wh2-tH-isH"/>
-                            <constraint firstItem="YHK-J6-AFq" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="leading" id="y5q-H9-RyQ"/>
+                            <constraint firstItem="YHK-J6-AFq" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="leading" constant="-230" id="y5q-H9-RyQ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -589,6 +589,7 @@
                     <connections>
                         <outlet property="amountLabel" destination="njQ-e9-qJW" id="Gwu-vN-1wy"/>
                         <outlet property="buttonInstructionLabel" destination="ByD-Xt-7mQ" id="2iy-CW-PXr"/>
+                        <outlet property="cardCenterToReaderConstraint" destination="viK-AS-4VS" id="Reh-jc-qig"/>
                         <outlet property="cardmageView" destination="YHK-J6-AFq" id="etM-S0-BZ0"/>
                         <outlet property="instructionLabel" destination="Tjo-jy-Doh" id="oir-Me-FG1"/>
                         <outlet property="readerImageView" destination="xgc-zY-njw" id="uOa-Oz-vms"/>

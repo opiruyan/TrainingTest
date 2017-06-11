@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *buttonInstructionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *readerImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardCenterToReaderConstraint;
 
 @end
 
@@ -67,6 +68,7 @@
 
 - (IBAction)transactionTypePressed:(UIButton *)sender
 {
+    [self.cardmageView.layer removeAllAnimations];
     self.emvTransationType = !self.emvTransationType;
     if (self.emvTransationType)
     {
@@ -74,6 +76,8 @@
         self.buttonInstructionLabel.text = @"Swipe Card";
         [self.readerImageView animateZoomIn];
         self.paymentManager.transationType = htTransacionTypeEMV;
+        //[self.cardmageView animateInsert];
+        self.cardCenterToReaderConstraint.constant = - 30;
     }
     else
     {
@@ -81,6 +85,8 @@
         self.buttonInstructionLabel.text = @"Insert Card";
         self.paymentManager.transationType = htTransacionTypeMSR;
         [self.readerImageView animateZoomOut];
+        [self.cardmageView animateSwipe];
+        self.cardCenterToReaderConstraint.constant = - 100;
     }
     [self.paymentManager stopTransaction];
     [self.paymentManager startTransaction];

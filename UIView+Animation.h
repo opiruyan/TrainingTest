@@ -10,7 +10,9 @@
 
 @interface UIView (Animation)
 
+- (void)animateInsert;
 - (void)animateSwipe;
 - (void)animateZoomIn;
+- (void)animateZoomOut;
 
 @end

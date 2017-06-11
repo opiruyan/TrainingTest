@@ -18,7 +18,7 @@
 
 @interface HTCardInfoViewController () <HTPaymentManagerProtocol>
 
-@property (nonatomic) htTransationType transationType;
+@property (nonatomic) BOOL emvTransationType;
 @property (nonatomic, strong) HTPaymentManager *paymentManager;
 
 @property (strong, nonatomic) HTCardInfo *cardInfo;
@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.paymentManager.transationType = htTransacionTypeEMV;
+    self.emvTransationType = YES;
     [self.paymentManager startTransaction];
     [self setCustomBackWithTarget:self];
     self.amountLabel.text = [NSString stringWithFormat:@"$%.02f", [[HTPayment currentPayment] amount].floatValue];
@@ -45,7 +45,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.cardmageView animateSwipe];
+    [self.cardmageView animateInsert];
 }
 
 - (HTPaymentManager *)paymentManager
@@ -67,20 +67,22 @@
 
 - (IBAction)transactionTypePressed:(UIButton *)sender
 {
-    [self.readerImageView animateZoomIn];
-    [self.paymentManager stopTransaction];
-    self.transationType = (self.transationType + 1) % 2;
-    self.paymentManager.transationType = self.transationType;
-    if (self.transationType == htTransacionTypeEMV)
+    self.emvTransationType = !self.emvTransationType;
+    if (self.emvTransationType)
     {
         self.instructionLabel.text = @"Insert a card";
         self.buttonInstructionLabel.text = @"Swipe Card";
+        [self.readerImageView animateZoomIn];
+        self.paymentManager.transationType = htTransacionTypeEMV;
     }
     else
     {
         self.instructionLabel.text = @"Swipe a card";
         self.buttonInstructionLabel.text = @"Insert Card";
+        self.paymentManager.transationType = htTransacionTypeMSR;
+        [self.readerImageView animateZoomOut];
     }
+    [self.paymentManager stopTransaction];
     [self.paymentManager startTransaction];
 }
 

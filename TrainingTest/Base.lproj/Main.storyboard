@@ -591,6 +591,7 @@
                         <outlet property="buttonInstructionLabel" destination="ByD-Xt-7mQ" id="2iy-CW-PXr"/>
                         <outlet property="cardmageView" destination="YHK-J6-AFq" id="etM-S0-BZ0"/>
                         <outlet property="instructionLabel" destination="Tjo-jy-Doh" id="oir-Me-FG1"/>
+                        <outlet property="readerImageView" destination="xgc-zY-njw" id="uOa-Oz-vms"/>
                         <segue destination="COq-pg-5iV" kind="show" identifier="Decline" id="pdJ-08-cwr"/>
                     </connections>
                 </viewController>

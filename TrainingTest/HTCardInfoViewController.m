@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *buttonInstructionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *readerImageView;
 
 @end
 
@@ -66,6 +67,7 @@
 
 - (IBAction)transactionTypePressed:(UIButton *)sender
 {
+    [self.readerImageView animateZoomIn];
     [self.paymentManager stopTransaction];
     self.transationType = (self.transationType + 1) % 2;
     self.paymentManager.transationType = self.transationType;

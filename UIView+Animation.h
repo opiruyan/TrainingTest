@@ -11,5 +11,6 @@
 @interface UIView (Animation)
 
 - (void)animateSwipe;
+- (void)animateZoomIn;
 
 @end

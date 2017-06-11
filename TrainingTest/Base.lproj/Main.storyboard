@@ -542,13 +542,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="YHK-J6-AFq">
-                                <rect key="frame" x="0.0" y="166.5" width="170" height="140"/>
+                                <rect key="frame" x="0.0" y="242.5" width="194" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="Jww-nE-GXV"/>
+                                    <constraint firstAttribute="width" constant="194" id="Jww-nE-GXV"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" image="hardware" translatesAutoresizingMaskIntoConstraints="NO" id="xgc-zY-njw">
-                                <rect key="frame" x="56" y="256.5" width="263" height="222.5"/>
+                                <rect key="frame" x="26" y="205.5" width="323" height="273.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xgc-zY-njw" secondAttribute="height" multiplier="320:271" id="HGY-Wd-yqQ"/>
                                 </constraints>
@@ -562,7 +562,7 @@
                             <constraint firstItem="njQ-e9-qJW" firstAttribute="centerX" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="7KJ-qN-oha"/>
                             <constraint firstItem="aud-XF-pwx" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="leading" id="7n9-3x-Zpm"/>
                             <constraint firstItem="Tjo-jy-Doh" firstAttribute="centerX" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="8F0-km-ADi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xgc-zY-njw" secondAttribute="trailing" constant="40" id="C3B-N0-s44"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xgc-zY-njw" secondAttribute="trailing" constant="10" id="C3B-N0-s44"/>
                             <constraint firstItem="pwT-LV-lGz" firstAttribute="top" secondItem="Tjo-jy-Doh" secondAttribute="bottom" constant="20" id="Dco-Hp-79t"/>
                             <constraint firstItem="0Vv-2P-J2n" firstAttribute="top" secondItem="yv5-c6-mAb" secondAttribute="top" id="Djt-UC-Ijf"/>
                             <constraint firstItem="xgc-zY-njw" firstAttribute="bottom" secondItem="aud-XF-pwx" secondAttribute="top" id="FV4-LD-xQi"/>
@@ -575,7 +575,7 @@
                             <constraint firstItem="Tjo-jy-Doh" firstAttribute="top" secondItem="njQ-e9-qJW" secondAttribute="bottom" constant="8" id="fny-KS-Ue3"/>
                             <constraint firstItem="pwT-LV-lGz" firstAttribute="centerX" secondItem="Tjo-jy-Doh" secondAttribute="centerX" constant="11" id="ho9-xP-MTi"/>
                             <constraint firstItem="aud-XF-pwx" firstAttribute="trailing" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="tt8-o0-MNm"/>
-                            <constraint firstItem="YHK-J6-AFq" firstAttribute="bottom" secondItem="xgc-zY-njw" secondAttribute="top" constant="50" id="viK-AS-4VS"/>
+                            <constraint firstItem="YHK-J6-AFq" firstAttribute="centerY" secondItem="xgc-zY-njw" secondAttribute="centerY" constant="-30" id="viK-AS-4VS"/>
                             <constraint firstItem="iTa-Pb-bX9" firstAttribute="top" secondItem="aud-XF-pwx" secondAttribute="bottom" id="wh2-tH-isH"/>
                             <constraint firstItem="YHK-J6-AFq" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="leading" id="y5q-H9-RyQ"/>
                         </constraints>

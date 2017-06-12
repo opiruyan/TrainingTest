@@ -83,7 +83,7 @@
         self.instructionLabel.text = @"Swipe a card";
         self.buttonInstructionLabel.text = @"Insert Card";
         [self.readerImageView animateZoomOut];
-        //[self.cardmageView animateSwipe];
+        [self.cardmageView animateSwipe];
         self.cardCenterToReaderConstraint.constant = - 115;
     }
     [self.paymentManager startTransaction];

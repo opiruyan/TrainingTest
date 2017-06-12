@@ -20,6 +20,7 @@ typedef void (^paymentCompletion) (void);
 - (void)createNewTicketWithBody:(NSDictionary *)body;
 - (void)sendEmail:(HTEmailReceipt *)email;
 - (void)sendSms:(HTSMSReceipt *)sms;
+- (void)exchangeCodeForToken:(NSString *)queryString WithCompletion:(completionHandler)completionBlock;
 - (void)refreshToken:(NSDictionary *)body completionHandler:(completionHandler)completionBlock;
 
 - (void)postRequestWithBody:(NSData *)body completionHandler:(completionHandler)completionBlock;

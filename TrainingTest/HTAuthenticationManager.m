@@ -69,6 +69,7 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
     [dict setValue:@"harborpay://" forKey:@"redirect_uri"];
     NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
     
+    //NSString *endpoint = [NSString stringWithFormat:@"/oauth2/token/?client_id=%@&redirect_uri=harborpay://&client_secret=%@&code=%@&grant_type=authorization_code", clientId, clientSecret, retrievedCode];
     HTWebProvider *webProvider = [HTWebProvider sharedProvider];
     [webProvider postRequestWithBody:data completionHandler:^(NSData *data) {
         NSError *parseError = nil;
@@ -85,6 +86,22 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
             }
         }
     }];
+//    [webProvider exchangeCodeForToken:endpoint WithCompletion:^(NSData *data) {
+//        NSString *str = [NSString stringWithUTF8String:[data bytes]];
+//        NSError *parseError = nil;
+//        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+//        if (!parseError)
+//        {
+//            if ([result objectForKey:@"error"])
+//            {
+//                NSLog(@"%@", [result objectForKey:@"error_description"]);
+//            }
+//            else
+//            {
+//                [[HTSettings sharedSettings] saveAuthenticationToken:result];
+//            }
+//        }
+//    }];
 }
 
 - (BOOL)authorized

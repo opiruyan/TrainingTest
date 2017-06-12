@@ -47,11 +47,6 @@
     [self getTSYSProcessingCredintials];
 }
 
-- (HTAuthenticationToken *)token
-{
-    return [HTAuthenticationToken tokenFromKeychain];
-}
-
 - (void)getTSYSProcessingCredintials
 {
     HTWebProvider *webProvider = [HTWebProvider sharedProvider];

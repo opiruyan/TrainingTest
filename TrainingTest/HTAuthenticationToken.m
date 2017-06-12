@@ -29,7 +29,11 @@
 + (HTAuthenticationToken *)tokenFromKeychain
 {
     NSDictionary *tokenDictionary = [Lockbox unarchiveObjectForKey:@"token"];
-    HTAuthenticationToken *token = [[HTAuthenticationToken alloc] initWithDictionary:tokenDictionary];
+    HTAuthenticationToken *token = nil;
+    if (tokenDictionary)
+    {
+        token = [[HTAuthenticationToken alloc] initWithDictionary:tokenDictionary];
+    }
     return token;
 }
 

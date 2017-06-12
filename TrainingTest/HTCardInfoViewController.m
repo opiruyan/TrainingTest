@@ -77,7 +77,7 @@
         [self.readerImageView animateZoomIn];
         self.paymentManager.transationType = htTransacionTypeEMV;
         //[self.cardmageView animateInsert];
-        self.cardCenterToReaderConstraint.constant = - 30;
+        self.cardCenterToReaderConstraint.constant = -25;
     }
     else
     {
@@ -86,7 +86,7 @@
         self.paymentManager.transationType = htTransacionTypeMSR;
         [self.readerImageView animateZoomOut];
         [self.cardmageView animateSwipe];
-        self.cardCenterToReaderConstraint.constant = - 100;
+        self.cardCenterToReaderConstraint.constant = - 115;
     }
     [self.paymentManager stopTransaction];
     [self.paymentManager startTransaction];

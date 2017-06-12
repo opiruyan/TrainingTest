@@ -10,6 +10,7 @@
 #import <SafariServices/SafariServices.h>
 #import "HTAuthenticationManager.h"
 #import "HTSettings.h"
+#import <Lockbox/Lockbox.h>
 
 #define clientId @"1688719b-f2a6-47c4-b727-bee9aeee90b1"
 
@@ -25,6 +26,8 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.hidden = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedAuthentication) name:kHandlingURLNotification object:nil];
+    self.isLogged = NO;
+    //[Lockbox archiveObject:nil forKey:@"token"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -32,7 +35,10 @@
     HTAuthenticationManager *manager = [HTAuthenticationManager sharedManager];
     if (![manager authorized])
     {
-        [self oauth2];
+        if (!self.isLogged)
+        {
+            [self oauth2];
+        }
     }
     else
     {

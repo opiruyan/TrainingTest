@@ -35,5 +35,6 @@
 - (void)startMSRTransaction;
 - (void)completeEMV;
 - (void)cancelMSR;
+- (void)stopTransaction;
 
 @end

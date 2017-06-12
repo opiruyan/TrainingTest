@@ -541,10 +541,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="YHK-J6-AFq">
-                                <rect key="frame" x="-230" y="242.5" width="194" height="140"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="YHK-J6-AFq">
+                                <rect key="frame" x="-230" y="235" width="261" height="164.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="194" id="Jww-nE-GXV"/>
+                                    <constraint firstAttribute="width" secondItem="YHK-J6-AFq" secondAttribute="height" multiplier="100:63" id="RSz-CX-zsi"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" image="hardware" translatesAutoresizingMaskIntoConstraints="NO" id="xgc-zY-njw">
@@ -574,8 +574,9 @@
                             <constraint firstAttribute="trailing" secondItem="qqf-kc-Y1Y" secondAttribute="trailing" id="dHu-cb-ZPW"/>
                             <constraint firstItem="Tjo-jy-Doh" firstAttribute="top" secondItem="njQ-e9-qJW" secondAttribute="bottom" constant="8" id="fny-KS-Ue3"/>
                             <constraint firstItem="pwT-LV-lGz" firstAttribute="centerX" secondItem="Tjo-jy-Doh" secondAttribute="centerX" constant="11" id="ho9-xP-MTi"/>
+                            <constraint firstItem="YHK-J6-AFq" firstAttribute="height" secondItem="xgc-zY-njw" secondAttribute="height" multiplier="6:10" id="kTo-ij-k5u"/>
                             <constraint firstItem="aud-XF-pwx" firstAttribute="trailing" secondItem="8t3-fD-0D5" secondAttribute="centerX" id="tt8-o0-MNm"/>
-                            <constraint firstItem="YHK-J6-AFq" firstAttribute="centerY" secondItem="xgc-zY-njw" secondAttribute="centerY" constant="-30" id="viK-AS-4VS"/>
+                            <constraint firstItem="YHK-J6-AFq" firstAttribute="centerY" secondItem="xgc-zY-njw" secondAttribute="centerY" constant="-25" id="viK-AS-4VS"/>
                             <constraint firstItem="iTa-Pb-bX9" firstAttribute="top" secondItem="aud-XF-pwx" secondAttribute="bottom" id="wh2-tH-isH"/>
                             <constraint firstItem="YHK-J6-AFq" firstAttribute="leading" secondItem="8t3-fD-0D5" secondAttribute="leading" constant="-230" id="y5q-H9-RyQ"/>
                         </constraints>
@@ -628,10 +629,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5469420014586922" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-MA-jd4">
-                                        <rect key="frame" x="164" y="18" width="211" height="18"/>
+                                        <rect key="frame" x="156" y="18" width="219" height="18"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="v2D-Z9-C2K" id="zrz-md-aWn"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -653,17 +657,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="oleg piruyan" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hEa-jT-okg">
-                                        <rect key="frame" x="164" y="18" width="211" height="18"/>
+                                        <rect key="frame" x="156" y="18" width="219" height="18"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="v2D-Z9-C2K" id="hz4-38-Qcn"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="R6V-vs-pSZ" firstAttribute="centerY" secondItem="uxX-vG-dZU" secondAttribute="centerY" id="0UB-zO-EkP"/>
                                     <constraint firstItem="hEa-jT-okg" firstAttribute="centerY" secondItem="uxX-vG-dZU" secondAttribute="centerY" id="Jw5-Nq-Azc"/>
-                                    <constraint firstItem="hEa-jT-okg" firstAttribute="leading" secondItem="R6V-vs-pSZ" secondAttribute="trailing" constant="28" id="ciy-f3-tgU"/>
+                                    <constraint firstItem="hEa-jT-okg" firstAttribute="leading" secondItem="R6V-vs-pSZ" secondAttribute="trailing" constant="20" id="ciy-f3-tgU"/>
                                     <constraint firstAttribute="height" constant="54" id="fqY-jj-nQK"/>
                                     <constraint firstItem="R6V-vs-pSZ" firstAttribute="leading" secondItem="uxX-vG-dZU" secondAttribute="leading" constant="18" id="iK3-3W-Gcj"/>
                                     <constraint firstAttribute="trailing" secondItem="hEa-jT-okg" secondAttribute="trailing" id="kw3-5Q-Kcz"/>
@@ -686,7 +693,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bzf-oS-BGf">
-                                        <rect key="frame" x="164" y="18" width="211" height="18"/>
+                                        <rect key="frame" x="156" y="18" width="219" height="18"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -711,7 +718,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2017" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzD-yB-cby">
-                                        <rect key="frame" x="164" y="18" width="211" height="18"/>
+                                        <rect key="frame" x="156" y="18" width="219" height="18"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>

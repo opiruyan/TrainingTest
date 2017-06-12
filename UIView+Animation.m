@@ -58,7 +58,7 @@
                      animations:^{
                          // do whatever animation you want, e.g.,
                          
-                         self.frame = CGRectMake(window.bounds.size.width/2.0 - self.frame.size.width/4, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
+                         self.frame = CGRectMake(window.bounds.size.width/2.0 - self.frame.size.width/2, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
                      }
                      completion:^(BOOL finished) {
                          [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionAutoreverse animations:^{} completion:^(BOOL finished) {}];

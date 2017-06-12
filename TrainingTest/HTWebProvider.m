@@ -74,6 +74,23 @@
     [postTask resume];
 }
 
+- (void)exchangeCodeForToken:(NSString *)queryString WithCompletion:(completionHandler)completionBlock
+{
+    NSString *urlString = [@"https://lighthouse-api-staging.harbortouch.com" stringByAppendingString:queryString];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    NSURLSessionDataTask *postTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!error)
+        {
+            completionBlock(data);
+        }
+    }];
+    [postTask resume];
+
+}
+
 - (void)refreshToken:(NSDictionary *)body completionHandler:(completionHandler)completionBlock
 {
     NSData *data = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil];

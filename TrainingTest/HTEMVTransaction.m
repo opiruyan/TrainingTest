@@ -48,7 +48,6 @@
     [dict setObject:@{@"tag" : tagsArray} forKey:@"emvTags"];
     
     [dict setObject:@"1.8.4" forKey:@"paymentAppVersion"];
-    [dict setObject:@"Oleg" forKey:@"firstName"];
     [dict setObject:@"ICC_CHIP_CONTACT_CONTACTLESS" forKey:@"terminalCapability"];
     [dict setObject:@"ON_MERCHANT_PREMISES_ATTENDED" forKey:@"terminalOperatingEnvironment"];
     [dict setObject:@"NOT_AUTHENTICATED" forKey:@"cardholderAuthenticationMethod"];

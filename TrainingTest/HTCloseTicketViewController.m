@@ -121,6 +121,14 @@
     
 }
 
+#pragma mark - text field delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
+
 
 #pragma mark - Navigation
 

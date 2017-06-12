@@ -16,6 +16,7 @@ static NSString *SpinnerViewControllerIdentifier = @"HTSpinnerViewController";
 @property (weak, nonatomic, readonly) IBOutlet UILabel *messgaeLabel;
 
 - (void)rotate;
+- (void)stopRotating;
 - (void)finish;
 
 @end

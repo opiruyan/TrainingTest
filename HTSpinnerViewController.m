@@ -27,6 +27,11 @@
     [self rotateLayerInfinite:_spinnerImageView.layer];
 }
 
+- (void)stopRotating
+{
+   [_spinnerImageView.layer removeAllAnimations];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

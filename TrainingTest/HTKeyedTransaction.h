@@ -7,7 +7,10 @@
 //
 
 #import "HTTransaction.h"
+#import "HTCardInfo.h"
 
 @interface HTKeyedTransaction : HTTransaction
+
+- (instancetype)initWithCardData:(HTCardInfo *)cardData;
 
 @end

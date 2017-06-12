@@ -137,6 +137,11 @@
     }
 }
 
+- (void)cancelTransaction
+{
+    [[IDT_UniPayIII sharedController] ctls_cancelTransaction];
+}
+
 - (void)cancelMSR
 {
     RETURN_CODE rt = [[IDT_UniPayIII sharedController] msr_cancelMSRSwipe];

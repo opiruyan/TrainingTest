@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 
+@property (nonatomic, strong) HTKeyedTransaction *transaction;
+@property (nonatomic, strong) HTCardInfo *cardInfo;
+
 
 @end
 
@@ -31,7 +34,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.paymentManager.transationType = htTransacionTypeManual; // no sense
     self.paymentManager.processingTransaction = [HTKeyedTransaction new];
 }
 
@@ -44,28 +46,40 @@
     return _paymentManager;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (HTKeyedTransaction *)transaction
+{
+    HTKeyedTransaction *transaction = [[HTKeyedTransaction alloc] initWithCardData:self.cardInfo];
+    return  transaction;
 }
-*/
+
+- (HTCardInfo *)cardInfo
+{
+    HTCardInfo *cardInfo = [[HTCardInfo alloc] init];
+    cardInfo.firstName = [[self.nameTextField.text componentsSeparatedByString:@" "] firstObject];
+    cardInfo.lastName = [[self.nameTextField.text componentsSeparatedByString:@" "] lastObject];
+    cardInfo.cardNumber = self.cardNumberTextField.text;
+    cardInfo.expDate = [self.monthTextField.text stringByAppendingString:[self.yearTextField.text substringFromIndex:2]];
+    return cardInfo;
+}
+
 - (IBAction)payPressed:(UIButton *)sender
 {
+    self.paymentManager.processingTransaction = self.transaction;
     [self showSpinner];
     [self.paymentManager  processTransactionWithCompletion:^(NSDictionary *response) {
         NSDictionary *saleResponse = [response objectForKey:@"SaleResponse"];
         //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
+        [self hideSpinnerToContinue:[[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"]];
         if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
         {
             // store payment to backend
             [[HTPayment currentPayment] storeTicket:saleResponse];
-            [self hideSpinner];
-            [self showComplete];
-        };
+            //[self showComplete];
+        }
+        else
+        {
+            //[self showDeclined];
+        }
     }];
 }
 

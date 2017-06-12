@@ -12,5 +12,6 @@
 
 - (void)showSpinner;
 - (void)hideSpinner;
+- (void)hideSpinnerToContinue:(BOOL)success;
 
 @end

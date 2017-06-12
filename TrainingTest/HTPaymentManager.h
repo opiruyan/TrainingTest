@@ -33,7 +33,7 @@ typedef enum
 @interface HTPaymentManager : NSObject <CardReaderDelegate>
 
 @property (nonatomic, strong) id <HTPaymentManagerProtocol> delegate;
-@property (nonatomic) htTransationType transationType;
+@property (nonatomic) BOOL emvTransationType;
 @property (strong, nonatomic) HTTransaction *processingTransaction;
 
 - (void)startTransaction;

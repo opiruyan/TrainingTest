@@ -107,6 +107,7 @@ NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotificat
 - (BOOL)authorized
 {
     self.authToken = [HTAuthenticationToken tokenFromKeychain];
+    [[HTSettings sharedSettings] setToken:self.authToken];
     return self.authToken == nil ? NO : YES;
 }
 

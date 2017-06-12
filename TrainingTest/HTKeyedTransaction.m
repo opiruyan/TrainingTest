@@ -11,7 +11,23 @@
 #import "HTOrderedMutableDictionary.h"
 #import "HTTransaction_ProtectedProperties.h"
 
+@interface HTKeyedTransaction ()
+
+@property (nonatomic, strong) HTCardInfo *cardData;
+
+@end
+
 @implementation HTKeyedTransaction
+
+- (instancetype)initWithCardData:(HTCardInfo *)cardData
+{
+    self = [super init];
+    if (self)
+    {
+        self.cardData = cardData;
+    }
+    return self;
+}
 
 - (NSDictionary *)requestBody
 {
@@ -20,9 +36,8 @@
     [dict setObject:@"MXPNPOAG5FOFGIZJCSS1M4DFF4PQPXC4" forKey:@"transactionKey"];
     [dict setObject:@"MANUAL" forKey:@"cardDataSource"];
     [dict setObject:[NSString stringWithFormat:@"%.2f", self.amount.floatValue] forKey:@"transactionAmount"];
-    [dict setObject:@"5469420014586922" forKey:@"cardNumber"];
-    [dict setObject:@"1117" forKey:@"expirationDate"];
-    [dict setObject:@"Oleg" forKey:@"firstName"];
+    [dict setObject:self.cardData.cardNumber forKey:@"cardNumber"];
+    [dict setObject:self.cardData.expDate forKey:@"expirationDate"];
     [dict setObject:@"KEYED_ENTRY_ONLY" forKey:@"terminalCapability"];
     [dict setObject:@"ON_MERCHANT_PREMISES_ATTENDED" forKey:@"terminalOperatingEnvironment"];
     [dict setObject:@"ELECTRONIC_SIGNATURE_ANALYSIS" forKey:@"cardholderAuthenticationMethod"];

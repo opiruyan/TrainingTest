@@ -29,4 +29,22 @@
     }];
 }
 
+-(void)showDeclined
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    HTSpinnerViewController *spinnerViewController = [storyboard instantiateViewControllerWithIdentifier:SpinnerViewControllerIdentifier];
+#warning looks ugly
+    spinnerViewController.view.backgroundColor = [UIColor colorWithRed:196/255.0 green:2/255.0 blue:0 alpha:1];
+    spinnerViewController.spinnerImageView.image = [UIImage imageNamed:@"declinedIcon"];
+    spinnerViewController.messgaeLabel.text = @"Transaction Declined";
+    [self presentViewController:spinnerViewController animated:YES completion:^{
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //code to be executed on the main queue after delay
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
+    }];
+}
+
 @end

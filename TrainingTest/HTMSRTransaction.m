@@ -52,8 +52,8 @@
 - (NSDictionary *)requestBody
 {
     HTOrderedMutableDictionary *dict = [HTOrderedMutableDictionary dictionary];
-    [dict setObject:self.deviceId forKey:@"deviceID"];
-    [dict setObject:self.transactionKey forKey:@"transactionKey"];
+    [dict setObject:@"88800000171001" forKey:@"deviceID"];
+    [dict setObject:@"MXPNPOAG5FOFGIZJCSS1M4DFF4PQPXC4" forKey:@"transactionKey"];
     [dict setObject:@"SWIPE" forKey:@"cardDataSource"];
     NSDecimalNumber *amount = [[HTPayment currentPayment] amount];
     [dict setObject:[NSString stringWithFormat:@"%.2f", amount.floatValue] forKey:@"transactionAmount"];

@@ -11,5 +11,6 @@
 @interface UIViewController (Processing)
 
 -(void)showComplete;
+-(void)showDeclined;
 
 @end

@@ -43,7 +43,7 @@
 - (void)startTransaction
 {
     NSDecimalNumber *amount = [[HTPayment currentPayment] amount];
-    if (self.transationType == htTransacionTypeEMV)
+    if (self.emvTransationType)
     {
         [self.cardReaderManager startEmvTransactionWithAmount:amount];
     }
@@ -55,14 +55,14 @@
 
 - (void)stopTransaction
 {
-//    if (self.transationType == htTransacionTypeEMV)
-//    {
-//        [self.cardReaderManager completeEMV];
-//    }
-//    else
-//    {
-//        [self.cardReaderManager cancelMSR];
-//    }
+    if (self.emvTransationType)
+    {
+        [[IDT_UniPayIII sharedController] ctls_cancelTransaction];;
+    }
+    else
+    {
+        [self.cardReaderManager cancelMSR];
+    }
 }
 
 #pragma mark - Reader Manager Delegate
@@ -82,37 +82,42 @@
 
 - (void)gotEMVData:(IDTEMVData *)emvData
 {
-    [self.delegate paymentManager:self didRecieveCardData:nil];
-    self.processingTransaction = [HTEMVTransaction transactionWithEmvData:emvData.unencryptedTags];
-    // start transaction
-    [self processTransactionWithCompletion:^(NSDictionary *response) {
-        NSDictionary *saleResponse = [response objectForKey:@"SaleResponse"];
-        //NSString *status = [[responseData objectForKey:@"SaleResponse"] objectForKey:@"FAIL"];
-        BOOL result = [[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"];
-        if (result)
-        {
-            // store payment to backend
-            [[HTPayment currentPayment] storeTicket:saleResponse];
-        };
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate paymentManagerdidCompleteTransaction:result];
-        });
-    }];
+    if (emvData.unencryptedTags.allKeys.count > 25)
+    {
+        [self.delegate paymentManager:self didRecieveCardData:nil];
+        self.processingTransaction = [HTEMVTransaction transactionWithEmvData:emvData.unencryptedTags];
+        // start transaction
+        [self processTransactionWithCompletion:^(NSDictionary *response) {
+            NSDictionary *saleResponse = [response objectForKey:@"SaleResponse"];
+            BOOL result = [[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"];
+            if (result)
+            {
+                // store payment to backend
+                [[HTPayment currentPayment] storeTicket:saleResponse];
+            };
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self stopTransaction];
+                [self.delegate paymentManagerdidCompleteTransaction:result];
+            });
+        }];
+    }
 }
 
 - (void)didReadMSRData:(IDTMSRData *)cardData
 {
+    [self.delegate paymentManager:self didRecieveCardData:nil];
     self.processingTransaction = [HTMSRTransaction transactionWithCardData:cardData];
     [self processTransactionWithCompletion:^(NSDictionary *response) {
         NSDictionary *saleResponse = [response objectForKey:@"SaleResponse"];
-        if ([[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"])
+        BOOL result = [[saleResponse objectForKey:@"responseCode"] isEqualToString:@"A0000"];
+        if (result)
         {
             [[HTPayment currentPayment] storeTicket:saleResponse];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                 [self.cardReaderManager cancelMSR];
-                [self.delegate paymentManagerdidCompleteTransaction:self];
-            });
         };
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.cardReaderManager cancelMSR];
+            [self.delegate paymentManagerdidCompleteTransaction:result];
+        });
     }];
 }
 

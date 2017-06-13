@@ -55,14 +55,7 @@
 
 - (void)stopTransaction
 {
-    if (self.emvTransationType)
-    {
-        [[IDT_UniPayIII sharedController] ctls_cancelTransaction];;
-    }
-    else
-    {
-        [self.cardReaderManager cancelMSR];
-    }
+    [[IDT_UniPayIII sharedController] ctls_cancelTransaction];;
 }
 
 #pragma mark - Reader Manager Delegate
@@ -115,7 +108,7 @@
             [[HTPayment currentPayment] storeTicket:saleResponse];
         };
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.cardReaderManager cancelMSR];
+            [self stopTransaction];
             [self.delegate paymentManagerdidCompleteTransaction:result];
         });
     }];

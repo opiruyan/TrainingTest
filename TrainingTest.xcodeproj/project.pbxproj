@@ -1001,7 +1001,7 @@
 				INFOPLIST_FILE = TrainingTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harbortouch.opiruyan.TrainingTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harbortouch.harborpay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1016,7 +1016,7 @@
 				INFOPLIST_FILE = TrainingTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harbortouch.opiruyan.TrainingTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harbortouch.harborpay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

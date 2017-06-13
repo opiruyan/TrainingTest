@@ -67,7 +67,6 @@
 
 - (IBAction)transactionTypePressed:(UIButton *)sender
 {
-    [self.paymentManager stopTransaction];
     [self.cardmageView.layer removeAllAnimations];
     self.paymentManager.emvTransationType = !self.paymentManager.emvTransationType;
     if (self.paymentManager.emvTransationType)
@@ -116,6 +115,11 @@
  {
      
  }
+
+- (IBAction)keyedTransactionPressed:(UIButton *)sender
+{
+    [self.paymentManager stopTransaction];
+}
 
 #pragma mark wireframe methods
 

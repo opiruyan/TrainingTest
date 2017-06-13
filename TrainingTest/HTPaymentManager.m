@@ -42,6 +42,9 @@
 
 - (void)startTransaction
 {
+    // since the same command is used to cancel both transaction types
+    // it can be exectued here no matter if transaction type is gonna be changed
+    [self stopTransaction];
     NSDecimalNumber *amount = [[HTPayment currentPayment] amount];
     if (self.emvTransationType)
     {

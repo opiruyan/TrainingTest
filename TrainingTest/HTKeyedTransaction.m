@@ -36,8 +36,8 @@
     [dict setObject:@"MXPNPOAG5FOFGIZJCSS1M4DFF4PQPXC4" forKey:@"transactionKey"];
     [dict setObject:@"MANUAL" forKey:@"cardDataSource"];
     [dict setObject:[NSString stringWithFormat:@"%.2f", self.amount.floatValue] forKey:@"transactionAmount"];
-    [dict setObject:self.cardData.cardNumber forKey:@"cardNumber"];
-    [dict setObject:self.cardData.expDate forKey:@"expirationDate"];
+    [dict setValue:self.cardData.cardNumber forKey:@"cardNumber"];
+    [dict setValue:self.cardData.expDate forKey:@"expirationDate"];
     [dict setObject:@"KEYED_ENTRY_ONLY" forKey:@"terminalCapability"];
     [dict setObject:@"ON_MERCHANT_PREMISES_ATTENDED" forKey:@"terminalOperatingEnvironment"];
     [dict setObject:@"ELECTRONIC_SIGNATURE_ANALYSIS" forKey:@"cardholderAuthenticationMethod"];

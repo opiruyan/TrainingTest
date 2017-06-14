@@ -1001,9 +1001,9 @@
 				INFOPLIST_FILE = TrainingTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harbortouch.harborpay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harbortouch.harborpaylite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1017,9 +1017,9 @@
 				INFOPLIST_FILE = TrainingTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harbortouch.harborpay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harbortouch.harborpaylite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

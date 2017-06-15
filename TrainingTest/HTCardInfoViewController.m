@@ -9,7 +9,6 @@
 #import "HTCardInfoViewController.h"
 #import "HTPaymentManager.h"
 #import "HTPayment.h"
-#import "HTPaymentManager+transactionTypes.h"
 #import "HTSpinnerViewController.h"
 #import "UIView+Animation.h"
 #import "UIViewController+Spinner.h"

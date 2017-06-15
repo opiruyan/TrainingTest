@@ -7,8 +7,6 @@
 //
 
 #import "HTPaymentManager.h"
-#import "HTPaymentManager+transactionInfoJSON.h"
-#import "HTPaymentManager+transactionTypes.h"
 #import "IDTechCardReaderManager.h"
 #import "HTMSRTransaction.h"
 #import "HTKeyedTransaction.h"
@@ -129,37 +127,6 @@
             completion(responseData);
         }
     }];
-}
-
-#pragma mark - Utils
-
-- (HTCardInfo *)parseTrack1:(NSString *)track
-{
-    if (track.length == 0)
-    {
-        return nil;
-    }
-    NSRegularExpression *testExpression = [NSRegularExpression regularExpressionWithPattern:@"\\d{2,}|[a-zA-Z]{2,}"
-                                                                                    options:NSRegularExpressionCaseInsensitive
-                                                                                      error:nil];
-    NSArray *matches = [testExpression matchesInString:track
-                                               options:0
-                                                 range:NSMakeRange(0, [track length])];
-    NSMutableArray *components = [NSMutableArray array];
-    [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *obj, NSUInteger idx, BOOL *stop) {
-        for (int i = 0; i < [obj numberOfRanges]; i++)
-        {
-            NSRange range = [obj rangeAtIndex:i];
-            NSString *string = [track substringWithRange:range];
-            [components addObject: string];
-        }
-    }];
-    HTCardInfo *cardInfo = [HTCardInfo new];
-    cardInfo.firstName = components[1];
-    cardInfo.lastName = components[2];
-    cardInfo.cardNumber = components[0];
-    cardInfo.expDate = [components lastObject];
-    return cardInfo;
 }
 
 @end

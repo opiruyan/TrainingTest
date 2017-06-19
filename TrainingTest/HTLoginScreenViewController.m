@@ -12,8 +12,6 @@
 #import "HTSettings.h"
 #import <Lockbox/Lockbox.h>
 
-#define clientId @"1688719b-f2a6-47c4-b727-bee9aeee90b1"
-
 @interface HTLoginScreenViewController () <SFSafariViewControllerDelegate>
 
 @end

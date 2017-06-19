@@ -13,8 +13,8 @@
 
 NSString *const kHandlingURLNotification = @"applicationLaunchedWithURLNotification";
 
-#define clientId @"1688719b-f2a6-47c4-b727-bee9aeee90b1"
-#define clientSecret @"cdfd0af6-38a0-4277-8d80-400055ae766e"
+NSString *const clientId = @"1688719b-f2a6-47c4-b727-bee9aeee90b1";
+static NSString *const clientSecret = @"cdfd0af6-38a0-4277-8d80-400055ae766e";
 
 @interface HTAuthenticationManager ()
 

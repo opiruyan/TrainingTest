@@ -23,6 +23,7 @@
 		5E0F549D1EE946380004259C /* HTKeyedTransationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F549C1EE946380004259C /* HTKeyedTransationViewController.m */; };
 		5E0F54A01EE94BD30004259C /* UIViewController+Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F549F1EE94BD30004259C /* UIViewController+Spinner.m */; };
 		5E0F54A31EE950450004259C /* UIViewController+Processing.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F54A21EE950450004259C /* UIViewController+Processing.m */; };
+		5E421F4F1EF3CA0800CB062D /* HTTicketPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E421F4E1EF3CA0800CB062D /* HTTicketPayment.m */; };
 		5E4E1B1F1EAF51880001B301 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */; };
 		5E4E1B241EAF86AD0001B301 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B231EAF86AD0001B301 /* NSString+SHA256.m */; };
 		5E4E1B291EB0C3C20001B301 /* HTSafariViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E1B281EB0C3C20001B301 /* HTSafariViewContoller.m */; };
@@ -116,6 +117,8 @@
 		5E0F549F1EE94BD30004259C /* UIViewController+Spinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Spinner.m"; sourceTree = "<group>"; };
 		5E0F54A11EE950450004259C /* UIViewController+Processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Processing.h"; sourceTree = "<group>"; };
 		5E0F54A21EE950450004259C /* UIViewController+Processing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Processing.m"; sourceTree = "<group>"; };
+		5E421F4D1EF3CA0800CB062D /* HTTicketPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTicketPayment.h; sourceTree = "<group>"; };
+		5E421F4E1EF3CA0800CB062D /* HTTicketPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTicketPayment.m; sourceTree = "<group>"; };
 		5E4E1B1D1EAF51880001B301 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
 		5E4E1B1E1EAF51880001B301 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 		5E4E1B221EAF86AD0001B301 /* NSString+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256.h"; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 		5E4E1B7B1ECC7AEF0001B301 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5E421F4D1EF3CA0800CB062D /* HTTicketPayment.h */,
+				5E421F4E1EF3CA0800CB062D /* HTTicketPayment.m */,
 				5E54F0D61EEA98F20085C91C /* HTSMSReceipt.h */,
 				5E54F0D71EEA98F20085C91C /* HTSMSReceipt.m */,
 				5E0F54811EE0921B0004259C /* HTTicket.h */,
@@ -778,6 +783,7 @@
 				5E0F54751EDF29D50004259C /* HTTransaction.m in Sources */,
 				5E0F54A01EE94BD30004259C /* UIViewController+Spinner.m in Sources */,
 				F5C187B31E93A84B00800F52 /* HTKeypadViewController.m in Sources */,
+				5E421F4F1EF3CA0800CB062D /* HTTicketPayment.m in Sources */,
 				5E0F548E1EE7DC900004259C /* UIView+Animation.m in Sources */,
 				F5C550821EA62E2400AAA07E /* HTSignatureView.m in Sources */,
 				5E4E1B741ECB26730001B301 /* HTPayment.m in Sources */,

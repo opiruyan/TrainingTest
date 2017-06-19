@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const kHandlingURLNotification;
+extern NSString *const clientId;
 
 @interface HTAuthenticationManager : NSObject
 

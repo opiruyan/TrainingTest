@@ -24,26 +24,6 @@ static NSString *const clientSecret = @"cdfd0af6-38a0-4277-8d80-400055ae766e";
 
 @implementation HTAuthenticationManager
 
-+ (id)sharedManager
-{
-    static HTAuthenticationManager *sharedMyManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
-    return sharedMyManager;
-}
-
-- (id)init
-{
-    self = [super init];
-    if (self)
-    {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAuthenticateNotification:) name:kHandlingURLNotification object:nil];
-    }
-    return self;
-}
-
 - (void)setAuthToken:(HTAuthenticationToken *)authToken
 {
     _authToken = authToken;
@@ -53,23 +33,16 @@ static NSString *const clientSecret = @"cdfd0af6-38a0-4277-8d80-400055ae766e";
     }
 }
 
-- (void)didAuthenticateNotification:(NSNotification *)notification
+- (void)exchangeCodeForToken:(NSString *)code
 {
-    // get authorization code
-    NSURL *url = [notification.userInfo objectForKey:@"CallbackURL"];
-    NSRange range = [url.absoluteString rangeOfString:@"="];
-    NSString *retrievedCode = [url.absoluteString substringFromIndex:range.location+range.length];
-    // callback uri
-    //NSArray *urlSchemes = [self appUrlSchemes];
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:@"authorization_code" forKey:@"grant_type"];
-    [dict setValue:retrievedCode forKey:@"code"];
+    [dict setValue:code forKey:@"code"];
     [dict setValue:clientSecret forKey:@"client_secret"];
     [dict setValue:clientId forKey:@"client_id"];
     [dict setValue:@"harborpay://" forKey:@"redirect_uri"];
     NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
     
-    //NSString *endpoint = [NSString stringWithFormat:@"/oauth2/token/?client_id=%@&redirect_uri=harborpay://&client_secret=%@&code=%@&grant_type=authorization_code", clientId, clientSecret, retrievedCode];
     HTWebProvider *webProvider = [HTWebProvider sharedProvider];
     [webProvider postRequestWithBody:data completionHandler:^(NSData *data) {
         NSError *parseError = nil;
@@ -86,22 +59,6 @@ static NSString *const clientSecret = @"cdfd0af6-38a0-4277-8d80-400055ae766e";
             }
         }
     }];
-//    [webProvider exchangeCodeForToken:endpoint WithCompletion:^(NSData *data) {
-//        NSString *str = [NSString stringWithUTF8String:[data bytes]];
-//        NSError *parseError = nil;
-//        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-//        if (!parseError)
-//        {
-//            if ([result objectForKey:@"error"])
-//            {
-//                NSLog(@"%@", [result objectForKey:@"error_description"]);
-//            }
-//            else
-//            {
-//                [[HTSettings sharedSettings] saveAuthenticationToken:result];
-//            }
-//        }
-//    }];
 }
 
 - (BOOL)authorized
@@ -111,6 +68,7 @@ static NSString *const clientSecret = @"cdfd0af6-38a0-4277-8d80-400055ae766e";
     return self.authToken == nil ? NO : YES;
 }
 
+// should be moved to token class 
 - (void)refreshToken
 {
     HTWebProvider *webProvider = [HTWebProvider sharedProvider];

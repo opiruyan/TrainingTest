@@ -12,6 +12,7 @@
 #import "HTPayment.h"
 #import "UIViewController+Spinner.h"
 #import "UIViewController+Processing.h"
+#import "AppDelegate.h"
 
 @interface HTKeyedTransationViewController ()
 
@@ -42,7 +43,8 @@
 {
     if (!_paymentManager)
     {
-        _paymentManager = [[HTPaymentManager alloc] init];
+        IDTechCardReaderManager * manager = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cardReaderManager];
+        _paymentManager = [[HTPaymentManager alloc] initWithCardReader:manager];
     }
     return _paymentManager;
 }

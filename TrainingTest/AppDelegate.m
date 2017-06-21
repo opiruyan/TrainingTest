@@ -9,9 +9,10 @@
 #import "AppDelegate.h"
 #import "HTLoginScreenViewController.h"
 #import "HTAuthenticationManager.h"
-#import "IDTechCardReaderManager.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) IDTechCardReaderManager *cardReaderManager;
 
 @end
 
@@ -20,26 +21,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-#pragma mark - UI Appearence
-    
-    //[[UINavigationBar appearance] setBarTintColor:[UIColor darkGrayColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTitleTextAttributes:@{
         NSForegroundColorAttributeName : [UIColor whiteColor]
     }];
-    //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
-    
     // title
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-
-    [[IDT_UniPayIII sharedController] setDelegate:[IDTechCardReaderManager sharedManager]];
+    
+    [[IDT_UniPayIII sharedController] setDelegate:self.cardReaderManager];
 
     return YES;
 }
 
-
+- (IDTechCardReaderManager *)cardReaderManager
+{
+    if (!_cardReaderManager)
+    {
+        _cardReaderManager = [IDTechCardReaderManager new];
+    }
+    return _cardReaderManager;
+}
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url

@@ -29,8 +29,6 @@
 
 @property (nonatomic, weak) id <CardReaderDelegate> readerDelegate;
 
-+ (id)sharedManager;
-
 - (void)startEmvTransactionWithAmount:(NSDecimalNumber *)amount;
 - (void)startMSRTransaction;
 - (void)completeEMV;

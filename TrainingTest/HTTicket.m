@@ -70,7 +70,6 @@ typedef enum {
     [dict setValue:@0 forKey:@"discountTotal"];
     [dict setValue:self.totalAmount forKey:@"grandTotal"];
     [dict setValue:paymentTypeName forKey:@"paymentTypeName"];
-#warning looks awful
     [dict setValue:@[[self.ticketPayment deserialize]] forKey:@"ticketPayments"];
     return dict;
 }

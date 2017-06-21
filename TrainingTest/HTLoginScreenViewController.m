@@ -14,6 +14,9 @@
 
 @interface HTLoginScreenViewController () <SFSafariViewControllerDelegate>
 
+// most likely useless. like entity
+@property (strong, nonatomic) HTAuthenticationManager *authenticationManager;
+
 @end
 
 @implementation HTLoginScreenViewController
@@ -23,16 +26,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.hidden = YES;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedAuthentication) name:kHandlingURLNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedAuthentication:) name:kHandlingURLNotification object:nil];
     self.isLogged = NO;
-    //[Lockbox archiveObject:nil forKey:@"token"];
+}
+
+- (HTAuthenticationManager *)authenticationManager
+{
+    if (!_authenticationManager)
+    {
+        _authenticationManager = [HTAuthenticationManager new];
+    }
+    return _authenticationManager;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    HTAuthenticationManager *manager = [HTAuthenticationManager sharedManager];
-    if (![manager authorized])
+    if (![self.authenticationManager authorized])
     {
         if (!self.isLogged)
         {
@@ -68,9 +78,14 @@
     [self presentViewController:authViewContoller animated:YES completion:nil];
 }
 
-- (void)finishedAuthentication
+- (void)finishedAuthentication:(NSNotification *)notification
 {
     self.isLogged = YES;
+    // get authorization code
+    NSURL *url = [notification.userInfo objectForKey:@"CallbackURL"];
+    NSRange range = [url.absoluteString rangeOfString:@"="];
+    NSString *retrievedCode = [url.absoluteString substringFromIndex:range.location+range.length];
+    [self.authenticationManager exchangeCodeForToken:retrievedCode];
     [self dismissViewControllerAnimated:NO completion:^{
         [self performSegueWithIdentifier:@"loginFinishedSegue" sender:self];
     }];

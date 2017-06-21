@@ -15,6 +15,6 @@ extern NSString *const clientId;
 
 @property (nonatomic, readonly) BOOL authorized;
 
-+ (id)sharedManager;
+- (void)exchangeCodeForToken:(NSString *)code;
 
 @end

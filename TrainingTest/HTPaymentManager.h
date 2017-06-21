@@ -36,6 +36,8 @@ typedef enum
 @property (nonatomic) BOOL emvTransationType;
 @property (strong, nonatomic) HTTransaction *processingTransaction;
 
+#warning add interface complying for cardReader
+- (instancetype)initWithCardReader:(id)cardReader;
 - (void)startTransaction;
 - (void)stopTransaction;
 - (void)processTransactionWithCompletion:(transactionCompletionHandler)completion;

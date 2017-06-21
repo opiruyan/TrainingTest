@@ -14,6 +14,7 @@
 #import "UIViewController+Spinner.h"
 #import "UIViewController+Back.h"
 #import "HTSignatureViewController.h"
+#import "AppDelegate.h"
 
 @interface HTCardInfoViewController () <HTPaymentManagerProtocol>
 
@@ -51,7 +52,8 @@
 {
     if (!_paymentManager)
     {
-        _paymentManager = [[HTPaymentManager alloc] init];
+        IDTechCardReaderManager * manager = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cardReaderManager];
+        _paymentManager = [[HTPaymentManager alloc] initWithCardReader:manager];
         _paymentManager.delegate = self;
     }
     return _paymentManager;

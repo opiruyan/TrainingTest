@@ -23,19 +23,15 @@
 
 @implementation HTPaymentManager
 
-- (instancetype)init
+- (instancetype)initWithCardReader:(id)cardReader
 {
     self = [super init];
     if (self)
     {
-        [[IDTechCardReaderManager sharedManager] setReaderDelegate:self];
+        _cardReaderManager = cardReader;
+        _cardReaderManager.readerDelegate = self;
     }
     return self;
-}
-
-- (IDTechCardReaderManager *)cardReaderManager
-{
-    return [IDTechCardReaderManager sharedManager];
 }
 
 - (void)startTransaction

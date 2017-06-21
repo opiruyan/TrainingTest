@@ -80,24 +80,28 @@
 
 - (NSDictionary *)decodeJwt:(NSString *)jwt error:(NSError **)error
 {
-    *error = [NSError errorWithDomain:@"com.harbortouch.ahrborpay" code:-1000 userInfo:@{@"info" : @"Not a JWT"}];
+    NSDictionary *payload = [NSDictionary dictionaryWithObject:@YES forKey:@"invalid"];
     NSArray *segments = [jwt componentsSeparatedByString:@"."];
-    if([segments count] != 3)
+    if([segments count] == 3)
     {
-        *error = [NSError errorWithDomain:@"com.harbortouch.ahrborpay" code:-1000 userInfo:@{@"info" : @"Not a JWT"}];
-        return nil;
+        //  segments are base64
+        NSString *payloadSeg = segments[1]; // payload is where info we need is stored
+        // Decode and parse payload JSON
+        NSError *serializationError = nil;
+        payload = [NSJSONSerialization JSONObjectWithData:[self base64DecodeWithString:payloadSeg] options:NSJSONReadingMutableLeaves error:&serializationError];
     }
     
-    //  segments are base64
-    NSString *payloadSeg = segments[1]; // payload is where info we need is stored
-    
-    // Decode and parse payload JSON
-    NSError *serializationError = nil;
-    NSDictionary *payload = [NSJSONSerialization JSONObjectWithData:[self base64DecodeWithString:payloadSeg] options:NSJSONReadingMutableLeaves error:&serializationError];
-    if(payload == nil)
+    if (error != NULL)
     {
-        *error = [NSError errorWithDomain:@"com.harbortouch.ahrborpay" code:-1001 userInfo:@{@"info" :@"Cannot deserialize payload"}];
-        return nil;
+        if (payload == nil)
+        {
+            *error = [NSError errorWithDomain:@"com.harbortouch.ahrborpay" code:-1001 userInfo:@{@"info" :@"Cannot deserialize payload"}];
+        }
+        else if ([payload[@"invalid"] isEqual:@YES])
+        {
+            *error = [NSError errorWithDomain:@"com.harbortouch.ahrborpay" code:-1000 userInfo:@{@"info" : @"Not a JWT"}];
+            payload = nil;
+        }
     }
     return payload;
 }

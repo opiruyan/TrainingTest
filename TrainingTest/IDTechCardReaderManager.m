@@ -144,6 +144,7 @@
 
 - (void)cancelMSR
 {
+    // it may be possible to use the same cancel-command for both transaction types
     RETURN_CODE rt = [[IDT_UniPayIII sharedController] msr_cancelMSRSwipe];
 }
 

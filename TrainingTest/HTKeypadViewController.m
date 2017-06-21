@@ -50,6 +50,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.TotalTextField.text = @"$0.00";//[[[HTPayment currentPayment] amount] stringValue];
 }
 

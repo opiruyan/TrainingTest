@@ -30,6 +30,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     HTAuthenticationManager *manager = [HTAuthenticationManager sharedManager];
     if (![manager authorized])
     {

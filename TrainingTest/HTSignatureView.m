@@ -65,8 +65,7 @@ CGPoint midpoint(CGPoint a, CGPoint b)
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    UIColor *color = [UIColor colorWithRed:95 green:101 blue:206 alpha:1];
-    color = [UIColor blueColor];
+    UIColor *color = [UIColor colorWithRed:95/255.0 green:101/255.0 blue:206/255.0 alpha:1];
     [color setStroke];
     [self.path stroke];
 }

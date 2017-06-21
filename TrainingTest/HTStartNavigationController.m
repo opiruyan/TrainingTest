@@ -26,26 +26,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedAuthentication) name:kHandlingURLNotification object:nil];
 }
 
-- (void)oauth2
-{
-    NSString *host = [[HTSettings sharedSettings] host];
-    // retrieve app url
-    NSArray *urlTypes = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleURLTypes"];
-    NSArray *urlSchemes = [NSArray new];
-    for (NSDictionary *dict in urlTypes)
-    {
-        if ([dict objectForKey:@"CFBundleURLSchemes"] )
-        {
-            urlSchemes = [dict objectForKey:@"CFBundleURLSchemes"];
-        }
-    }
-    // form an url
-    NSString *urlString = [NSString stringWithFormat:@"%@/oauth2/authorize/?client_id=%@&redirect_uri=%@://&response_type=code", host, clientId, urlSchemes.firstObject];
-    SFSafariViewController *authViewContoller = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:urlString]];
-    authViewContoller.preferredBarTintColor = [UIColor grayColor];
-    [self presentViewController:authViewContoller animated:YES completion:nil];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -283,6 +283,28 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		5E421F521EFAB85800CB062D /* FinishingPayment */ = {
+			isa = PBXGroup;
+			children = (
+				F5FE09C11E9D189B001C4826 /* HTSignatureViewController.h */,
+				F5FE09C21E9D189B001C4826 /* HTSignatureViewController.m */,
+				F5FE09C41E9E5303001C4826 /* HTCloseTicketViewController.h */,
+				F5FE09C51E9E5303001C4826 /* HTCloseTicketViewController.m */,
+			);
+			name = FinishingPayment;
+			sourceTree = "<group>";
+		};
+		5E421F531EFAB95700CB062D /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				F5C187B41E9508E900800F52 /* HTCardInfoViewController.h */,
+				F5C187B51E9508E900800F52 /* HTCardInfoViewController.m */,
+				F5C187B11E93A84B00800F52 /* HTKeypadViewController.h */,
+				F5C187B21E93A84B00800F52 /* HTKeypadViewController.m */,
+			);
+			name = Payment;
+			sourceTree = "<group>";
+		};
 		5E4E1B211EAF51AD0001B301 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +323,8 @@
 		5E4E1B5F1EBA07210001B301 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				F5C187AE1E925D4500800F52 /* HTLoginScreenViewController.h */,
+				F5C187AF1E925D4500800F52 /* HTLoginScreenViewController.m */,
 				5E54F0DF1EEAB59F0085C91C /* HTStartNavigationController.h */,
 				5E54F0E01EEAB59F0085C91C /* HTStartNavigationController.m */,
 				5E4E1B8C1ED841A60001B301 /* HTAuthenticationToken.h */,
@@ -427,21 +451,10 @@
 				5E4E1B7B1ECC7AEF0001B301 /* Models */,
 				5E0F54871EE59CD00004259C /* VIew */,
 				5E4E1B211EAF51AD0001B301 /* Categories */,
-				F5DDCCF51E8D019C00904CD4 /* AppDelegate.h */,
-				F5DDCCF61E8D019C00904CD4 /* AppDelegate.m */,
 				5E4E1B5F1EBA07210001B301 /* Authentication */,
-				F5DDCCFB1E8D019C00904CD4 /* Main.storyboard */,
-				F5C187B41E9508E900800F52 /* HTCardInfoViewController.h */,
-				F5C187B51E9508E900800F52 /* HTCardInfoViewController.m */,
-				F5FE09C11E9D189B001C4826 /* HTSignatureViewController.h */,
-				F5FE09C21E9D189B001C4826 /* HTSignatureViewController.m */,
-				F5C187B11E93A84B00800F52 /* HTKeypadViewController.h */,
-				F5C187B21E93A84B00800F52 /* HTKeypadViewController.m */,
+				5E421F531EFAB95700CB062D /* Payment */,
 				5E0F54691EDED11D0004259C /* WebProvider */,
-				F5FE09C41E9E5303001C4826 /* HTCloseTicketViewController.h */,
-				F5FE09C51E9E5303001C4826 /* HTCloseTicketViewController.m */,
-				F5C187AE1E925D4500800F52 /* HTLoginScreenViewController.h */,
-				F5C187AF1E925D4500800F52 /* HTLoginScreenViewController.m */,
+				5E421F521EFAB85800CB062D /* FinishingPayment */,
 				5E4E1B671EBC68400001B301 /* Utils */,
 				5E4E1B631EBC67400001B301 /* Payment */,
 				F5DDCCFE1E8D019C00904CD4 /* Assets.xcassets */,
@@ -455,6 +468,9 @@
 		F5DDCCF21E8D019C00904CD4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5DDCCFB1E8D019C00904CD4 /* Main.storyboard */,
+				F5DDCCF51E8D019C00904CD4 /* AppDelegate.h */,
+				F5DDCCF61E8D019C00904CD4 /* AppDelegate.m */,
 				5E0F54881EE738D30004259C /* Proxima Nova-Bold.otf */,
 				5E0F54891EE738D30004259C /* Proxima Nova-Light.otf */,
 				5E0F548A1EE738D30004259C /* Proxima Nova-Regular.otf */,
